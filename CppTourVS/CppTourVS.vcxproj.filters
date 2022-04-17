@@ -7,6 +7,12 @@
     <Filter Include="Main">
       <UniqueIdentifier>{078a555f-b543-4886-bd19-6a7c4fc8f7a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Algorithms">
+      <UniqueIdentifier>{2cfdad99-902e-4f8a-b232-c3f606cb90cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Sorting">
+      <UniqueIdentifier>{5411cdbe-025d-4cd6-9648-c065e6cad734}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -15,10 +21,16 @@
     <ClCompile Include="Timer\my_timer.cpp">
       <Filter>Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithm\Sorting\Sorting.cpp">
+      <Filter>Algorithms\Sorting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
       <Filter>Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithm\Sorting\Sorting.h">
+      <Filter>Algorithms\Sorting</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

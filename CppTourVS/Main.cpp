@@ -3,10 +3,13 @@
 
 #include <iostream>
 #include "Timer/my_timer.h"
+#include "Algorithm/Sorting/Sorting.h"
 
 int main()
 {
-    my_timer();
+    //my_timer();
+
+  my_sort::entry_point();
    
 }
 

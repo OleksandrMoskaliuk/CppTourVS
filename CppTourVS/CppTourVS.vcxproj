@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm\Sorting\Sorting.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Timer\my_timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="Timer\my_timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
