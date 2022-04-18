@@ -1,8 +1,9 @@
 #ifndef _8BIT_H
 #define _8BIT_H
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+
 #include <iostream>
 
 namespace _8bit {
@@ -23,14 +24,14 @@ namespace _8bit {
                         ? UnsetBit(data, position)   \
                         : SetBit(data, position)     \
                   : (data)
-//and
-//     1 & 1 = 1
-//     1 & 0 = 0
-//     0 & 0 = 0 
-//or
-//     1 | 0 = 1
-//     1 | 1 = 1
-//     0 | 0 = 0
+// and
+//      1 & 1 = 1
+//      1 & 0 = 0
+//      0 & 0 = 0
+// or
+//      1 | 0 = 1
+//      1 | 1 = 1
+//      0 | 0 = 0
 
 class My8bit {
  public:
@@ -38,8 +39,9 @@ class My8bit {
   ~My8bit(){};
   void info();
   void set_bit(uint16_t position, bool state);
+
  private:
-  uint16_t  f8bit_to_dec();
+  uint16_t f8bit_to_dec();
   typedef unsigned char byte;
   bool data[8] = {};
   byte Dat = 11;  // 0000 8021

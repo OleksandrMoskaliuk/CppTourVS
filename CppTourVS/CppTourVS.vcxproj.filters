@@ -13,6 +13,9 @@
     <Filter Include="Algorithms\Sorting">
       <UniqueIdentifier>{5411cdbe-025d-4cd6-9648-c065e6cad734}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BitOperations">
+      <UniqueIdentifier>{cfa7c020-945b-4c65-b7d0-f11697ed4ab7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,6 +27,9 @@
     <ClCompile Include="Algorithm\Sorting\Sorting.cpp">
       <Filter>Algorithms\Sorting</Filter>
     </ClCompile>
+    <ClCompile Include="BitOperations\8bit.cpp">
+      <Filter>BitOperations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="Algorithm\Sorting\Sorting.h">
       <Filter>Algorithms\Sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="BitOperations\8bit.h">
+      <Filter>BitOperations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
