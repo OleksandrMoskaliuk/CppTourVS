@@ -7,11 +7,12 @@
 #include "Algorithm/Sorting/Sorting.h"
 #include "BitOperations/8bit.h"
 #include "Timer/my_timer.h"
+
 int main() {
   // my_timer();
 
   // my_sort::entry_point();
-  _8bit::entry_point();
+  //_8bit::entry_point();
 }
 
 #include <future>

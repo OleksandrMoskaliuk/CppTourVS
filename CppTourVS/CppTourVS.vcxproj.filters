@@ -16,6 +16,12 @@
     <Filter Include="BitOperations">
       <UniqueIdentifier>{cfa7c020-945b-4c65-b7d0-f11697ed4ab7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Multithreading">
+      <UniqueIdentifier>{efb1174e-db08-4829-9101-48d34c2e6c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Multithreading\DedadLock">
+      <UniqueIdentifier>{7bff66fa-e93c-40bf-be68-a9e8f1f0f022}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="BitOperations\8bit.cpp">
       <Filter>BitOperations</Filter>
     </ClCompile>
+    <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp">
+      <Filter>Multithreading\DedadLock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -40,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="BitOperations\8bit.h">
       <Filter>BitOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="Multithreading\DedadLock\dead_lock.h">
+      <Filter>Multithreading\DedadLock</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
