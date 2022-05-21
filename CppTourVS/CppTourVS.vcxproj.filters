@@ -22,6 +22,9 @@
     <Filter Include="Multithreading\DedadLock">
       <UniqueIdentifier>{7bff66fa-e93c-40bf-be68-a9e8f1f0f022}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ProcessCommunicator">
+      <UniqueIdentifier>{ba4b1f04-5a2c-4d6e-b112-348aa79a99d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -39,6 +42,9 @@
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp">
       <Filter>Multithreading\DedadLock</Filter>
     </ClCompile>
+    <ClCompile Include="ProcessCommunicator\PRCM.cpp">
+      <Filter>ProcessCommunicator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -53,5 +59,11 @@
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h">
       <Filter>Multithreading\DedadLock</Filter>
     </ClInclude>
+    <ClInclude Include="ProcessCommunicator\PRCM.h">
+      <Filter>ProcessCommunicator</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -23,13 +23,18 @@
     <ClCompile Include="BitOperations\8bit.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
+    <ClCompile Include="ProcessCommunicator\PRCM.cpp" />
     <ClCompile Include="Timer\my_timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
+    <ClInclude Include="ProcessCommunicator\PRCM.h" />
     <ClInclude Include="Timer\my_timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -161,5 +166,12 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.79.0\build\boost.targets" Condition="Exists('..\packages\boost.1.79.0\build\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.79.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.79.0\build\boost.targets'))" />
+  </Target>
 </Project>
