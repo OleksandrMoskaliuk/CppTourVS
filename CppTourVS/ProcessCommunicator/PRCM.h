@@ -15,13 +15,15 @@
 // <map> Used for assign size of transmitted memory area 
 #include <map>
 namespace pr_cmm {
-
+#define ProcessCommunicatorDebug 0
 	class ProcessCommunicator {
 	public:
 		ProcessCommunicator();
 		~ProcessCommunicator() {};
-		void send_message();
-		void get_message(std::string& str);
+		template <class Data>
+		static void send_message(Data dt);
+		template <class Data>
+		static void get_message(Data &dt);
 
 	private:
 		static int size_of_message;
