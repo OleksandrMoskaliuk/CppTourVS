@@ -2,29 +2,40 @@
 
 namespace pr_cmm {
 
+#define ProcessCommunicatorDebug 1
+
 	// ProcessCommunicator private variables {
-	int ProcessCommunicator::size_of_message = 0;
+	std::map<std::string, int> ProcessCommunicator::message_manager;
 	// } ProcessCommunicator private variables 
 
 	ProcessCommunicator::ProcessCommunicator() {};
 
 	template <class Data>
-	static void ProcessCommunicator::send_message(Data &dt, std::string message_name) {
+	static void ProcessCommunicator::send_message(Data &message_data, std::string message_name) {
 		// sending data to shared memory area {
 		const char* shared_memory = message_name.c_str();
+		//check if message exist 
+		if (message_manager.count(message_name) != 0)
+		{
+#if ProcessCommunicatorDebug
+			std::cout << "Message: '" << message_name << "' _already exist." << std::endl;
+#endif
+			return;
+		}
+		//add message to message manager
+		message_manager.emplace(message_name, sizeof(message_data));
 		try {
 			//Erase previous shared memory
 			boost::interprocess::shared_memory_object::remove(shared_memory);
 			//Create a shared memory object.
 			boost::interprocess::shared_memory_object shm(boost::interprocess::create_only, shared_memory, boost::interprocess::read_write);
 			//Set size
-			size_of_message = sizeof(dt);
-			shm.truncate(size_of_message);
+			shm.truncate(message_manager[message_name]);
 			//Map the whole shared memory in this process
 			boost::interprocess::mapped_region region(shm, boost::interprocess::read_write);
-			std::memcpy(region.get_address(), &dt, size_of_message);
+			std::memcpy(region.get_address(), &message_data, message_manager[message_name]);
 #if ProcessCommunicatorDebug
-			std::cout << "Sended messege have: " << size_of_message << " _bytes" << std::endl;
+			std::cout << "Sended messege have: " << message_manager[message_name] << " _bytes" << std::endl;
 #endif
 		}
 		catch (boost::interprocess::interprocess_exception& ex) {
@@ -39,7 +50,7 @@ namespace pr_cmm {
 
 	}
 	template <class Data>
-	static void ProcessCommunicator::get_message(Data& dt, std::string message_name) {
+	static void ProcessCommunicator::get_message(Data& message_data, std::string message_name) {
 		// getting data from shared memory area {
 		const char* shared_memory = message_name.c_str();
 		try {
@@ -48,11 +59,20 @@ namespace pr_cmm {
 			//Map the whole shared memory in this process
 			boost::interprocess::mapped_region region(shm, boost::interprocess::read_only);
 			// converting and copy data from shared memory area
-			memcpy(&dt, region.get_address(), size_of_message);
+			// memcpy(&dest,source,amount of bytes)
+			memcpy(&message_data, region.get_address(), message_manager[message_name]);
 #if ProcessCommunicatorDebug
-			std::cout << "Message received! :" << dt << std::endl;
+			std::cout << "Message received! :" << message_data << std::endl;
 #endif // ProcessCommunicatorDebug
-
+			//remove message from message manager after copy it should be erased from shared memory also
+			message_manager.erase(message_name);
+#if ProcessCommunicatorDebug
+			std::cout << "Message: '" << message_name << "' _was erased from Message Manager!:" << message_data << std::endl;
+#endif // ProcessCommunicatorDebug
+			boost::interprocess::shared_memory_object::remove(shared_memory);
+#if ProcessCommunicatorDebug
+			std::cout << "Message: '" << message_name << "' _was removed from shared memory!" << std::endl;
+#endif // ProcessCommunicatorDebug
 		}
 		catch (boost::interprocess::interprocess_exception& ex) {
 #if ProcessCommunicatorDebug
