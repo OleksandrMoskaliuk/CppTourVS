@@ -22,8 +22,14 @@
     <Filter Include="Multithreading\DedadLock">
       <UniqueIdentifier>{7bff66fa-e93c-40bf-be68-a9e8f1f0f022}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ProcessCommunicator">
+    <Filter Include="Multithreading\ProcessCommunicator">
       <UniqueIdentifier>{ba4b1f04-5a2c-4d6e-b112-348aa79a99d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_DataStructures">
+      <UniqueIdentifier>{7a23cd24-d99c-49e2-ba04-bea2b3f2d0d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_DataStructures\map">
+      <UniqueIdentifier>{3c0ad92a-7d0c-407c-9110-7aeb6fad1359}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,8 +48,8 @@
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp">
       <Filter>Multithreading\DedadLock</Filter>
     </ClCompile>
-    <ClCompile Include="ProcessCommunicator\PRCM.cpp">
-      <Filter>ProcessCommunicator</Filter>
+    <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp">
+      <Filter>Multithreading\ProcessCommunicator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,8 +65,8 @@
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h">
       <Filter>Multithreading\DedadLock</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessCommunicator\PRCM.h">
-      <Filter>ProcessCommunicator</Filter>
+    <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h">
+      <Filter>Multithreading\ProcessCommunicator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

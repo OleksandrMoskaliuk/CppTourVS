@@ -2,7 +2,8 @@
 
 namespace pr_cmm {
 
-#define ProcessCommunicatorDebug 1
+#define ProcessCommunicatorDebug 0
+#define Verbose 0
 
 	// ProcessCommunicator private variables {
 	std::map<std::string, int> ProcessCommunicator::message_manager;
@@ -35,6 +36,7 @@ namespace pr_cmm {
 			boost::interprocess::mapped_region region(shm, boost::interprocess::read_write);
 			std::memcpy(region.get_address(), &message_data, message_manager[message_name]);
 #if ProcessCommunicatorDebug
+			std::cout << "Message: " << message_manager[message_name] << "sended" << std::endl;
 			std::cout << "Sended messege have: " << message_manager[message_name] << " _bytes" << std::endl;
 #endif
 		}
@@ -60,24 +62,24 @@ namespace pr_cmm {
 			boost::interprocess::mapped_region region(shm, boost::interprocess::read_only);
 			// converting and copy data from shared memory area
 			// memcpy(&dest,source,amount of bytes)
-			memcpy(&message_data, region.get_address(), message_manager[message_name]);
+			memcpy(&message_data, region.get_address(), message_manager[shared_memory]);
 #if ProcessCommunicatorDebug
 			std::cout << "Message received! :" << message_data << std::endl;
 #endif // ProcessCommunicatorDebug
 			//remove message from message manager after copy it should be erased from shared memory also
-			message_manager.erase(message_name);
+			message_manager.erase(shared_memory);
 #if ProcessCommunicatorDebug
-			std::cout << "Message: '" << message_name << "' _was erased from Message Manager!:" << message_data << std::endl;
+			std::cout << "Message: '" << shared_memory << "' _was erased from Message Manager!:" << message_data << std::endl;
 #endif // ProcessCommunicatorDebug
 			boost::interprocess::shared_memory_object::remove(shared_memory);
 #if ProcessCommunicatorDebug
-			std::cout << "Message: '" << message_name << "' _was removed from shared memory!" << std::endl;
+			std::cout << "Message: '" << shared_memory << "' _was removed from shared memory!" << std::endl;
 #endif // ProcessCommunicatorDebug
 		}
 		catch (boost::interprocess::interprocess_exception& ex) {
 #if ProcessCommunicatorDebug
 			std::cout << "Unexpected exception when message: "
-				<< message_name << " was received."
+				<< shared_memory << " was received."
 				<< "Exception : " << ex.what() << std::endl;
 #endif // ProcessCommunicatorDebug
 			boost::interprocess::shared_memory_object::remove(shared_memory);

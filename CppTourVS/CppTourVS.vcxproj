@@ -23,14 +23,14 @@
     <ClCompile Include="BitOperations\8bit.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
-    <ClCompile Include="ProcessCommunicator\PRCM.cpp" />
+    <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp" />
     <ClCompile Include="Timer\my_timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
-    <ClInclude Include="ProcessCommunicator\PRCM.h" />
+    <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />
     <ClInclude Include="Timer\my_timer.h" />
   </ItemGroup>
   <ItemGroup>
