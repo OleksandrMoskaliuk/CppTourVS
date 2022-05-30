@@ -2,16 +2,17 @@
 // begins and ends there.
 //
 
-#include <iostream>
 
-#include "Algorithm/Sorting/Sorting.h"
-#include "BitOperations/8bit.h"
-#include "Timer/my_timer.h"
-#include "ProcessCommunicator/PRCM.h"
+#include "../ProjectsManager/ProjectsManager.h"
 
-int main() {
+
+
+int main(int argc, char* argv[]) {
+    
+    ProjectsManager PM;
+    PM.process_communicator_tests(argc, argv);
     // my_timer();
-    pr_cmm::PRCM_main();
+    
     // my_sort::entry_point();
     //_8bit::entry_point();
 }
@@ -41,3 +42,4 @@ void future() {
 
     std::cout << "result is " << future.get() << '\n';
 }
+

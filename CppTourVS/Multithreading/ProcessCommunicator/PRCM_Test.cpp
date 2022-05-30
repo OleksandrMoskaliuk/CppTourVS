@@ -1,6 +1,6 @@
-#include "pch.h"
-#include "../CppTourVS/ProcessCommunicator/PRCM.h"
+#include "gtest/gtest.h"
 
+#include "PRCM.h"
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
@@ -27,14 +27,14 @@ struct ProcessCommunicator_Tests : testing::Test
 template <class T>
 void sender(bool& exit, T& to_send)
 {
-		pr_cmm::ProcessCommunicator::send_message<T>(to_send, "msg");
+	pr_cmm::ProcessCommunicator::send_message<T>(to_send, "msg");
 }
 
 template <class T>
 void receiver(bool& exit, T& to_receive)
 {
-		std::this_thread::sleep_for(std::chrono::milliseconds(1));
-		pr_cmm::ProcessCommunicator::get_message<T>(to_receive, "msg");
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
+	pr_cmm::ProcessCommunicator::get_message<T>(to_receive, "msg");
 }
 
 template <class T>
@@ -51,14 +51,14 @@ void random_sender(bool& exit, T& to_send)
 template <typename T>
 void message_per_second(bool& exit, T& to_send, T& to_receive, int& received_message_counter)
 {
-	
+
 	while (!exit)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		pr_cmm::ProcessCommunicator::get_message<T>(to_receive, "supername");
-		if (to_send == to_receive) 
+		if (to_send == to_receive)
 			received_message_counter++;
-		
+
 	}
 }
 
@@ -120,10 +120,3 @@ TEST_F(ProcessCommunicator_Tests, MessagePerSecond) {
 	EXPECT_EQ(received_message_counter, 100);
 
 }
-
-int main(int argc, char* argv[])
-{
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-}
-

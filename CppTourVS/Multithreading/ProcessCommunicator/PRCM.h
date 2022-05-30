@@ -10,6 +10,7 @@
 
 #include <boost/interprocess/shared_memory_object.hpp>
 #include <boost/interprocess/mapped_region.hpp>
+
 #include <iostream>
 #include <cstring>
 
@@ -26,13 +27,15 @@ namespace pr_cmm {
 		static void get_message(Data &dt, std::string message_name);
 
 	private:
-		static std::map<std::string, int> message_manager;
+		static std::map<std::string, std::pair<int, bool>> message_manager;
 	};
 
-	int PRCM_main();
 	void worker_1(bool& _exit);
 	void worker_2(bool& _exit);
-}
+	void sprocess_1(bool& exit);
+	void sprocess_2(bool& exit);
+} // namespace pr_cmm
+
 
 
 

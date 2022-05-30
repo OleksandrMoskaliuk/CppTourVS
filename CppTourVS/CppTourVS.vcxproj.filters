@@ -4,9 +4,6 @@
     <Filter Include="Timer">
       <UniqueIdentifier>{c8c8b2de-94e0-4142-9292-6ae08a3badd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main">
-      <UniqueIdentifier>{078a555f-b543-4886-bd19-6a7c4fc8f7a5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Algorithms">
       <UniqueIdentifier>{2cfdad99-902e-4f8a-b232-c3f606cb90cd}</UniqueIdentifier>
     </Filter>
@@ -31,11 +28,14 @@
     <Filter Include="_DataStructures\map">
       <UniqueIdentifier>{3c0ad92a-7d0c-407c-9110-7aeb6fad1359}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{90e257fb-8455-40b5-864f-9af3a16f4c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProjectsManager">
+      <UniqueIdentifier>{39b5fc1a-4874-43d8-b263-425153f73a47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
     <ClCompile Include="Timer\my_timer.cpp">
       <Filter>Timer</Filter>
     </ClCompile>
@@ -48,8 +48,20 @@
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp">
       <Filter>Multithreading\DedadLock</Filter>
     </ClCompile>
+    <ClCompile Include="_DataStructures\map\my_map.cpp">
+      <Filter>_DataStructures\map</Filter>
+    </ClCompile>
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp">
       <Filter>Multithreading\ProcessCommunicator</Filter>
+    </ClCompile>
+    <ClCompile Include="Multithreading\ProcessCommunicator\PRCM_Test.cpp">
+      <Filter>Multithreading\ProcessCommunicator</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectsManager\ProjectsManager.cpp">
+      <Filter>ProjectsManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,8 +77,14 @@
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h">
       <Filter>Multithreading\DedadLock</Filter>
     </ClInclude>
+    <ClInclude Include="_DataStructures\map\my_map.h">
+      <Filter>_DataStructures\map</Filter>
+    </ClInclude>
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h">
       <Filter>Multithreading\ProcessCommunicator</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectsManager\ProjectsManager.h">
+      <Filter>ProjectsManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
