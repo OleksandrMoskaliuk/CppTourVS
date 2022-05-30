@@ -11,16 +11,20 @@
 
 namespace project_manager {
 
-class ProjectsManager
-{
-public:
-	ProjectsManager();
-	//Data_Structures
+	class ProjectsManager
+	{
+	public:
+		ProjectsManager();
+		//Data_Structures
 
-	// Multithreading/ProcessCommunicator
-	void process_communicator();
-	void process_communicator_tests(int& argc, char* argv[]);
-};
+		// Multithreading/ProcessCommunicator
+		void process_communicator();
+		void process_communicator_tests(int& argc, char* argv[]);
+       
+	   // my_timer();
+	   // my_sort::entry_point();
+	   // _8bit::entry_point();
+	};
 
 } // project_manager
 #endif // PROJECT_MANAGER_H

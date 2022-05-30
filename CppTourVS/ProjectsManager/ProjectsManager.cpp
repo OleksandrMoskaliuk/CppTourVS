@@ -8,7 +8,7 @@ namespace project_manager {
 
 // Multithreading/ProcessCommunicator
 
-inline void ProjectsManager::process_communicator()
+void ProjectsManager::process_communicator()
 {
 	bool _exit = false;
 	pr_cmm::ProcessCommunicator prc;

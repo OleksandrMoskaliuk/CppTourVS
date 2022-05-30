@@ -9,12 +9,9 @@
 
 int main(int argc, char* argv[]) {
     
-    ProjectsManager PM;
+    project_manager::ProjectsManager PM;
     PM.process_communicator_tests(argc, argv);
-    // my_timer();
-    
-    // my_sort::entry_point();
-    //_8bit::entry_point();
+   
 }
 
 #include <future>

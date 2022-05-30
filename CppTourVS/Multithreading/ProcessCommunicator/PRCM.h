@@ -22,9 +22,9 @@ namespace pr_cmm {
 		ProcessCommunicator();
 		~ProcessCommunicator() {};
 		template <class Data>
-		static void send_message(Data &dt, std::string message_name);
+		static bool send_message(Data &dt, const char * message_name);
 		template <class Data>
-		static void get_message(Data &dt, std::string message_name);
+		static bool get_message(Data &dt, const char * message_name);
 
 	private:
 		static std::map<std::string, std::pair<int, bool>> message_manager;
