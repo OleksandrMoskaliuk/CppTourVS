@@ -10,6 +10,21 @@ namespace pr_cmm {
 
 	ProcessCommunicator::ProcessCommunicator() {};
 
+	void ProcessCommunicator::remove(const char* message_name)
+	{
+		message_manager.erase(message_name);
+		// simplify erasing data along with data manager
+#if ProcessCommunicatorDebug
+		std::cout << "Message: '" << message_name << "' _was erased from Message Manager!: " << message_name << std::endl;
+#endif // ProcessCommunicatorDebug
+		boost::interprocess::shared_memory_object::remove(message_name);
+#if ProcessCommunicatorDebug
+		std::cout << "Message: '" << message_name << "' _was removed from shared memory!" << std::endl;
+#endif // ProcessCommunicatorDebug
+
+
+	};
+
 	template <class Data>
 	static bool ProcessCommunicator::send_message(Data &message_data, const char * message_name) {
 		// sending data to shared memory area {
@@ -25,7 +40,7 @@ namespace pr_cmm {
 		message_manager.emplace(message_name, std::make_pair(sizeof(message_data),false));
 		try {
 			//Erase previous shared memory
-			boost::interprocess::shared_memory_object::remove(message_name);
+			//boost::interprocess::shared_memory_object::remove(message_name);
 			//Create a shared memory object.
 			boost::interprocess::shared_memory_object shm(boost::interprocess::create_only, message_name, boost::interprocess::read_write);
 			//Set size
@@ -36,7 +51,7 @@ namespace pr_cmm {
 			// Mark message ready \|/
 			message_manager[message_name].second = true;
 #if ProcessCommunicatorDebug
-			std::cout << "Message: '" << message_name << "' sended" << std::endl;
+			std::cout << "Message: '" << message_name << "' copied" << std::endl;
 			std::cout << "Sended messege have: " << message_manager[message_name].first << " _bytes" << std::endl;
 #endif
 			return true;
@@ -44,10 +59,10 @@ namespace pr_cmm {
 		catch (boost::interprocess::interprocess_exception& ex) {
 #if ProcessCommunicatorDebug
 			std::cout << "Unexpected exception when message: '" 
-				<< message_name << "' was received. Exception : " 
+				<< message_name << "' was received.\nException : " 
 				<< ex.what() << std::endl;
 #endif // ProcessCommunicatorDebug
-			boost::interprocess::shared_memory_object::remove(message_name);
+			remove(message_name);
 			return false;
 		}
 		// } sending data to shared memory area
@@ -76,14 +91,7 @@ namespace pr_cmm {
 			std::cout << "Message received! :" << message_data << std::endl;
 #endif // ProcessCommunicatorDebug
 			//remove message from message manager after copy it should be erased from shared memory also
-			message_manager.erase(message_name);
-#if ProcessCommunicatorDebug
-			std::cout << "Message: '" << message_name << "' _was erased from Message Manager!: " << message_data << std::endl;
-#endif // ProcessCommunicatorDebug
-			boost::interprocess::shared_memory_object::remove(message_name);
-#if ProcessCommunicatorDebug
-			std::cout << "Message: '" << message_name << "' _was removed from shared memory!" << std::endl;
-#endif // ProcessCommunicatorDebug
+			remove(message_name);
 			return true;
 		}
 		catch (boost::interprocess::interprocess_exception& ex) {

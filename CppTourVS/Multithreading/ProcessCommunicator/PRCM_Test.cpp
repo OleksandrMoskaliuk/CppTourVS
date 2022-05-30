@@ -87,7 +87,7 @@ TEST_F(ProcessCommunicator_Tests, MessagePerSecond) {
 	ProcessCommunicator_Tests::_exit = true;
 	std::cout << "Messages was received: " << received_message_counter;
 	// I get ~20000 simple 4byte messages on my i7-11800 
-	EXPECT_NEAR(received_message_counter, 20000,10000);
+	EXPECT_NEAR(received_message_counter, 20000,15000);
 }
 
 

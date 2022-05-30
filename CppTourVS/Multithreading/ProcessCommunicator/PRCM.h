@@ -28,6 +28,8 @@ namespace pr_cmm {
 
 	private:
 		static std::map<std::string, std::pair<int, bool>> message_manager;
+		static void remove(const char* message_name);
+		
 	};
 
 	void worker_1(bool& _exit);
