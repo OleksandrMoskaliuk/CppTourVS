@@ -34,6 +34,9 @@
     <Filter Include="ProjectsManager">
       <UniqueIdentifier>{39b5fc1a-4874-43d8-b263-425153f73a47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="_DataStructures\MyList">
+      <UniqueIdentifier>{61dc5aa0-6da5-487e-8051-a72a5edd9a4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timer\my_timer.cpp">
@@ -85,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="ProjectsManager\ProjectsManager.h">
       <Filter>ProjectsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="_DataStructures\MyList\MyList.h">
+      <Filter>_DataStructures\MyList</Filter>
+    </ClInclude>
+    <ClInclude Include="_DataStructures\MyList\Node.h">
+      <Filter>_DataStructures\MyList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

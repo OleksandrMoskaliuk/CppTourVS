@@ -8,18 +8,30 @@
 #include "../BitOperations/8bit.h"
 #include "../Timer/my_timer.h"
 #include "../Multithreading/ProcessCommunicator/PRCM.h"
+#include "../_DataStructures/MyList/MyList.h"
 
 namespace project_manager {
 
 	class ProjectsManager
 	{
+	private:
+		int *argc;
+		char** argv;
+
 	public:
-		ProjectsManager();
+		ProjectsManager(int& argc, char* argv[]);
+		
+		
 		//Data_Structures
 
 		// Multithreading/ProcessCommunicator
 		void process_communicator();
-		void process_communicator_tests(int& argc, char* argv[]);
+		void process_communicator_tests();
+
+		// My_List
+
+		void run_my_list();
+		
        
 	   // my_timer();
 	   // my_sort::entry_point();
