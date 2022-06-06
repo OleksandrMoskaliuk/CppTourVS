@@ -16,9 +16,11 @@ namespace my_list
 		List();
 		List(Data data);
 		~List();
-
+	public:
 		int get_size();
+		void push_front(Data dt);
 		void push_back(Data dt);
+		void insert(int index, Data dt);
 		Data& operator[](int index);
 		void pop_front();
 		void pop_back();
@@ -50,24 +52,18 @@ namespace my_list
 		return this->size_m;
 	}
 
-
-
 	template<typename Data>
-	inline Data& List<Data>::operator[](int index)
+	inline void List<Data>::push_front(Data dt)
 	{
-		if (size_m == 0)
+		if (this->head == nullptr)
 		{
-			Data ret = Data();
-			return ret;
+			this->head = new my_Node::Node<Data>(dt);
+			size_m++;
+			return;
 		}
-		if (index > size_m)
-			index = size_m;
-		if (index < 0)
-			index = 0;
-		my_Node::Node<Data>* current = this->head;
-		for (size_t i = 0; i < index; i++)
-			current = current->p_next;
-		return current->data;
+		my_Node::Node<Data>* next = this->head;
+		this->head = new my_Node::Node<Data>(dt, next);
+		size_m++;
 	}
 
 	template<typename Data>
@@ -86,6 +82,47 @@ namespace my_list
 		current->p_next = new my_Node::Node<Data>(dt);
 		size_m++;
 
+	}
+
+	template<typename Data>
+	inline void List<Data>::insert(int index, Data dt)
+	{
+		if (index <= 0)
+		{
+			this->push_front(dt);
+			return;
+		}
+		if (index >= size_m)
+		{
+			this->push_back(dt);
+			return;
+		}
+		my_Node::Node<Data>* previous = this->head;
+		my_Node::Node<Data>* current = previous->p_next;
+		for (size_t i = 0; i < index - 1; i++)
+		{
+			previous = current;
+			current = current->p_next;
+
+		}
+		previous->p_next = new my_Node::Node<Data>(dt, current);
+		size_m++;
+	}
+
+	template<typename Data>
+	inline Data& List<Data>::operator[](int index)
+	{
+		if (size_m == 0) 
+		{
+			Data exception = Data();
+			return exception;
+		} 
+		if (index > size_m) index = size_m;
+		if (index < 0) index = 0;
+		my_Node::Node<Data>* current = this->head;
+		for (size_t i = 0; i < index; i++)
+			current = current->p_next;
+		return current->data;
 	}
 
 	template<typename Data>
@@ -120,7 +157,7 @@ namespace my_list
 			this->pop_front();
 			return;
 		}
-		if (index >= size_m) 
+		if (index >= size_m)
 		{
 			this->pop_back();
 			return;

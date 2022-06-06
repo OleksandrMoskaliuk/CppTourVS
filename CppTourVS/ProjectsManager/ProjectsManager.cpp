@@ -46,13 +46,14 @@ namespace project_manager {
 		df.push_back(40);
 		df.push_back(50);
 		df.push_back(60);
-
 		for(int i = 0; i < df.get_size(); i++)
 		{
 			std::cout << df[i] << "\n";
 		}
-		df.remove(2);
+		
 		std::cout << "result:" << std::endl;
+		df.push_front(56);
+		df.push_front(522);
 		for (int i = 0; i < df.get_size(); i++)
 		{
 			std::cout << df[i] << "\n";
