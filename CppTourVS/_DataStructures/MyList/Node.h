@@ -15,6 +15,17 @@ namespace my_Node {
 		};
 	};
 
+	template<typename Data>
+	class TwoWayNode
+	{
+	public:
+		Data data;
+		TwoWayNode<Data>* p_next;
+		TwoWayNode<Data>* p_prev;
+	public:
+		TwoWayNode(Data data = Data(), TwoWayNode<Data>* p_prev = nullptr, TwoWayNode<Data>* p_next = nullptr): data(data), p_prev(p_prev), p_next(p_next) {};
+	};
+
 	
 } // namespace my_Node
 #endif

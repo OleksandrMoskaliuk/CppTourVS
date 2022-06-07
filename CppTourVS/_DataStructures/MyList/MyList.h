@@ -5,6 +5,10 @@
 
 namespace my_list
 {
+	// advantage:
+	//			fast add , remove, copy , move  operation;
+	// disadvantage:
+	//			long iteration time;
 
 	template <typename Data>
 	class List

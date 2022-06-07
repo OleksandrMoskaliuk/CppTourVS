@@ -63,4 +63,17 @@ namespace project_manager {
 		//std::cout << df[2] << "\n";
 	}
 
+	void ProjectsManager::run_my_2way_list()
+	{
+		my_list::TwoWayList<int> twl;
+		twl.push_front(10);
+		twl.push_front(20);
+		twl.push_front(30);
+		for (uint8_t i = 0; i < twl.get_size(); i++)
+		{
+ 			std::cout << twl[i] << "\n";
+		}
+		//std::cout << twl.get_size() << "\n";
+
+	}
 } // namespace project_manager

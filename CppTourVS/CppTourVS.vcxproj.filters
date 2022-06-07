@@ -95,6 +95,9 @@
     <ClInclude Include="_DataStructures\MyList\Node.h">
       <Filter>_DataStructures\MyList</Filter>
     </ClInclude>
+    <ClInclude Include="_DataStructures\MyList\2WayList.h">
+      <Filter>_DataStructures\MyList</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

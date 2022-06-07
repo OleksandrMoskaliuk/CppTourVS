@@ -37,6 +37,7 @@
     <ClInclude Include="ProjectsManager\ProjectsManager.h" />
     <ClInclude Include="Timer\my_timer.h" />
     <ClInclude Include="_DataStructures\map\my_map.h" />
+    <ClInclude Include="_DataStructures\MyList\2WayList.h" />
     <ClInclude Include="_DataStructures\MyList\MyList.h" />
     <ClInclude Include="_DataStructures\MyList\Node.h" />
   </ItemGroup>

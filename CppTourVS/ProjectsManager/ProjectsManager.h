@@ -9,6 +9,7 @@
 #include "../Timer/my_timer.h"
 #include "../Multithreading/ProcessCommunicator/PRCM.h"
 #include "../_DataStructures/MyList/MyList.h"
+#include "../_DataStructures/MyList/2WayList.h"
 
 namespace project_manager {
 
@@ -31,7 +32,7 @@ namespace project_manager {
 		// My_List
 
 		void run_my_list();
-		
+		void run_my_2way_list();
        
 	   // my_timer();
 	   // my_sort::entry_point();
