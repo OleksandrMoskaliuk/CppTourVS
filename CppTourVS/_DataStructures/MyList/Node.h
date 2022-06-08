@@ -22,8 +22,11 @@ namespace my_Node {
 		Data data;
 		TwoWayNode<Data>* p_next;
 		TwoWayNode<Data>* p_prev;
+        TwoWayNode<Data>* node_adress;
 	public:
-		TwoWayNode(Data data = Data(), TwoWayNode<Data>* p_prev = nullptr, TwoWayNode<Data>* p_next = nullptr): data(data), p_prev(p_prev), p_next(p_next) {};
+        TwoWayNode(Data data = Data(), TwoWayNode<Data>* p_prev = nullptr,
+                   TwoWayNode<Data>* p_next = nullptr)
+             : data(data), p_prev(p_prev), p_next(p_next), node_adress(this){};
 	};
 
 	
