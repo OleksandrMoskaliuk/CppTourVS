@@ -29,6 +29,10 @@ void ProjectsManager::process_communicator_tests() {
   }
 }
 
+void ProjectsManager::run_my_dictionary() { my_dictionary::MyDictionary md;
+  md.test();
+}
+
 // _DataStructures//MyList
 void ProjectsManager::run_my_list() {
   // std::cout << "adsfgsgd";

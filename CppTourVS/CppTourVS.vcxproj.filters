@@ -37,6 +37,9 @@
     <Filter Include="_DataStructures\MyList">
       <UniqueIdentifier>{61dc5aa0-6da5-487e-8051-a72a5edd9a4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="dictionary">
+      <UniqueIdentifier>{8b42f7f6-ec15-417e-b4f8-88fd1d8f9f5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timer\my_timer.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp">
       <Filter>ProjectsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="dictionary\dictionary.cpp">
+      <Filter>dictionary</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="_DataStructures\MyList\2WayList.h">
       <Filter>_DataStructures\MyList</Filter>
+    </ClInclude>
+    <ClInclude Include="dictionary\dictionary.h">
+      <Filter>dictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="dictionary\word.h">
+      <Filter>dictionary</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

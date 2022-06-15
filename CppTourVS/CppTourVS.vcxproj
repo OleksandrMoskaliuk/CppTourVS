@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Algorithm\Sorting\Sorting.cpp" />
     <ClCompile Include="BitOperations\8bit.cpp" />
+    <ClCompile Include="dictionary\dictionary.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM_Test.cpp" />
@@ -32,6 +33,8 @@
   <ItemGroup>
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
+    <ClInclude Include="dictionary\dictionary.h" />
+    <ClInclude Include="dictionary\word.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />
     <ClInclude Include="ProjectsManager\ProjectsManager.h" />

@@ -10,7 +10,7 @@
 int main(int argc, char* argv[]) {
     
     project_manager::ProjectsManager PM(argc, argv);
-    PM.run_my_2way_list();
+  PM.run_my_dictionary();
 
    
 }
