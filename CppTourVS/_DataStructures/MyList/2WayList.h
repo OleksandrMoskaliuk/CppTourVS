@@ -12,14 +12,7 @@ class TwoWayList {
   int size_m;
 
  public:
-  TwoWayList(Data data = Data()) : size_m(0), head(nullptr), tail(nullptr)
-  {
-    if (data != Data()) {
-      size_m = 1;
-      head = new my_Node::TwoWayNode<Data>(data);
-      tail = head;
-    }
-  };
+  TwoWayList() :  size_m(0), head(nullptr), tail(nullptr) {};
   ~TwoWayList();
 
  public:

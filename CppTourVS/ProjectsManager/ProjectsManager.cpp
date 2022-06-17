@@ -61,7 +61,7 @@ void ProjectsManager::run_my_list() {
 }
 
 void ProjectsManager::run_my_2way_list() {
-  my_list::TwoWayList<int> twl(10);
+  my_list::TwoWayList<int> twl;
   twl.push_back(1);
   twl.push_back(2);
   twl.push_back(3);
