@@ -8,7 +8,7 @@
 // words
 #include <Windows.h>
 #include "../_DataStructures/MyList/2WayList.h"
-#include <conio.h>
+#include <conio.h> // _getch(); _kbhit();
 
 namespace my_dictionary {
 // interface:
@@ -47,7 +47,7 @@ class MyDictionary {
     std::string example;
   };
   my_list::TwoWayList<Word> Data;
-
+  bool check_if_exist(std::string new_word);
   bool load();
   bool save();
   bool save_word(Word new_word);
@@ -58,11 +58,12 @@ class MyDictionary {
   ~MyDictionary() { save(); }
 
   const char* filename = "dctionary.bin";
-
+  
   void open_menu();
   void show_info();
   void read();
   void test();
+  bool edit_word();
  
 };  // class MyDictionary
 

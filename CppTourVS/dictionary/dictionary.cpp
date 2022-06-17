@@ -1,5 +1,4 @@
-#include "dictionary.h"
-
+﻿#include "dictionary.h"
 
 bool my_dictionary::MyDictionary::save() {
   //
@@ -27,13 +26,17 @@ bool my_dictionary::MyDictionary::save() {
 }
 
 bool my_dictionary::MyDictionary::save_word(Word new_word) {
-  // check if word is not in data
-  for (int i = 0; i < Data.get_size(); i++) {
-    if (Data[i].word.compare(new_word.word)) return false;
-  }
+  if (check_if_exist(new_word.word)) return false;
   // if this is new word
   Data.push_back(new_word);
   return true;
+}
+
+bool my_dictionary::MyDictionary::check_if_exist(std::string new_word) {
+  for (int i = 0; i < Data.get_size(); i++) {
+    if (!Data[i].word.compare(new_word)) return true;
+  }
+  return false;
 }
 
 bool my_dictionary::MyDictionary::load() {
@@ -79,37 +82,35 @@ bool my_dictionary::MyDictionary::load() {
   return true;
 }
 
-void my_dictionary::MyDictionary::open_menu() 
-{
+
+void my_dictionary::MyDictionary::open_menu() {
   int cursor = 0;
-  while (cursor != 9) {
-    std::cout << ">>> YOUR DICTIONARY\n"
-              << ">>> 1. Show dictionary\n"
-              << ">>> 2. Add word\n"
-              << ">>> 3. Remove word\n"
-              << ">>> 4. Edit word\n"
-              << ">>> 9. Close\n";
+  const char *show_dictionary = "Show dictionary";
+  const char *add_word = "Add word";
+  const char *remove_word = "Remove word";
+  const char *edit_word = "Edit word";
+  const char *close = "Close";
+  const char *help = "w -> up, s -> down, d -> right, a -> left, Enter -> chose";            
+            
 
-    std::cin >> cursor;
-    switch (cursor) {
-      case 1: {
-        system("cls");
+  while (true) {
 
-        show_info();
-        break;
-      }
-      case 9: {
-        exit(1);
-        break;
-      }
-      default:
-        break;
-    }
-     
     
+    if (_kbhit()) {
+      switch ((char)_getch()) {
+        case 'w':  // key up
+          std::cout << " key up";
+          break;
+        case 'a':  // key down
+          break;
+        case 's':  // key right
+          break;
+        case 'd':  // key left
+          break;
+      }
+    }
+    // std::cin >> cursor;
   }
-  
-  
 }
 
 void my_dictionary::MyDictionary::show_info() {
@@ -156,7 +157,51 @@ void my_dictionary::MyDictionary::read() {
   // delete[] data;
 }
 
-void my_dictionary::MyDictionary::test() {
-  open_menu();
-};
+void my_dictionary::MyDictionary::test() { open_menu(); }
+bool my_dictionary::MyDictionary::edit_word() {
+  std::cout << "What word you want to edit:\n";
+  std::string toedit;
+  std::cin >> toedit;
+  int menu = 0;
+  for (long int i = 0; i < Data.get_size(); i++) {
+    if (Data[i].word.compare(toedit) == 0) {
+      while (true)
+        std::cout << "What componnent you want to edit?\n"
+                  << "1. Edit word\n"
+                  << "2. Edit translation\n"
+                  << "3. Edit category\n"
+                  << "4. Edit example\n"
+                  << "5. Back to main menu\n";
 
+      switch (menu) {
+        case (1): {
+          std::string new_word;
+          std::cout << "type new word\n";
+          std::cin >> new_word;
+          if (check_if_exist(new_word)) {
+            std::cout << "Already exist in dictionary!\n";
+            break;
+          }
+          Data[i].word = new_word;
+          break;
+        }
+        case (2): {
+          break;
+        }
+        case (3): {
+          break;
+        }
+        case (4): {
+          break;
+        }
+        case (5): {
+          return true;
+        }
+        default: {
+          break;
+        }
+      }
+    }
+  }
+  return true;
+};
