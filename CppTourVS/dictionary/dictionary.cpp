@@ -152,24 +152,27 @@ void my_dictionary::MyDictionary::open_menu() {
           case 1:  // _ADD_WORD
           {
             Word new_word;
+            add_to_history("Type empty 'w', 's' or '' to get back\n");
             while (true) {
-            
-            system("cls");
-            std::cout << "ADDING_NEW_WORLD:\n";
-            std::cout << "word: "; // 5,1
-            change_cursor_xy(0, 2);
-            print_history();
-            change_cursor_xy(5, 1);
-            std::getline(std::cin, new_word.word);
+              system("cls");
+              std::cout << "ADDING_NEW_WORLD:\n";
+              std::cout << "word: ";  // 5,1
+              change_cursor_xy(0, 2);
+              print_history();
+              change_cursor_xy(5, 1);
+              std::getline(std::cin, new_word.word);
+              if (!new_word.word.compare("w") || !new_word.word.compare("s") ||
+                  !new_word.word.compare(""))
+                goto case_1_end;
+            }
             if (check_if_exist(new_word.word)) {
-              add_to_history(
-                  std::string("Word: '" + new_word.word + "' alreaddy exist!\nPress 'w' or 's'  to exit\n"));
+              add_to_history(std::string(
+                  "Word: '" + new_word.word +
+                  "' alreaddy exist!\nPress 'w' or 's'  to exit\n"));
             } else {
               add_to_history(std::string("Word: '" + new_word.word +
-                                         "' was succesfully added!"));
+                                         "' was succesfully added!\n"));
               goto case_1_end;
-            }
-            if (!new_word.word.compare("w") || !new_word.word.compare("s")) goto case_1_end;
             }
             std::cout << "\ntranslation: ";
             setlocale(LC_ALL, "ru");
@@ -182,7 +185,7 @@ void my_dictionary::MyDictionary::open_menu() {
             std::cout << "\nexample: ";
             std::getline(std::cin, new_word.example);
             save_word(new_word);
-            case_1_end:
+          case_1_end:
             system("cls");
             print_once = true;
           } break;
@@ -197,11 +200,11 @@ void my_dictionary::MyDictionary::open_menu() {
             std::getline(std::cin, to_rm);
             for (long int i = 0; i < Data.get_size(); i++) {
               if (!Data[i].word.compare(to_rm)) {
-                  //TO DO: Data.remove(i) cause error code
-                //Data.remove(i); 
-                Data.pop_front(); 
+                // TO DO: Data.remove(i) cause error code
+                Data.remove(i);
+                // Data.pop_front();
                 if_succeed = true;
-              } 
+              }
             }
             if (if_succeed) {
               add_to_history(
@@ -227,7 +230,7 @@ void my_dictionary::MyDictionary::open_menu() {
                 } else {
                   add_to_history("Editing was fialed\n");
                 }
-               break;
+                break;
               }
             }
             system("cls");
@@ -321,7 +324,11 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
       system("cls");
       SetConsoleTextAttribute(hConsole, 11);
       std::cout << "Word: '" << Data[index].word << "'\n";
+      setlocale(LC_ALL, "ru");
+      SetConsoleCP(1251);
       std::cout << "Translation: '" << Data[index].translation << "'\n";
+      setlocale(LC_ALL, "en");
+      SetConsoleCP(866);
       std::cout << "Category: '" << Data[index].category << "'\n";
       std::cout << "Example: '" << Data[index].example << "'\n";
       SetConsoleTextAttribute(hConsole, 13);
@@ -366,24 +373,30 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
           case 0:  // _EDIT_WORD
           {
             bool succes = false;
-            //bool print_edit_word_info = true;
+            add_to_history("Press 's' or 'w' to get back\n");
             while (!succes) {
               system("cls");
               SetConsoleTextAttribute(hConsole, 13);
               std::string new_name;
-              std::cout << "Type new word: "; //15,0
-              change_cursor_xy(16,0);
+              std::cout << "Current word: " << Data[index].word;
               std::cout << "\n";
               print_history();
-              change_cursor_xy(15, 0);
+              change_cursor_xy(0, 1);
+              std::cout << "Type new word: ";  // 15,0
+              // change_cursor_xy(15, 0);
               std::getline(std::cin, new_name);
+              if (!new_name.compare("s") || !new_name.compare("w")) {
+                goto edit_word_end_case;
+              }
               if (check_if_exist(new_name)) {
                 add_to_history(std::string("ERROR: '" + new_name +
                                            "' ALREADY EXIST IN DICTIONARY!\n"));
               } else {
-                add_to_history(std::string("Word: '" + new_name +
-                                           "' was edited!\n"));
+                add_to_history(
+                    std::string("Word: '" + new_name + "' was edited!\n"));
+
                 Data[index].word = new_name;
+              edit_word_end_case:
                 print_once = true;
                 succes = true;
                 system("cls");
@@ -403,12 +416,11 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
             system("cls");
             print_once = true;
           } break;
-          case 2: // _EDIT_CATEGORY  
+          case 2:  // _EDIT_CATEGORY
           {
             system("cls");
             SetConsoleTextAttribute(hConsole, 13);
-            std::cout << "Current class: '" << Data[index].category
-                      << "'\n";
+            std::cout << "Current class: '" << Data[index].category << "'\n";
             std::string new_class;
             std::cout << "Type new class: ";
             std::getline(std::cin, new_class);
@@ -416,7 +428,7 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
             system("cls");
             print_once = true;
           } break;
-          case 3: // _EDIT_EXAMPLE
+          case 3:  // _EDIT_EXAMPLE
           {
             system("cls");
             SetConsoleTextAttribute(hConsole, 13);
@@ -433,7 +445,7 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
             return true;
           } break;
 
-          default: 
+          default:
             break;
         }
     }
@@ -441,8 +453,7 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
   return true;
 }
 void my_dictionary::MyDictionary::print_history() {
-  while (history.size() > history_buffer) 
-  {
+  while (history.size() > history_buffer) {
     history.pop_back();
   }
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -450,8 +461,7 @@ void my_dictionary::MyDictionary::print_history() {
   std::cout << "\nHISTORY:\n" << history;
   SetConsoleTextAttribute(hConsole, 13);
 }
-void my_dictionary::MyDictionary::add_to_history(std::string str)
-{
+void my_dictionary::MyDictionary::add_to_history(std::string str) {
   history = str + history;
 }
 void my_dictionary::MyDictionary::change_cursor_xy(int x, int y) {

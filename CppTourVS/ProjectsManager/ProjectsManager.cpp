@@ -61,12 +61,14 @@ void ProjectsManager::run_my_list() {
 }
 
 void ProjectsManager::run_my_2way_list() {
-  my_list::TwoWayList<int> twl;
-  twl.push_back(1);
-  twl.push_back(2);
-  twl.push_back(3);
-  twl.push_back(4);
-  twl.push_back(5);
+    
+  my_list::TwoWayList<std::string> twl;
+  std::string str = "a";
+  twl.push_back(str);
+  twl.push_back(str);
+  twl.push_back(str);
+  twl.push_back(str);
+  twl.push_back(str);
 
   for (uint8_t i = 0; i < twl.get_size(); i++) {
     std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
@@ -77,7 +79,7 @@ void ProjectsManager::run_my_2way_list() {
               << "\n";
   }
   std::cout << "__remove [2]_______________________________\n";
-  twl.remove(2);
+  twl.remove(5);
   for (uint8_t i = 0; i < twl.get_size(); i++) {
     std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
   }

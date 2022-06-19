@@ -7,7 +7,7 @@
 // for SetConsoleCp( 1251->coding, or back to 866->default) fix for translation
 // words
 #include <Windows.h>
-#include "../_DataStructures/MyList/2WayList.h"
+#include "../_DataStructures/MyList/MyList.h"
 #include <conio.h> 
 // _getch() -> get pressed key; 
 //_kbhit() -> check if key pressed;
@@ -51,9 +51,9 @@ class MyDictionary {
     std::string category;
     std::string example;
   };
-  my_list::TwoWayList<Word> Data;
-  const int history_buffer = 256;
-  std::string history = "this is how I looks like\n";
+  my_list::List<Word> Data;
+  const int history_buffer = 500;
+  std::string history;
   bool check_if_exist(std::string new_word);
   bool load();
   bool save_to_file();
