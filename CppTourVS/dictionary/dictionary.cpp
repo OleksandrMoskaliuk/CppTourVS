@@ -92,7 +92,9 @@ void my_dictionary::MyDictionary::open_menu() {
   menu_info.push_back("_REMOVE_WORD");      // case 2
   menu_info.push_back("_EDIT_WORD");        // case 3
   menu_info.push_back("_TEST_YOURSELF");    // case 4
-  menu_info.push_back("SAVE_AND_EXIT");     // case 5
+  menu_info.push_back("_SAVE");             // case 5
+  menu_info.push_back("_SAVE_AND_EXIT");    // case 6
+  menu_info.push_back("_EXIT");             // case 7
   bool print_once = true;
   int choice = 0;
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -156,33 +158,34 @@ void my_dictionary::MyDictionary::open_menu() {
             while (true) {
               system("cls");
               std::cout << "ADDING_NEW_WORLD:\n";
-              std::cout << "word: ";  // 5,1
-              change_cursor_xy(0, 2);
+              std::cout << "word: ";  // 6,1
+              std::cout << "\n\n\n\n";
               print_history();
-              change_cursor_xy(5, 1);
+              change_cursor_xy(6, 1);
               std::getline(std::cin, new_word.word);
               if (!new_word.word.compare("w") || !new_word.word.compare("s") ||
-                  !new_word.word.compare(""))
+                  !new_word.word.compare("")) {
                 goto case_1_end;
+              }
+              if (check_if_exist(new_word.word)) {
+                add_to_history(std::string(
+                    "Word: '" + new_word.word +
+                    "' alreaddy exist!\nPress 'w' or 's'  to exit\n"));
+              } else {
+                add_to_history(std::string("Word: '" + new_word.word +
+                                           "' was succesfully added!\n"));
+                break;
+              }
             }
-            if (check_if_exist(new_word.word)) {
-              add_to_history(std::string(
-                  "Word: '" + new_word.word +
-                  "' alreaddy exist!\nPress 'w' or 's'  to exit\n"));
-            } else {
-              add_to_history(std::string("Word: '" + new_word.word +
-                                         "' was succesfully added!\n"));
-              goto case_1_end;
-            }
-            std::cout << "\ntranslation: ";
+            std::cout << "translation: ";
             setlocale(LC_ALL, "ru");
             SetConsoleCP(1251);
             std::getline(std::cin, new_word.translation);
             setlocale(LC_ALL, "en");
             SetConsoleCP(866);
-            std::cout << "\ncategory: ";
+            std::cout << "category: ";
             std::getline(std::cin, new_word.category);
-            std::cout << "\nexample: ";
+            std::cout << "example: ";
             std::getline(std::cin, new_word.example);
             save_word(new_word);
           case_1_end:
@@ -243,10 +246,22 @@ void my_dictionary::MyDictionary::open_menu() {
             std::cout << "_TEST_YOURSELF:\n";
 
           } break;
-
-          case 5:  // SAVE_AND_EXIT
+          case 5:  // _SAVE
           {
             save_to_file();
+            add_to_history(std::string("List of data was saved to file: ") +
+                           filename + "\n");
+            system("cls");
+            print_once = true;
+          } break;
+          case 6:  // SAVE_AND_EXIT
+          {
+            save_to_file();
+            _exit(1);
+          } break;
+
+          case 7:  // _EXIT
+          {
             _exit(1);
           } break;
 
