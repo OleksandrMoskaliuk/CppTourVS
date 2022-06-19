@@ -107,9 +107,6 @@
     <ClInclude Include="dictionary\dictionary.h">
       <Filter>dictionary</Filter>
     </ClInclude>
-    <ClInclude Include="dictionary\word.h">
-      <Filter>dictionary</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

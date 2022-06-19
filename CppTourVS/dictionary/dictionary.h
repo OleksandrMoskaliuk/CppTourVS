@@ -8,8 +8,13 @@
 // words
 #include <Windows.h>
 #include "../_DataStructures/MyList/2WayList.h"
-#include <conio.h> // _getch(); _kbhit();
-
+#include <conio.h> 
+// _getch() -> get pressed key; 
+//_kbhit() -> check if key pressed;
+// system("cls"); -> clear console
+#include <thread>
+#include <chrono>
+#include <vector>
 namespace my_dictionary {
 // interface:
 // push word (string(word), translation() category() usage())
@@ -29,6 +34,7 @@ namespace my_dictionary {
 
 // 1. word: train
 //    translation: поїзд
+// 
 //    category: items
 //    usages: ...
 // 2. word:
@@ -39,7 +45,6 @@ namespace my_dictionary {
 
 class MyDictionary {
  private:
-
   struct Word {
     std::string word;
     std::string translation;
@@ -47,24 +52,24 @@ class MyDictionary {
     std::string example;
   };
   my_list::TwoWayList<Word> Data;
+  const int history_buffer = 256;
+  std::string history = "this is how I looks like\n";
   bool check_if_exist(std::string new_word);
   bool load();
-  bool save();
+  bool save_to_file();
   bool save_word(Word new_word);
-
+  bool edit_word(long int index);
+  void print_history();
+  void add_to_history(std::string str);
+  void change_cursor_xy(int x, int y);
  public:
-
   MyDictionary() { load(); }
-  ~MyDictionary() { save(); }
-
+  ~MyDictionary() { save_to_file(); }
   const char* filename = "dctionary.bin";
-  
   void open_menu();
-  void show_info();
+  void show_dictionary();
   void read();
   void test();
-  bool edit_word();
- 
 };  // class MyDictionary
 
 };  // namespace my_dictionary

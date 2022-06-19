@@ -34,7 +34,6 @@
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
     <ClInclude Include="dictionary\dictionary.h" />
-    <ClInclude Include="dictionary\word.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />
     <ClInclude Include="ProjectsManager\ProjectsManager.h" />
