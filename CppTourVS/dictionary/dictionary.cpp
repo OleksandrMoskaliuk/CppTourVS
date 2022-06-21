@@ -284,9 +284,13 @@ void my_dictionary::MyDictionary::show_dictionary() {
     // SetConsoleTextAttribute(hConsole, 1 ... 255);
     SetConsoleTextAttribute(hConsole, 10);
     std::cout << "   word: " << Data[i].word << std::endl;
+    setlocale(LC_CTYPE, "Ukrainian");
     SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     std::cout << "   translation: " << Data[i].translation << std::endl;
+    setlocale(LC_CTYPE, "en");
     SetConsoleCP(866);
+    SetConsoleOutputCP(866);
     std::cout << "   categoty: " << Data[i].category << std::endl;
     std::cout << "   example: " << Data[i].example << std::endl;
     SetConsoleTextAttribute(hConsole, 13);
