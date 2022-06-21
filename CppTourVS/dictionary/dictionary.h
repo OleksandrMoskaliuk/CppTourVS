@@ -4,7 +4,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-// for SetConsoleCp( 1251->coding, or back to 866->default) fix for translation
+#include <locale> // for 
+// for SetConsoleCP, SetConsoleOutputCP( 1251->coding, or back to 866->default) fix for translation
 // words
 #include <Windows.h>
 #include "../_DataStructures/MyList/MyList.h"
@@ -62,8 +63,18 @@ class MyDictionary {
   void print_history();
   void add_to_history(std::string str);
   void change_cursor_xy(int x, int y);
+  bool test_yourself();
+  void shake_word_menu(std::vector<std::string>& word_menu, int times_to_shake);
+  // next method only for test_yourself function;
+  void tets_yourself_word_checker(bool en_or_ua, bool& generate,
+                                  bool& printonce, int menu_cursor,
+                                  Word selected_word_node,
+                                  std::vector<std::string>& word_menu);
  public:
-  MyDictionary() { load(); }
+  MyDictionary() {
+    srand(time(NULL));
+    load();
+  }
   ~MyDictionary() { save_to_file(); }
   const char* filename = "dctionary.bin";
   void open_menu();

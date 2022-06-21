@@ -14,17 +14,22 @@
 2.2 category: simple_word
 2.3 examples: I have a new laptop
 3.
-3.0 word: 1
-3.1 translation: 2
-3.2 category: 3
-3.3 examples: 4
+3.0 word: old
+3.1 translation: давній, далекий, старовинний, досвідчений
+3.2 category: 
+3.3 examples: we greet each other like old friends
 4.
-4.0 word: old
-4.1 translation: давній, далекий, старовинний, досвідчений
+4.0 word: mature
+4.1 translation: зрілий
 4.2 category: 
-4.3 examples: we greet each other like old friends
+4.3 examples: she was now a mature woman
 5.
-5.0 word: mature
-5.1 translation: зрілий
+5.0 word: respond
+5.1 translation: відповідати
 5.2 category: 
-5.3 examples: she was now a mature woman
+5.3 examples: 
+6.
+6.0 word: image
+6.1 translation: образ
+6.2 category: 
+6.3 examples: 

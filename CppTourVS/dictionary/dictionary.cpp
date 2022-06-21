@@ -242,9 +242,8 @@ void my_dictionary::MyDictionary::open_menu() {
 
           case 4:  // _TEST_YOURSELF
           {
-            system("cls");
-            std::cout << "_TEST_YOURSELF:\n";
-
+            test_yourself(); 
+            print_once = true;
           } break;
           case 5:  // _SAVE
           {
@@ -307,7 +306,7 @@ void my_dictionary::MyDictionary::read() {
   if (file.is_open()) {
     // file.seekg(0, ios::beg);
 
-    file.read((char *)&master, 64);
+    file.read((char*)&master, 64);
 
     // char *str = (char *)malloc(sizeof(char) * 5);
     // memcpy(&res, data, 55);
@@ -483,4 +482,243 @@ void my_dictionary::MyDictionary::change_cursor_xy(int x, int y) {
   COORD pos = {x, y};
   HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleCursorPosition(output, pos);
+}
+
+bool my_dictionary::MyDictionary::test_yourself() {
+  HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+  std::vector<std::string> word_menu;
+  Word selected_word_node;
+  std::string user_respond;
+
+  // word_menu.push_back("_EDIT_WORD");          // case 0
+  // word_menu.push_back("_EDIT_TRANSLATION");   // case 1
+  // word_menu.push_back("_EDIT_CATEGORY");      // case 2
+  // word_menu.push_back("_EDIT_EXAMPLE");       // case 3
+  // word_menu.push_back("exit");                // case 4
+  //   preparations
+  int menu_cursor = 0;
+  bool print_once = true;
+  bool exit = false;
+  bool result = false;
+  bool generate = true;
+  const int words_amount = 5;
+  bool en_or_ua = false;
+  if (Data.get_size() < words_amount) return false;  // too few words
+
+  while (!exit) {
+    if (generate)  // chose between english words
+    {
+      // clear up wrd_menu before next generation
+      word_menu.clear();
+      selected_word_node = Data[rand() % Data.get_size()];
+      en_or_ua = rand() % 2;
+      if (en_or_ua) {
+        word_menu.push_back(selected_word_node.word);
+        int to_insert = words_amount;
+        while (to_insert) {
+          int random = rand() % Data.get_size();
+          bool already_in = false;
+          for (long int i = 0; i < word_menu.size(); i++) {
+            if (!word_menu[i].compare(Data[random].word)) {
+              already_in = true;
+              break;
+            }
+          }
+          if (!already_in) {
+            word_menu.push_back(Data[random].word);
+            to_insert--;
+          }
+        }
+
+      } else  // chose between translation
+      {
+        word_menu.push_back(selected_word_node.translation);
+        int to_insert = words_amount;
+        while (to_insert) {
+          int random = rand() % Data.get_size();
+          bool already_in = false;
+          for (long int i = 0; i < word_menu.size(); i++) {
+            if (!word_menu[i].compare(Data[random].translation)) {
+              already_in = true;
+              break;
+            }
+          }
+          if (!already_in) {
+            word_menu.push_back(Data[random].translation);
+            to_insert--;
+          }
+        }
+      } // else 
+      // Additional options
+      shake_word_menu(word_menu, 20);
+      word_menu.push_back("_EXIT"); // case 6
+      generate = false;
+    } // if(generate)
+
+    if (print_once)  // Out based on random words pick; 
+    {
+      if (en_or_ua) {
+        system("cls");
+        SetConsoleTextAttribute(hConsole, 10);
+        std::cout << "EN Translation to word: ";
+        setlocale(LC_CTYPE, "Ukrainian");
+        SetConsoleCP(1251);
+        SetConsoleOutputCP(1251);
+        std::cout << selected_word_node.translation << "\n";
+        SetConsoleOutputCP(866);
+        SetConsoleCP(866);
+        setlocale(LC_CTYPE, "en");  
+        for (uint8_t i = 0; i < word_menu.size(); i++) {
+          if (i == menu_cursor) {   
+            SetConsoleTextAttribute(hConsole, 13);
+            std::cout <<">> "<< word_menu[i] <<" <<"<<"\n";
+          } else {
+            SetConsoleTextAttribute(hConsole, 10);
+            std::cout << word_menu[i] << "\n";
+          }
+        }
+      } else {
+        system("cls");
+        SetConsoleTextAttribute(hConsole, 10);
+        std::cout << "UA Translation to word: ";
+        std::cout << selected_word_node.word << "\n";
+        setlocale(LC_CTYPE, "Ukrainian");
+        SetConsoleCP(1251);
+        SetConsoleOutputCP(1251);
+        for (uint8_t i = 0; i < word_menu.size(); i++) {
+          if (i == menu_cursor) {
+            SetConsoleTextAttribute(hConsole, 13);
+            std::cout << ">> " << word_menu[i] << " <<" << "\n";
+          } else {
+            SetConsoleTextAttribute(hConsole, 10);
+            std::cout << word_menu[i] << "\n";
+          }
+        }
+        SetConsoleOutputCP(866);
+        SetConsoleCP(866);
+        setlocale(LC_CTYPE, "en");  
+      } // else
+      print_once = false;
+      print_history();
+    } // if(print_once)
+
+    switch ((char)_getch()) {
+      case 'w':  // key up
+      {
+        menu_cursor--;
+        print_once = true;
+        if (menu_cursor < 0) menu_cursor = word_menu.size() - 1;
+        break;
+      }
+
+      case 's':  // key right
+      {
+        menu_cursor++;
+        print_once = true;
+        if (menu_cursor > word_menu.size() - 1) menu_cursor = 0;
+        break;
+      }
+      case 'e':  // enter key
+      {
+        //int exit_pose = word_menu.size();
+        switch (menu_cursor) {
+          case 0: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+          } break;
+          case 1: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+            system("cls");
+
+          } break;
+          case 2: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+          } break;
+          case 3: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+          } break;
+          case 4: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+          } break;
+          case 5: {
+            tets_yourself_word_checker(en_or_ua, generate, print_once,
+                                       menu_cursor, selected_word_node,
+                                       word_menu);
+          } break;
+          case 6: {
+            system("cls");
+            exit = true;
+          } break;
+          default:
+            break;
+        } //   case 'e':
+      } break;
+      default:
+        break;
+    } // switch ((char)_getch())
+  }
+  // test_yourself_end_case:
+  return result;
+}
+
+void my_dictionary::MyDictionary::shake_word_menu(
+    std::vector<std::string>& word_menu, int times_to_shake) {
+  for (int i = 0; i < times_to_shake; i++) {
+    int a = rand() % word_menu.size();
+    int b = rand() % word_menu.size();
+    while (a == b) b = rand() % word_menu.size();
+    std::string buf = word_menu[a];
+    word_menu[a] = word_menu[b];
+    word_menu[b] = buf;
+  }
+}
+
+void my_dictionary::MyDictionary::tets_yourself_word_checker(
+    bool en_or_ua, bool& generate, bool &print_once, int menu_cursor, Word selected_word_node, 
+    std::vector<std::string> &word_menu
+    ) { 
+     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+  if (en_or_ua)  // compare en words
+  {
+    if (!word_menu[menu_cursor].compare(selected_word_node.word)) {
+      system("cls");
+      SetConsoleTextAttribute(hConsole, 10);
+      std::cout << "YOUR ANSWER IS CORRECT!\n";
+      SetConsoleTextAttribute(hConsole, 13);
+    } else {
+      system("cls");
+      std::cout << (std::string("Wrong answer! Right answer is: ") +
+                     selected_word_node.word + "\n");
+    }
+  } else  // compare translation
+  {
+    if (word_menu[menu_cursor].compare(selected_word_node.translation) == 0) {
+      system("cls");
+      SetConsoleTextAttribute(hConsole, 10);
+      std::cout << "YOUR ANSWER IS CORRECT!\n";
+      SetConsoleTextAttribute(hConsole, 13);
+    } else {
+      system("cls");
+      std::cout << "Wrong answer! Right answer is: ";
+      setlocale(LC_CTYPE, "Ukrainian");
+      SetConsoleCP(1251);
+      SetConsoleOutputCP(1251);
+      std::cout << selected_word_node.translation + "\n";
+      setlocale(LC_CTYPE, "en");
+      SetConsoleCP(866);
+      SetConsoleOutputCP(866);
+    }
+  }
+  generate = true;
+  print_once = true;
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 }
