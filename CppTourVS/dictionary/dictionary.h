@@ -76,7 +76,7 @@ class MyDictionary {
     load();
   }
   ~MyDictionary() { save_to_file(); }
-  const char* filename = "dctionary.bin";
+  const char* filename = "dctionary.txt";
   void open_menu();
   void show_dictionary();
   void read();

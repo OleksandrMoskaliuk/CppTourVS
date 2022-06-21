@@ -302,7 +302,7 @@ void my_dictionary::MyDictionary::read() {
   // char *data = new char[55];
   string master;
   master.resize(200);
-  ifstream file("example.bin", ios::binary | ios::in);
+  ifstream file("example.txt", ios::binary | ios::in);
   if (file.is_open()) {
     // file.seekg(0, ios::beg);
 
@@ -503,6 +503,8 @@ bool my_dictionary::MyDictionary::test_yourself() {
   bool generate = true;
   const int words_amount = 5;
   bool en_or_ua = false;
+  Word no_same_word_repeat;
+  bool first_time_run = true;
   if (Data.get_size() < words_amount) return false;  // too few words
 
   while (!exit) {
@@ -510,7 +512,18 @@ bool my_dictionary::MyDictionary::test_yourself() {
     {
       // clear up wrd_menu before next generation
       word_menu.clear();
-      selected_word_node = Data[rand() % Data.get_size()];
+      if (first_time_run) {
+        selected_word_node = Data[rand() % Data.get_size()];
+        no_same_word_repeat.word = selected_word_node.word;
+        first_time_run = false;
+      } else {
+        selected_word_node = Data[rand() % Data.get_size()];
+        while (!no_same_word_repeat.word.compare(selected_word_node.word)) {
+          selected_word_node = Data[rand() % Data.get_size()];
+        }
+        no_same_word_repeat = selected_word_node;
+      }
+      
       en_or_ua = rand() % 2;
       if (en_or_ua) {
         word_menu.push_back(selected_word_node.word);
