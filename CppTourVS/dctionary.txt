@@ -33,3 +33,13 @@
 6.1 translation: образ
 6.2 category: 
 6.3 examples: 
+7.
+7.0 word: rather 
+7.1 translation: швидше
+7.2 category: 
+7.3 examples: 
+8.
+8.0 word: annoy
+8.1 translation: дратувати
+8.2 category: 
+8.3 examples: rock music loud enough to annoy

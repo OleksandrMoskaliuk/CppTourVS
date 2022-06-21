@@ -342,11 +342,13 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
       system("cls");
       SetConsoleTextAttribute(hConsole, 11);
       std::cout << "Word: '" << Data[index].word << "'\n";
-      setlocale(LC_ALL, "ru");
+      setlocale(LC_CTYPE, "Ukrainian");
       SetConsoleCP(1251);
+      SetConsoleOutputCP(1251);
       std::cout << "Translation: '" << Data[index].translation << "'\n";
       setlocale(LC_ALL, "en");
       SetConsoleCP(866);
+      SetConsoleOutputCP(866);
       std::cout << "Category: '" << Data[index].category << "'\n";
       std::cout << "Example: '" << Data[index].example << "'\n";
       SetConsoleTextAttribute(hConsole, 13);
