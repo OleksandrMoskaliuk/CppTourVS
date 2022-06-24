@@ -9,8 +9,9 @@
 
 int main(int argc, char* argv[]) {
     
-    project_manager::ProjectsManager PM;
-    PM.process_communicator_tests(argc, argv);
+    project_manager::ProjectsManager PM(argc, argv);
+  PM.run_my_dictionary();
+
    
 }
 
