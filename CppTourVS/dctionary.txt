@@ -43,3 +43,138 @@
 8.1 translation: дратувати
 8.2 category: 
 8.3 examples: rock music loud enough to annoy
+9.
+9.0 word: my own
+9.1 translation: мій,власний
+9.2 category: 
+9.3 examples: 
+10.
+10.0 word: looking for
+10.1 translation: шукати
+10.2 category: 
+10.3 examples: 
+11.
+11.0 word: Allow 
+11.1 translation: дозвольте
+11.2 category: 
+11.3 examples: 
+12.
+12.0 word: farewell
+12.1 translation: прощавай
+12.2 category: 
+12.3 examples: 
+13.
+13.0 word: skirts
+13.1 translation: юбка
+13.2 category: 
+13.3 examples: 
+14.
+14.0 word: near
+14.1 translation: близько
+14.2 category: 
+14.3 examples: 
+15.
+15.0 word: in the evening
+15.1 translation: вечором
+15.2 category: 
+15.3 examples: 
+16.
+16.0 word: tonight
+16.1 translation: вечором
+16.2 category: 
+16.3 examples: 
+17.
+17.0 word: tomorrow
+17.1 translation: завтра
+17.2 category: 
+17.3 examples: 
+18.
+18.0 word: yesterday
+18.1 translation: вчора
+18.2 category: 
+18.3 examples: 
+19.
+19.0 word: today
+19.1 translation: сьогодні
+19.2 category: 
+19.3 examples: 
+20.
+20.0 word: last time
+20.1 translation: минулого разу
+20.2 category: 
+20.3 examples: 
+21.
+21.0 word: this time
+21.1 translation: в цей раз
+21.2 category: 
+21.3 examples: 
+22.
+22.0 word: next time
+22.1 translation: наступного разу
+22.2 category: 
+22.3 examples: 
+23.
+23.0 word: recived
+23.1 translation: отримати
+23.2 category: 
+23.3 examples: 
+24.
+24.0 word: dinner
+24.1 translation: сніданок
+24.2 category: 
+24.3 examples: 
+25.
+25.0 word: lanch
+25.1 translation: обід
+25.2 category: 
+25.3 examples: 
+26.
+26.0 word: round
+26.1 translation: круглий
+26.2 category: 
+26.3 examples: 
+27.
+27.0 word: coat
+27.1 translation: пальто
+27.2 category: 
+27.3 examples: 
+28.
+28.0 word: postcard
+28.1 translation: відкритка
+28.2 category: 
+28.3 examples: 
+29.
+29.0 word: show
+29.1 translation: показати
+29.2 category: 
+29.3 examples: 
+30.
+30.0 word: relatives
+30.1 translation: родичі
+30.2 category: 
+30.3 examples: 
+31.
+31.0 word: rope
+31.1 translation: мотузка
+31.2 category: 
+31.3 examples: 
+32.
+32.0 word: wine
+32.1 translation: вино
+32.2 category: 
+32.3 examples: 
+33.
+33.0 word: count on
+33.1 translation: розраховувати на
+33.2 category: 
+33.3 examples: 
+34.
+34.0 word: shirts
+34.1 translation: сорочка
+34.2 category: 
+34.3 examples: 
+35.
+35.0 word: have some fun
+35.1 translation: веселитися
+35.2 category: 
+35.3 examples: 

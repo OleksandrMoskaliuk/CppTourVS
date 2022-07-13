@@ -178,7 +178,7 @@ void my_dictionary::MyDictionary::open_menu() {
               }
             }
             std::cout << "translation: ";
-            setlocale(LC_ALL, "ru");
+            setlocale(LC_ALL, "ukr");
             SetConsoleCP(1251);
             std::getline(std::cin, new_word.translation);
             setlocale(LC_ALL, "en");
@@ -405,7 +405,8 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
               std::cout << "Type new word: ";  // 15,0
               // change_cursor_xy(15, 0);
               std::getline(std::cin, new_name);
-              if (!new_name.compare("s") || !new_name.compare("w")) {
+              if (!new_name.compare("s") || !new_name.compare("w") ||
+                  !new_name.compare("")) {
                 goto edit_word_end_case;
               }
               if (check_if_exist(new_name)) {
@@ -414,13 +415,12 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
               } else {
                 add_to_history(
                     std::string("Word: '" + new_name + "' was edited!\n"));
-
                 Data[index].word = new_name;
-              edit_word_end_case:
-                print_once = true;
                 succes = true;
-                system("cls");
               }
+              edit_word_end_case:
+              print_once = true;
+              system("cls");
             }
           } break;
           case 1:  // _EDIT_TRANSLATION
@@ -431,7 +431,13 @@ bool my_dictionary::MyDictionary::edit_word(long int index) {
                       << "'\n";
             std::string new_translation;
             std::cout << "Type new translation: ";
+            setlocale(LC_CTYPE, "Ukrainian");
+            SetConsoleCP(1251);
+            SetConsoleOutputCP(1251);
             std::getline(std::cin, new_translation);
+            setlocale(LC_CTYPE, "en");
+            SetConsoleCP(866);
+            SetConsoleOutputCP(866);
             Data[index].translation = new_translation;
             system("cls");
             print_once = true;
