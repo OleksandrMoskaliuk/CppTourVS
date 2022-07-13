@@ -34,6 +34,9 @@
     <Filter Include="ProjectsManager">
       <UniqueIdentifier>{39b5fc1a-4874-43d8-b263-425153f73a47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bmp_loader">
+      <UniqueIdentifier>{a1755c7e-29b1-4700-ad55-8554e167f582}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timer\my_timer.cpp">
@@ -63,6 +66,9 @@
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp">
       <Filter>ProjectsManager</Filter>
     </ClCompile>
+    <ClCompile Include="bmp_loader\bmp_loader.cpp">
+      <Filter>bmp_loader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="ProjectsManager\ProjectsManager.h">
       <Filter>ProjectsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="bmp_loader\bmp_loader.h">
+      <Filter>bmp_loader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
