@@ -9,6 +9,7 @@
 #include "../Timer/my_timer.h"
 #include "../Multithreading/ProcessCommunicator/PRCM.h"
 #include "../bmp_loader/bmp_loader.h"
+#include "../SFML_window/window.h"
 
 namespace project_manager {
 
@@ -21,7 +22,8 @@ namespace project_manager {
 		// Multithreading/ProcessCommunicator
 		void process_communicator();
 		void process_communicator_tests(int& argc, char* argv[]);
-       
+		void sfml_window_start();
+
 	   // my_timer();
 	   // my_sort::entry_point();
 	   // _8bit::entry_point();

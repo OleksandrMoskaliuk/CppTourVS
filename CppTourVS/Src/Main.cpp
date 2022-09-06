@@ -9,10 +9,11 @@
 
 
 int main(int argc, char* argv[]) {
-  
- return 0;
-    //project_manager::ProjectsManager PM;
+   project_manager::ProjectsManager PM;
     //PM.process_communicator_tests(argc, argv);
+   PM.sfml_window_start();
+ return 0;
+   
    
 }
 

@@ -31,4 +31,9 @@ void ProjectsManager::process_communicator_tests(int& argc, char* argv[])
 	}
 }
 
+void ProjectsManager::sfml_window_start() {
+
+	my_window::enter_point();
+}
+
 } // namespace project_manager
