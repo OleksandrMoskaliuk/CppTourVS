@@ -5,13 +5,12 @@
 
 #include "../ProjectsManager/ProjectsManager.h"
 
-#include "../bmp_loader/bmp_loader.h"
+
 
 
 int main(int argc, char* argv[]) {
-    
-
-
+  
+ return 0;
     //project_manager::ProjectsManager PM;
     //PM.process_communicator_tests(argc, argv);
    

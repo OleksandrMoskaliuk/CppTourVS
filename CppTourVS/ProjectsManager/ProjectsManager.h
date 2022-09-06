@@ -4,10 +4,11 @@
 
 #include "gtest/gtest.h"
 #include <iostream>
-#include "../Algorithm\Sorting/Sorting.h"
+#include "../Algorithm/Sorting/Sorting.h"
 #include "../BitOperations/8bit.h"
 #include "../Timer/my_timer.h"
 #include "../Multithreading/ProcessCommunicator/PRCM.h"
+#include "../bmp_loader/bmp_loader.h"
 
 namespace project_manager {
 
