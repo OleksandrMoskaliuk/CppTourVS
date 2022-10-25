@@ -26,8 +26,7 @@ class ProjectsManager {
 
   // Multithreading/ProcessCommunicator
   void process_communicator();
-  void process_communicator_tests(int& argc, char* argv[]);
-  void sfml_window_start();
+  void process_communicator_tests();
 
   // My_List
 
