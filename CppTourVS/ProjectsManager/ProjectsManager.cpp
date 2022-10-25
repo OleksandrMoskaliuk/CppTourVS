@@ -2,6 +2,8 @@
 
 namespace project_manager {
 
+	ProjectsManager::ProjectsManager()
+{
 ProjectsManager::ProjectsManager(int& argc, char* argv[]) {
   this->argc = &argc;
   this->argv = argv;
@@ -97,3 +99,9 @@ void ProjectsManager::run_my_2way_list() {
 }  // void ProjectsManager::run_my_2way_list()
 
 }  // namespace project_manager
+void ProjectsManager::sfml_window_start() {
+
+	my_window::enter_point();
+}
+
+} // namespace project_manager

@@ -39,6 +39,11 @@
     </Filter>
     <Filter Include="dictionary">
       <UniqueIdentifier>{8b42f7f6-ec15-417e-b4f8-88fd1d8f9f5a}</UniqueIdentifier>
+    <Filter Include="bmp_loader">
+      <UniqueIdentifier>{a1755c7e-29b1-4700-ad55-8554e167f582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML_window">
+      <UniqueIdentifier>{fd63eb4b-fce4-49a7-a084-115a6f6b3535}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +76,11 @@
     </ClCompile>
     <ClCompile Include="dictionary\dictionary.cpp">
       <Filter>dictionary</Filter>
+    <ClCompile Include="bmp_loader\bmp_loader.cpp">
+      <Filter>bmp_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="SFML_window\window.cpp">
+      <Filter>SFML_window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +116,11 @@
     </ClInclude>
     <ClInclude Include="dictionary\dictionary.h">
       <Filter>dictionary</Filter>
+    <ClInclude Include="bmp_loader\bmp_loader.h">
+      <Filter>bmp_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML_window\window.h">
+      <Filter>SFML_window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

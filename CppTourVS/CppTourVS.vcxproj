@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SFML-cpp.2.5.1\build\native\SFML-cpp.props" Condition="Exists('..\packages\SFML-cpp.2.5.1\build\native\SFML-cpp.props')" />
+  <Import Project="..\packages\SFML-cpp.redist.2.5.1.1\build\native\SFML-cpp.redist.props" Condition="Exists('..\packages\SFML-cpp.redist.2.5.1.1\build\native\SFML-cpp.redist.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,10 +24,12 @@
     <ClCompile Include="Algorithm\Sorting\Sorting.cpp" />
     <ClCompile Include="BitOperations\8bit.cpp" />
     <ClCompile Include="dictionary\dictionary.cpp" />
+    <ClCompile Include="bmp_loader\bmp_loader.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM_Test.cpp" />
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp" />
+    <ClCompile Include="SFML_window\window.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Timer\my_timer.cpp" />
     <ClCompile Include="_DataStructures\map\my_map.cpp" />
@@ -34,9 +38,11 @@
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
     <ClInclude Include="dictionary\dictionary.h" />
+    <ClInclude Include="bmp_loader\bmp_loader.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />
     <ClInclude Include="ProjectsManager\ProjectsManager.h" />
+    <ClInclude Include="SFML_window\window.h" />
     <ClInclude Include="Timer\my_timer.h" />
     <ClInclude Include="_DataStructures\map\my_map.h" />
     <ClInclude Include="_DataStructures\MyList\2WayList.h" />
@@ -185,5 +191,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\boost.1.79.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.79.0\build\boost.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets'))" />
+    <Error Condition="!Exists('..\packages\SFML-cpp.redist.2.5.1.1\build\native\SFML-cpp.redist.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SFML-cpp.redist.2.5.1.1\build\native\SFML-cpp.redist.props'))" />
+    <Error Condition="!Exists('..\packages\SFML-cpp.2.5.1\build\native\SFML-cpp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SFML-cpp.2.5.1\build\native\SFML-cpp.props'))" />
   </Target>
 </Project>

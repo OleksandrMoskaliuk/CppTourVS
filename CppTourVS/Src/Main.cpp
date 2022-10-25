@@ -7,11 +7,13 @@
 
 
 
-int main(int argc, char* argv[]) {
-    
-    project_manager::ProjectsManager PM(argc, argv);
-  PM.run_my_dictionary();
 
+int main(int argc, char* argv[]) {
+   project_manager::ProjectsManager PM;
+    //PM.process_communicator_tests(argc, argv);
+   PM.sfml_window_start();
+ return 0;
+   
    
 }
 
