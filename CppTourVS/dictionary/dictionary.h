@@ -1,21 +1,7 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <locale> // for 
-// for SetConsoleCP, SetConsoleOutputCP( 1251->coding, or back to 866->default) fix for translation
-// words
-#include <Windows.h>
-#include "../_DataStructures/MyList/MyList.h"
-#include <conio.h> 
-// _getch() -> get pressed key; 
-//_kbhit() -> check if key pressed;
-// system("cls"); -> clear console
-#include <thread>
-#include <chrono>
-#include <vector>
+
 namespace my_dictionary {
 // interface:
 // push word (string(word), translation() category() usage())
@@ -76,11 +62,11 @@ class MyDictionary {
     load();
   }
   ~MyDictionary() { save_to_file(); }
-  const char* filename = "dctionary.txt";
+  const char* filename = "dictionary/dctionary.txt";
   void open_menu();
   void show_dictionary();
   void read();
-  void test();
+  void run_dictionary();
 };  // class MyDictionary
 
 };  // namespace my_dictionary

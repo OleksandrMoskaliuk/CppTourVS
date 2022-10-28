@@ -1,4 +1,21 @@
-﻿#include "dictionary.h"
+﻿#include <string>
+#include <fstream>
+#include <iostream>
+#include <locale> // for 
+// for SetConsoleCP, SetConsoleOutputCP( 1251->coding, or back to 866->default) fix for translation
+// words
+#include <Windows.h>
+#include "../_DataStructures/MyList/MyList.h"
+#include <conio.h> 
+// _getch() -> get pressed key; 
+//_kbhit() -> check if key pressed;
+// system("cls"); -> clear console
+#include <thread>
+#include <chrono>
+#include <vector>
+
+#include "dictionary.h"
+
 
 bool my_dictionary::MyDictionary::save_to_file() {
   //
@@ -324,7 +341,7 @@ void my_dictionary::MyDictionary::read() {
   // delete[] data;
 }
 
-void my_dictionary::MyDictionary::test() { open_menu(); }
+void my_dictionary::MyDictionary::run_dictionary() { open_menu(); }
 
 bool my_dictionary::MyDictionary::edit_word(long int index) {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -698,12 +715,14 @@ bool my_dictionary::MyDictionary::test_yourself() {
 void my_dictionary::MyDictionary::shake_word_menu(
     std::vector<std::string>& word_menu, int times_to_shake) {
   for (int i = 0; i < times_to_shake; i++) {
-    int a = rand() % word_menu.size();
-    int b = rand() % word_menu.size();
-    while (a == b) b = rand() % word_menu.size();
-    std::string buf = word_menu[a];
-    word_menu[a] = word_menu[b];
-    word_menu[b] = buf;
+    int pick_word_a = rand() % word_menu.size();
+    int pick_word_b = rand() % word_menu.size();
+    // words should have different numbers
+    while (pick_word_a == pick_word_b) pick_word_b = rand() % word_menu.size();
+    // swap words
+    std::string buf(word_menu[pick_word_a]);
+    word_menu[pick_word_a] = word_menu[pick_word_b];
+    word_menu[pick_word_b] = buf;
   }
 }
 

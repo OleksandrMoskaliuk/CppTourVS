@@ -21,7 +21,7 @@ SimpleTimer::SimpleTimer(std::string timer_name) : SimpleTimer()
 
 SimpleTimer::~SimpleTimer()
 {
-	//duration();
+	duration();
 };
 
 void SimpleTimer::duration()

@@ -40,6 +40,15 @@
     <Filter Include="dictionary">
       <UniqueIdentifier>{8b42f7f6-ec15-417e-b4f8-88fd1d8f9f5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bmp_loader">
+      <UniqueIdentifier>{5f57e90f-d097-4a03-84fa-5642734acc6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Multithreading\Future">
+      <UniqueIdentifier>{41096ef7-7f2d-40ee-b573-7d4c2e42c07d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML">
+      <UniqueIdentifier>{b941da8b-8dbe-427f-9233-9f87d34a9c52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timer\my_timer.cpp">
@@ -71,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="dictionary\dictionary.cpp">
       <Filter>dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="Multithreading\Future\my_future.cpp">
+      <Filter>Multithreading\Future</Filter>
+    </ClCompile>
+    <ClCompile Include="SFML\My_SFML.cpp">
+      <Filter>SFML</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="dictionary\dictionary.h">
       <Filter>dictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="bmp_loader\bmp_loader.h">
+      <Filter>bmp_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Multithreading\Future\my_future.h">
+      <Filter>Multithreading\Future</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\My_SFML.h">
+      <Filter>SFML</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -34,8 +34,12 @@ public:
   FILE* f;
   fopen_s(&f, filename.c_str(), "r+");
 
-  if (f == NULL)
+  if (f == nullptr) 
+  {
+   std::cout << "File not exist!";
    return;
+  }
+  
  
   unsigned char info[54];
   fread(info, sizeof(unsigned char), 54, f);  // read the 54-byte header
