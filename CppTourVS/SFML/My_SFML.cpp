@@ -3,6 +3,7 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
+#include <memory>
 
 #include "My_SFML.h"
 
@@ -23,6 +24,7 @@ namespace my_sfml {
   sf::Text WelcomeText;
   sf::Font MainFont;
   sf::String PlayerInput;
+  sf::CircleShape SimpleCircle;
   /* 
   Push your object to this array to draw 
   */
@@ -31,6 +33,7 @@ namespace my_sfml {
   MySFMLData() : RegisteredOblectToDraw(new std::vector<sf::Drawable*>()) {
    SetUpMainWindow();
    SetUpWelcomeText();
+   SetUpSimpleCircle();
   }
  private:
 
@@ -38,8 +41,13 @@ namespace my_sfml {
   Fill up RegisteredOblectToDraw variable 
   than main class will handle  drawing of al objects in this variable
   */
-  void SetUpRegisteredOblectToDraw(sf::Drawable& ObjectToRegistrate) {
+  void RegistrateOblectToDraw(sf::Drawable& ObjectToRegistrate) {
    RegisteredOblectToDraw->push_back(&ObjectToRegistrate);
+  }
+  void UnregistrateOblectToDraw(sf::Drawable& ObjectToUnregistrate) {
+   std::vector <sf::Drawable*>::iterator ToEraseIterator;
+   ToEraseIterator = std::find(this->RegisteredOblectToDraw->begin(), this->RegisteredOblectToDraw->end(), &ObjectToUnregistrate);
+   this->RegisteredOblectToDraw->erase(ToEraseIterator);
   }
 
   void SetUpWelcomeText() {
@@ -60,7 +68,14 @@ namespace my_sfml {
    // set the text style
    WelcomeText.setStyle(sf::Text::Bold);
    WelcomeText.setPosition(sf::Vector2f(0,0));
-   SetUpRegisteredOblectToDraw(WelcomeText);
+   RegistrateOblectToDraw(WelcomeText);
+  }
+  void SetUpSimpleCircle() 
+  {
+   SimpleCircle = sf::CircleShape(10.f, 10.f);
+   SimpleCircle.setFillColor(sf::Color::Green);
+   SimpleCircle.setPosition(sf::Vector2f(20.f, 20.f));
+   this->RegistrateOblectToDraw(SimpleCircle);
   }
   void SetUpMainWindow() {
    // windows create and config
@@ -78,9 +93,8 @@ my_sfml::MySFML::MySFML() : Data(new MySFMLData()) {
 
 void my_sfml::MySFML::open_window() {
 
- // make circle
- sf::CircleShape SimpleCircle(100.f);
- SimpleCircle.setFillColor(sf::Color::Green);
+
+ 
 
 
  std::future<void> future = std::async(std::launch::async, [&]() {
@@ -98,7 +112,6 @@ void my_sfml::MySFML::open_window() {
 
 
 void my_sfml::MySFML::DrawAndDisplay() {
- std::cout << "draw\n";
  Data->MainWindow->clear();
  for (sf::Drawable *dr : *Data->RegisteredOblectToDraw) 
  {
