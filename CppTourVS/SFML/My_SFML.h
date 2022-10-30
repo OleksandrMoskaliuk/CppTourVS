@@ -18,7 +18,7 @@ namespace my_sfml
 
  private:
   void open_window();
-  void draw();
+  void DrawAndDisplay();
   /* 
   main sfml loop
   */
