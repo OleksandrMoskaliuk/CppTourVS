@@ -51,7 +51,6 @@ namespace project_manager {
 
  void ProjectsManager::open_window() {
   my_sfml::MySFML msfml;
-  msfml.open_window();
  }
 
  void ProjectsManager::run_my_timer() {
