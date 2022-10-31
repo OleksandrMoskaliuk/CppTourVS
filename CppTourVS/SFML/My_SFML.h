@@ -15,10 +15,11 @@ namespace my_sfml
   MySFMLData *Data;
  public:
   MySFML();
-
+  ~MySFML();
  private:
   void open_window();
   void DrawAndDisplay();
+  void EventsHandler();
   /* 
   main sfml loop
   */
