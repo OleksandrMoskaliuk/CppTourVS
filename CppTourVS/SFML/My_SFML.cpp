@@ -21,10 +21,11 @@ namespace my_sfml {
   Pull event pointer variable
   */
   sf::Event* event;
-  sf::Text WelcomeText;
   sf::Font BisternFont;
+  sf::Text WelcomeText;
   sf::String PlayerInput;
   sf::CircleShape SimpleCircle;
+  std::vector<sf::Text> WordsToDraw;
   /*
   Push your object to this array to draw
   */
@@ -40,8 +41,6 @@ namespace my_sfml {
    delete(MainWindow);
    delete(event);
   }
- private:
-
   /*
   Fill up RegisteredOblectToDraw variable
   than main class will handle  drawing of al objects in this variable
@@ -54,6 +53,9 @@ namespace my_sfml {
    ToEraseIterator = std::find(this->RegisteredOblectToDraw->begin(), this->RegisteredOblectToDraw->end(), &ObjectToUnregistrate);
    this->RegisteredOblectToDraw->erase(ToEraseIterator);
   }
+ private:
+
+  
   void SetUpBisternFont() 
   {
    // load font
@@ -93,6 +95,15 @@ namespace my_sfml {
 }
 
 my_sfml::MySFML::MySFML() : Data(new MySFMLData()) {
+ // draw words before main loop starts
+ AddWorldOnScreen(10, 10, "Yahari",16, sf::Color::Green);
+ AddWorldOnScreen(10, 30, "Nani", 16, sf::Color::Green);
+ AddWorldOnScreen(10, 50, "Monanto");
+ RemoveWordByName("Nani");
+ //AddWorldOnScreen(10, 40, "Nani");
+ //AddWorldOnScreen(10, 70, "Monanto");
+ this->Data->UnregistrateOblectToDraw(this->Data->SimpleCircle);
+ // start point
  this->MainLoop();
 }
 
@@ -113,14 +124,14 @@ void my_sfml::MySFML::open_window() {
 
 }
 
-
-
 void my_sfml::MySFML::DrawAndDisplay() {
  Data->MainWindow->clear();
  for (sf::Drawable* dr : *Data->RegisteredOblectToDraw)
  {
   Data->MainWindow->draw(*dr);
  }
+ // Draw words added by my_sfml::MySFML::AddWorldOnScreen function
+ DrawWords();
  Data->MainWindow->display();
  //std::cout << "2\n";
  //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
@@ -152,6 +163,55 @@ void my_sfml::MySFML::EventsHandler() {
    } break;
   } // switch (Data->event->type)
  } // while (Data->MainWindow->pollEvent(*Data->event))
+}
+
+void my_sfml::MySFML::RemoveWordByName(std::string WordToRemove) {
+ std::vector <sf::Text>::iterator ToEraseIterator = Data->WordsToDraw.begin();
+ for (int counter = 0 ; counter < Data->WordsToDraw.size(); counter++)
+ {
+  std::string str_to_compare = std::string(Data->WordsToDraw[counter].getString());
+  if (!str_to_compare.compare(WordToRemove)) 
+  {
+   this->Data->WordsToDraw.erase(ToEraseIterator);
+   return;
+  }
+  ToEraseIterator++;
+ }
+}
+
+void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text) {
+ int TextSize = 20; 
+ sf::Color TextColor = sf::Color::Green;
+ this->AddWorldOnScreen(xp, yp, Text, TextSize, TextColor);
+}
+
+void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor) {
+ sf::String str = Text;
+ sf::Text txt;
+ txt.setFont(this->Data->BisternFont);
+ txt.setString(str);
+ txt.setCharacterSize(TextSize);
+ txt.setFillColor(TextColor);
+ txt.setPosition(sf::Vector2f(xp, yp));
+ this->Data->WordsToDraw.push_back(txt);
+}
+
+//void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string word, int FontSize, sf::Color color)  {
+// sf::String str = word;
+// sf::Text txt;
+// txt.setFont(this->Data->BisternFont);
+// txt.setCharacterSize(FontSize)
+// txt.setString(word);
+// txt.setFillColor(sf::Color::Green);
+// txt.setPosition(sf::Vector2f(xp, yp));
+// this->Data->WordsToDraw.push_back(txt);
+//}
+
+void my_sfml::MySFML::DrawWords() {
+ for (sf::Text text : this->Data->WordsToDraw) 
+ {
+  Data->MainWindow->draw(text);
+ }
 }
 
 void my_sfml::MySFML::MainLoop() {

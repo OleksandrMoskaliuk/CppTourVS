@@ -4,6 +4,10 @@
 
 // forvard declaration, used to minimize includes, see:
 // https://blog.knatten.org/2012/11/30/how-to-avoid-includes-in-headers/
+namespace sf 
+{
+ class Color;
+}
 
 namespace my_sfml
 {
@@ -16,10 +20,14 @@ namespace my_sfml
  public:
   MySFML();
   ~MySFML();
+  void AddWorldOnScreen(int xp, int yp, std::string Text);
+  void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
+  void RemoveWordByName(std::string WordToRemove);
  private:
   void open_window();
   void DrawAndDisplay();
   void EventsHandler();
+  void DrawWords();
   /* 
   main sfml loop
   */
