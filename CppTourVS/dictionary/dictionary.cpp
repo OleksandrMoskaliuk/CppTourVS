@@ -1,20 +1,21 @@
-﻿#include <string>
+﻿/* GUI part */
+#include <SFML/Graphics.hpp>
+#include <string>
 #include <fstream>
 #include <iostream>
-#include <locale> // for 
-// for SetConsoleCP, SetConsoleOutputCP( 1251->coding, or back to 866->default) fix for translation
-// words
+/* 
+SetConsoleCP, SetConsoleOutputCP(1251->coding, 
+or back to 866->default) fix for translation words */
+#include <locale>  
 #include <Windows.h>
-#include "../_DataStructures/MyList/MyList.h"
+/*
+_getch() -> get pressed key;
+_kbhit() -> check if key pressed;
+system("cls"); -> clear console;  */
 #include <conio.h> 
-// _getch() -> get pressed key; 
-//_kbhit() -> check if key pressed;
-// system("cls"); -> clear console
 #include <thread>
 #include <chrono>
 #include <vector>
-#include <future>
-
 #include "dictionary.h"
 
 
@@ -42,21 +43,18 @@ bool my_dictionary::MyDictionary::save_to_file() {
   s.close();
   return true;
 }
-
 bool my_dictionary::MyDictionary::save_word(Word new_word) {
   if (check_if_exist(new_word.word)) return false;
   // if this is new word
   Data.push_back(new_word);
   return true;
 }
-
 bool my_dictionary::MyDictionary::check_if_exist(std::string new_word) {
   for (int i = 0; i < Data.get_size(); i++) {
     if (!Data[i].word.compare(new_word)) return true;
   }
   return false;
 }
-
 bool my_dictionary::MyDictionary::load() {
   std::ifstream file(filename, std::ios::in, std::ios::binary);
   if (!file.is_open()) {
@@ -100,13 +98,11 @@ bool my_dictionary::MyDictionary::load() {
   file.close();
   return true;
 }
-
 my_dictionary::MyDictionary::MyDictionary() : Window(nullptr), event(nullptr) {
   srand(time(NULL));
   load();
 }
-
-// MAIN MENU
+// MAIN MENU LOOP
 void my_dictionary::MyDictionary::MainLoop() {
   
   std::vector<std::string> menu_info;
@@ -298,7 +294,6 @@ void my_dictionary::MyDictionary::MainLoop() {
     }
   }
 }
-
 void my_dictionary::MyDictionary::show_dictionary() {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleTextAttribute(hConsole, 13);
@@ -323,7 +318,6 @@ void my_dictionary::MyDictionary::show_dictionary() {
   SetConsoleTextAttribute(hConsole, 13);
   setlocale(LC_ALL, "en");
 }
-
 void my_dictionary::MyDictionary::read() {
   using namespace std;
 
@@ -347,8 +341,6 @@ void my_dictionary::MyDictionary::read() {
 
   // delete[] data;
 }
-
-
 bool my_dictionary::MyDictionary::edit_word(long int index) {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   std::vector<std::string> word_menu;
@@ -518,7 +510,6 @@ void my_dictionary::MyDictionary::change_cursor_xy(int x, int y) {
   HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleCursorPosition(output, pos);
 }
-
 bool my_dictionary::MyDictionary::test_yourself() {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   std::vector<std::string> word_menu;
@@ -717,7 +708,6 @@ bool my_dictionary::MyDictionary::test_yourself() {
   // test_yourself_end_case:
   return result;
 }
-
 void my_dictionary::MyDictionary::shake_word_menu(
     std::vector<std::string>& word_menu, int times_to_shake) {
   for (int i = 0; i < times_to_shake; i++) {
@@ -731,7 +721,6 @@ void my_dictionary::MyDictionary::shake_word_menu(
     word_menu[pick_word_b] = buf;
   }
 }
-
 void my_dictionary::MyDictionary::tets_yourself_word_checker(
     bool en_or_ua, bool& generate, bool &print_once, int menu_cursor, Word selected_word_node, 
     std::vector<std::string> &word_menu
@@ -771,4 +760,11 @@ void my_dictionary::MyDictionary::tets_yourself_word_checker(
   generate = true;
   print_once = true;
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+}
+
+void my_dictionary::MyDictionary::HandleEvents() {
+ while (1) 
+ {
+
+ }
 }

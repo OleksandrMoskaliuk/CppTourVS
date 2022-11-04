@@ -1,9 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include <future>
 #include <iostream>
-#include <chrono>
 #include <vector>
-#include <memory>
 
 #include "My_SFML.h"
 

@@ -3,6 +3,8 @@
 
 // Make menu using SFML
 #include "../SFML/My_SFML.h"
+/* lightweight selfmade data struct */
+#include "../_DataStructures/MyList/MyList.h"
 
 namespace my_dictionary {
 // interface:
@@ -34,6 +36,7 @@ namespace my_dictionary {
 
 // forvard declaration, used to minimize includes, see:
 // https://blog.knatten.org/2012/11/30/how-to-avoid-includes-in-headers/
+
  namespace sf
  {
   class Color;
@@ -43,33 +46,6 @@ namespace my_dictionary {
 
 
 class MyDictionary : public my_sfml::MySFML {
- private:
-  sf::RenderWindow* Window;
-  sf::Event* event;
-  struct Word {
-    std::string word;
-    std::string translation;
-    std::string category;
-    std::string example;
-  };
-  my_list::List<Word> Data;
-  const int history_buffer = 500;
-  std::string history;
-  bool check_if_exist(std::string new_word);
-  bool load();
-  bool save_to_file();
-  bool save_word(Word new_word);
-  bool edit_word(long int index);
-  void print_history();
-  void add_to_history(std::string str);
-  void change_cursor_xy(int x, int y);
-  bool test_yourself();
-  void shake_word_menu(std::vector<std::string>& word_menu, int times_to_shake);
-  // next method only for test_yourself function;
-  void tets_yourself_word_checker(bool en_or_ua, bool& generate,
-                                  bool& printonce, int menu_cursor,
-                                  Word selected_word_node,
-                                  std::vector<std::string>& word_menu);
  public:
   MyDictionary();
   ~MyDictionary() { save_to_file(); }
@@ -77,7 +53,37 @@ class MyDictionary : public my_sfml::MySFML {
   const char* filename = "dictionary/dctionary.txt";
   void show_dictionary();
   void read();
-};  // class MyDictionary
+private:
+ struct Word {
+  std::string word;
+  std::string translation;
+  std::string category;
+  std::string example;
+ };
+ my_list::List<Word> Data;
+ const int history_buffer = 500;
+ std::string history;
+ bool check_if_exist(std::string new_word);
+ bool load();
+ bool save_to_file();
+ bool save_word(Word new_word);
+ bool edit_word(long int index);
+ void print_history();
+ void add_to_history(std::string str);
+ void change_cursor_xy(int x, int y);
+ bool test_yourself();
+ void shake_word_menu(std::vector<std::string>& word_menu, int times_to_shake);
+ // next method only for test_yourself function;
+ void tets_yourself_word_checker(bool en_or_ua, bool& generate,
+                                 bool& printonce, int menu_cursor,
+                                 Word selected_word_node,
+                                 std::vector<std::string>& word_menu);
+ //GUI part
+ sf::RenderWindow* Window;
+ sf::Event* event;
+ /* Handle GUI events */
+ void HandleEvents();
+};  // class MyDictionary : public my_sfml::MySFML
 
 };  // namespace my_dictionary
 
