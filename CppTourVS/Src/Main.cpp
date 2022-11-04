@@ -12,8 +12,8 @@ int main(int argc, char* argv[]) {
   project_manager::ProjectsManager PM(argc, argv);
   //PM.run_my_dictionary();
   //PM.run_my_timer();
-  PM.open_window();
-   
+  PM.Run_mysfmlWindow();
+  //PM.run_my_dictionary();
 }
 
 

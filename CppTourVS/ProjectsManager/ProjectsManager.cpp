@@ -1,6 +1,7 @@
 #include "ProjectsManager.h"
 
 #include <iostream>
+#include <future>
 
 #include "../Algorithm\Sorting/Sorting.h"
 #include "../BitOperations/8bit.h"
@@ -46,11 +47,12 @@ namespace project_manager {
 
  void ProjectsManager::run_my_dictionary() {
   my_dictionary::MyDictionary md;
-  md.run_dictionary();
+  md.RunLoop();
  }
 
- void ProjectsManager::open_window() {
-  my_sfml::MySFML msfml;
+ void ProjectsManager::Run_mysfmlWindow() {
+    my_sfml::MySFML msfml;
+    msfml.RunLoop();
  }
 
  void ProjectsManager::run_my_timer() {

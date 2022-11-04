@@ -25,7 +25,7 @@ namespace project_manager {
   void run_my_dictionary();
 
   //SFML
-  void open_window();
+  void Run_mysfmlWindow();
 
   //Timer
   void run_my_timer();

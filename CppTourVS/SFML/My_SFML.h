@@ -23,10 +23,14 @@ namespace my_sfml
   void AddWorldOnScreen(int xp, int yp, std::string Text);
   void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
   void RemoveWordByName(std::string WordToRemove);
+  void CleanAllWords();
+  std::string GetString();
+  /* run main loop */
+  virtual void RunLoop();
  private:
-  void open_window();
   void DrawAndDisplay();
   void EventsHandler();
+  /* draw all words from Data->WordsToDraw buffer */
   void DrawWords();
   /* 
   main sfml loop

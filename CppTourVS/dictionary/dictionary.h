@@ -1,6 +1,8 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
+// Make menu using SFML
+#include "../SFML/My_SFML.h"
 
 namespace my_dictionary {
 // interface:
@@ -30,7 +32,7 @@ namespace my_dictionary {
 // file << variable // write
 //
 
-class MyDictionary {
+class MyDictionary : public my_sfml::MySFML {
  private:
   struct Word {
     std::string word;
@@ -61,12 +63,11 @@ class MyDictionary {
     srand(time(NULL));
     load();
   }
+  void RunLoop() override;
   ~MyDictionary() { save_to_file(); }
   const char* filename = "dictionary/dctionary.txt";
-  void open_menu();
   void show_dictionary();
   void read();
-  void run_dictionary();
 };  // class MyDictionary
 
 };  // namespace my_dictionary

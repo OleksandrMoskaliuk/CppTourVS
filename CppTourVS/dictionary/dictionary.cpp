@@ -13,6 +13,7 @@
 #include <thread>
 #include <chrono>
 #include <vector>
+#include <future>
 
 #include "dictionary.h"
 
@@ -101,7 +102,8 @@ bool my_dictionary::MyDictionary::load() {
 }
 
 // MAIN MENU
-void my_dictionary::MyDictionary::open_menu() {
+void my_dictionary::MyDictionary::RunLoop() {
+  
   std::vector<std::string> menu_info;
   // to add new case just push back it to menu_info vector;
   menu_info.push_back("_SHOW_DICTIONARY");  // case 0
@@ -341,7 +343,6 @@ void my_dictionary::MyDictionary::read() {
   // delete[] data;
 }
 
-void my_dictionary::MyDictionary::run_dictionary() { open_menu(); }
 
 bool my_dictionary::MyDictionary::edit_word(long int index) {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
