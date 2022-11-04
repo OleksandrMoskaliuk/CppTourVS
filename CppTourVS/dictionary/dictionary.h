@@ -32,8 +32,20 @@ namespace my_dictionary {
 // file << variable // write
 //
 
+// forvard declaration, used to minimize includes, see:
+// https://blog.knatten.org/2012/11/30/how-to-avoid-includes-in-headers/
+ namespace sf
+ {
+  class Color;
+  class Event;
+  class RenderWindow;
+ }
+
+
 class MyDictionary : public my_sfml::MySFML {
  private:
+  sf::RenderWindow* Window;
+  sf::Event* event;
   struct Word {
     std::string word;
     std::string translation;
@@ -59,12 +71,9 @@ class MyDictionary : public my_sfml::MySFML {
                                   Word selected_word_node,
                                   std::vector<std::string>& word_menu);
  public:
-  MyDictionary() {
-    srand(time(NULL));
-    load();
-  }
-  void RunLoop() override;
+  MyDictionary();
   ~MyDictionary() { save_to_file(); }
+  void MainLoop() override;
   const char* filename = "dictionary/dctionary.txt";
   void show_dictionary();
   void read();

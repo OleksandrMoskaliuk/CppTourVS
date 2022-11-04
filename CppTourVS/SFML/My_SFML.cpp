@@ -7,11 +7,10 @@
 
 #include "My_SFML.h"
 
-namespace my_sfml {
  /*
  Holds all variables and configs for MySFML class
  */
- struct MySFMLData
+ struct my_sfml::MySFMLData
  {
   /*
   Main window class
@@ -92,7 +91,7 @@ namespace my_sfml {
   }
 
  }; // struct MySFMLData
-}
+
 
 my_sfml::MySFML::MySFML() : Data(new MySFMLData()) {
 }
@@ -115,7 +114,6 @@ void my_sfml::MySFML::DrawAndDisplay() {
 
 // handler  for all events
 void my_sfml::MySFML::EventsHandler() {
-
  while (Data->MainWindow->pollEvent(*Data->event))
  {
   switch (Data->event->type)
@@ -129,7 +127,7 @@ void my_sfml::MySFML::EventsHandler() {
    // handle text input for player
    case sf::Event::TextEntered:
    {
-   /* if (Data->event->text.unicode == '\b'&& Data->PlayerInput.getSize() > 0)
+    if (Data->event->text.unicode == '\b'&& Data->PlayerInput.getSize() > 0)
     {
      Data->PlayerInput.erase(Data->PlayerInput.getSize() - 1, 1);
     }
@@ -137,7 +135,7 @@ void my_sfml::MySFML::EventsHandler() {
     {
      Data->PlayerInput += Data->event->text.unicode;
     }
-    Data->WelcomeText.setString(Data->PlayerInput);*/
+    Data->WelcomeText.setString(Data->PlayerInput);
    } break;
   } // switch (Data->event->type)
  } // while (Data->MainWindow->pollEvent(*Data->event))
@@ -179,6 +177,16 @@ void my_sfml::MySFML::RemoveWordByName(std::string WordToRemove) {
 
 void my_sfml::MySFML::CleanAllWords() {
  this->Data->WordsToDraw.clear();
+}
+
+sf::Event* my_sfml::MySFML::GetEvent() 
+{
+ return Data->event;
+}
+
+sf::RenderWindow* my_sfml::MySFML::GetWindow() 
+{
+ return Data->MainWindow;
 }
 
 std::string my_sfml::MySFML::GetString() {
@@ -229,26 +237,19 @@ std::string my_sfml::MySFML::GetString() {
  return std::string();
 }
 
-void my_sfml::MySFML::RunLoop() {
+void my_sfml::MySFML::MainLoop() {
  // draw words before main loop starts
  AddWorldOnScreen(10, 10, "Yahari", 16, sf::Color::Green);
  AddWorldOnScreen(10, 30, "Nani", 16, sf::Color::Green);
  RemoveWordByName("No");
  std::string StringFromUser = GetString();
  AddWorldOnScreen(10, 50, StringFromUser, 16, sf::Color::Green);
- //RemoveWordByName("Nani");
- //AddWorldOnScreen(10, 40, "Nani");
- //AddWorldOnScreen(10, 70, "Monanto");
- //this->Data->UnregistrateOblectToDraw(this->Data->SimpleCircle);
- // clas private start point
- //// main loop handle;
- //std::future<void> future = std::async(std::launch::async, [&]() {
- // while (!determinate_loop)
- // {
- // 
- // }
- //});
- this->MainLoop();
+ while (Data->MainWindow->isOpen())
+ {
+  EventsHandler();
+  DrawWords();
+  DrawAndDisplay();
+ }
 }
 
 void my_sfml::MySFML::DrawWords() {
@@ -258,12 +259,3 @@ void my_sfml::MySFML::DrawWords() {
  }
 }
 
-void my_sfml::MySFML::MainLoop() {
- while (Data->MainWindow->isOpen())
- {
-  EventsHandler();
-  DrawWords();
-  DrawAndDisplay();
-  
- }
-}

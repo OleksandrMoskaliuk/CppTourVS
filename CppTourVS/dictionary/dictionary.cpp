@@ -101,8 +101,13 @@ bool my_dictionary::MyDictionary::load() {
   return true;
 }
 
+my_dictionary::MyDictionary::MyDictionary() : Window(nullptr), event(nullptr) {
+  srand(time(NULL));
+  load();
+}
+
 // MAIN MENU
-void my_dictionary::MyDictionary::RunLoop() {
+void my_dictionary::MyDictionary::MainLoop() {
   
   std::vector<std::string> menu_info;
   // to add new case just push back it to menu_info vector;

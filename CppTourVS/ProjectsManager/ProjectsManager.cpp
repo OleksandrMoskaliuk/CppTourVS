@@ -47,12 +47,12 @@ namespace project_manager {
 
  void ProjectsManager::run_my_dictionary() {
   my_dictionary::MyDictionary md;
-  md.RunLoop();
+  md.MainLoop();
  }
 
  void ProjectsManager::Run_mysfmlWindow() {
     my_sfml::MySFML msfml;
-    msfml.RunLoop();
+    msfml.MainLoop();
  }
 
  void ProjectsManager::run_my_timer() {

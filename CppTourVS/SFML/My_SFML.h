@@ -7,16 +7,15 @@
 namespace sf 
 {
  class Color;
+ class Event;
+ class RenderWindow;
 }
 
 namespace my_sfml
 {
  struct MySFMLData;
-
  class MySFML
  {
- private:
-  MySFMLData *Data;
  public:
   MySFML();
   ~MySFML();
@@ -24,19 +23,22 @@ namespace my_sfml
   void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
   void RemoveWordByName(std::string WordToRemove);
   void CleanAllWords();
+  /* Get event poiner */
+  sf::Event* GetEvent();
+  /* Get window pointer */
+  sf::RenderWindow* GetWindow();
   std::string GetString();
-  /* run main loop */
-  virtual void RunLoop();
+  /* Main loop should be overriden in children class */
+  virtual void MainLoop();
  private:
+  /* Holds all data in cpp struct */
+  MySFMLData* Data;
+  /* Draw object from inner data struct */
   void DrawAndDisplay();
+  /* Handle all events */
   void EventsHandler();
   /* draw all words from Data->WordsToDraw buffer */
   void DrawWords();
-  /* 
-  main sfml loop
-  */
-  void MainLoop();
  };
-
 }
 #endif
