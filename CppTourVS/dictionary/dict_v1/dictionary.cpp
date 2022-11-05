@@ -98,7 +98,7 @@ bool my_dictionary::MyDictionary::load() {
   file.close();
   return true;
 }
-my_dictionary::MyDictionary::MyDictionary() : Window(nullptr), event(nullptr) {
+my_dictionary::MyDictionary::MyDictionary() {
   srand(time(NULL));
   load();
 }
@@ -119,7 +119,11 @@ void my_dictionary::MyDictionary::MainLoop() {
   int choice = 0;
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   add_to_history("Press 'w' , 's'  to move cursor\nUse 'e' to enter\n");
+  
+ 
+  
   while (true) {
+   
     // action menu info
     if (print_once) {
       std::string temp_buffer = menu_info[choice];
@@ -762,9 +766,4 @@ void my_dictionary::MyDictionary::tets_yourself_word_checker(
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 }
 
-void my_dictionary::MyDictionary::HandleEvents() {
- while (1) 
- {
 
- }
-}

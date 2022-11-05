@@ -22,8 +22,8 @@ namespace project_manager {
   void run_my_2way_list();
 
   // dictionary
-  void run_my_dictionary();
-
+  void run_dictionary_v1();
+  void run_dictionary_v2();
   //SFML
   void Run_mysfmlWindow();
 

@@ -9,7 +9,8 @@
 #include "../Timer/my_timer.h"
 #include "../_DataStructures/MyList/2WayList.h"
 #include "../_DataStructures/MyList/MyList.h"
-#include "../dictionary/dictionary.h"
+#include "../dictionary/dict_v1/dictionary.h"
+#include "../dictionary/dict_v2/dictionary2.h"
 #include "gtest/gtest.h"
 #include "../../CppTourVS/bmp_loader/bmp_loader.h"
 #include "../../CppTourVS/Timer/my_timer.h"
@@ -45,9 +46,14 @@ namespace project_manager {
   }
  }
 
- void ProjectsManager::run_my_dictionary() {
+ void ProjectsManager::run_dictionary_v1() {
   my_dictionary::MyDictionary md;
   md.MainLoop();
+ }
+
+ void ProjectsManager::run_dictionary_v2() {
+  DictionaryV2 dct2;
+  dct2.MainLoop();
  }
 
  void ProjectsManager::Run_mysfmlWindow() {

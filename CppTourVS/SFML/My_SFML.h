@@ -9,6 +9,7 @@ namespace sf
  class Color;
  class Event;
  class RenderWindow;
+ class Font;
 }
 
 namespace my_sfml
@@ -21,6 +22,8 @@ namespace my_sfml
   ~MySFML();
   void AddWorldOnScreen(int xp, int yp, std::string Text);
   void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
+  /* draw all words from Data->WordsToDraw buffer */
+  void DrawWords();
   void RemoveWordByName(std::string WordToRemove);
   void CleanAllWords();
   /* Get event poiner */
@@ -28,6 +31,7 @@ namespace my_sfml
   /* Get window pointer */
   sf::RenderWindow* GetWindow();
   std::string GetString();
+  sf::Font* GetBisternFont();
   /* Main loop should be overriden in children class */
   virtual void MainLoop();
  private:
@@ -37,8 +41,6 @@ namespace my_sfml
   void DrawAndDisplay();
   /* Handle all events */
   void EventsHandler();
-  /* draw all words from Data->WordsToDraw buffer */
-  void DrawWords();
  };
 }
 #endif

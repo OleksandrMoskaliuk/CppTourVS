@@ -78,7 +78,7 @@
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp">
       <Filter>ProjectsManager</Filter>
     </ClCompile>
-    <ClCompile Include="dictionary\dictionary.cpp">
+    <ClCompile Include="dictionary\dict_v1\dictionary.cpp">
       <Filter>dictionary</Filter>
     </ClCompile>
     <ClCompile Include="Multithreading\Future\my_future.cpp">
@@ -86,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="SFML\My_SFML.cpp">
       <Filter>SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="dictionary\dict_v2\dictionary2.cpp">
+      <Filter>dictionary</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,7 +122,7 @@
     <ClInclude Include="_DataStructures\MyList\2WayList.h">
       <Filter>_DataStructures\MyList</Filter>
     </ClInclude>
-    <ClInclude Include="dictionary\dictionary.h">
+    <ClInclude Include="dictionary\dict_v1\dictionary.h">
       <Filter>dictionary</Filter>
     </ClInclude>
     <ClInclude Include="bmp_loader\bmp_loader.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="SFML\My_SFML.h">
       <Filter>SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dictionary\dict_v2\dictionary2.h">
+      <Filter>dictionary</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

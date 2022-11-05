@@ -10,10 +10,10 @@
 int main(int argc, char* argv[]) {
     
   project_manager::ProjectsManager PM(argc, argv);
-  //PM.run_my_dictionary();
+  //PM.run_dictionary_v1();
   //PM.run_my_timer();
   //PM.Run_mysfmlWindow();
-  PM.run_my_dictionary();
+  PM.run_dictionary_v2();
 }
 
 

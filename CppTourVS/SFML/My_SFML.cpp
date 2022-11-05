@@ -153,8 +153,8 @@ void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text, int Tex
  txt.setString(str);
  txt.setCharacterSize(TextSize);
  txt.setFillColor(TextColor);
- 
  txt.setPosition(sf::Vector2f(xp, yp));
+ Data->MainWindow->draw(txt);
  this->Data->WordsToDraw.push_back(txt);
 }
 
@@ -232,6 +232,11 @@ std::string my_sfml::MySFML::GetString() {
   } // while (Data->MainWindow->pollEvent(*Data->event))
  }
  return std::string();
+}
+
+sf::Font* my_sfml::MySFML::GetBisternFont() 
+{
+ return &Data->BisternFont;
 }
 
 void my_sfml::MySFML::MainLoop() {

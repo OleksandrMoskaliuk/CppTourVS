@@ -23,7 +23,8 @@
   <ItemGroup>
     <ClCompile Include="Algorithm\Sorting\Sorting.cpp" />
     <ClCompile Include="BitOperations\8bit.cpp" />
-    <ClCompile Include="dictionary\dictionary.cpp" />
+    <ClCompile Include="dictionary\dict_v2\dictionary2.cpp" />
+    <ClCompile Include="dictionary\dict_v1\dictionary.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
     <ClCompile Include="Multithreading\Future\my_future.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp" />
@@ -38,7 +39,8 @@
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
     <ClInclude Include="BitOperations\8bit.h" />
     <ClInclude Include="bmp_loader\bmp_loader.h" />
-    <ClInclude Include="dictionary\dictionary.h" />
+    <ClInclude Include="dictionary\dict_v2\dictionary2.h" />
+    <ClInclude Include="dictionary\dict_v1\dictionary.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
     <ClInclude Include="Multithreading\Future\my_future.h" />
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />

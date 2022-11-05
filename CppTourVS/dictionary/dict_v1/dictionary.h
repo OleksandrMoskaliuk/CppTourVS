@@ -1,10 +1,8 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-// Make menu using SFML
-#include "../SFML/My_SFML.h"
 /* lightweight selfmade data struct */
-#include "../_DataStructures/MyList/MyList.h"
+#include "../../_DataStructures/MyList/MyList.h"
 
 namespace my_dictionary {
 // interface:
@@ -34,22 +32,11 @@ namespace my_dictionary {
 // file << variable // write
 //
 
-// forvard declaration, used to minimize includes, see:
-// https://blog.knatten.org/2012/11/30/how-to-avoid-includes-in-headers/
-
- namespace sf
- {
-  class Color;
-  class Event;
-  class RenderWindow;
- }
-
-
-class MyDictionary : public my_sfml::MySFML {
+class MyDictionary  {
  public:
   MyDictionary();
   ~MyDictionary() { save_to_file(); }
-  void MainLoop() override;
+  void MainLoop();
   const char* filename = "dictionary/dctionary.txt";
   void show_dictionary();
   void read();
@@ -78,11 +65,6 @@ private:
                                  bool& printonce, int menu_cursor,
                                  Word selected_word_node,
                                  std::vector<std::string>& word_menu);
- //GUI part
- sf::RenderWindow* Window;
- sf::Event* event;
- /* Handle GUI events */
- void HandleEvents();
 };  // class MyDictionary : public my_sfml::MySFML
 
 };  // namespace my_dictionary
