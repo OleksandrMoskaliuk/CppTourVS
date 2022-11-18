@@ -23,7 +23,7 @@ namespace my_sfml
   void AddWorldOnScreen(int xp, int yp, std::string Text);
   void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
   /* draw all words from Data->WordsToDraw buffer */
-  void DrawWords();
+  virtual void DrawWords();
   void RemoveWordByName(std::string WordToRemove);
   void CleanAllWords();
   /* Get event poiner */
