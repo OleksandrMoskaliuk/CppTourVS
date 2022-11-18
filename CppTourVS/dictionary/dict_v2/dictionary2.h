@@ -32,7 +32,7 @@ private:
  };
  my_list::List<Word> Data;
  sf::Vector2f* CursorPosition;
- void const MakeList(std::vector<std::string> const &Text);
+ void const MakeList(std::vector<std::string> const * Text);
  void HandleEvents();
  void DrawWords() override;
  void AdjustCursorCirclebyMenuCounter();

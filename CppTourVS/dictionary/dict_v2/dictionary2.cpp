@@ -38,7 +38,7 @@ void DictionaryV2::MainLoop() {
  while (GetWindow()->isOpen())
  {
   HandleEvents();
-  MakeList(*CurrentList);
+  MakeList(CurrentList);
   // Will write word into draw buffer
   DrawWords();
   GetWindow()->display();
@@ -46,11 +46,13 @@ void DictionaryV2::MainLoop() {
  }
 }
 
-void const DictionaryV2::MakeList(std::vector<std::string> const& Text) {
+void const DictionaryV2::MakeList(std::vector<std::string> const * Text) {
+  if (!Text)
+    return; //nullptr check; 
  this->CleanAllWords();
  CursorPosition->y = 0;
  CursorPosition->x = 30;
- for (std::string wrd : Text)
+ for (std::string wrd : *Text)
  {
   AddWorldOnScreen(CursorPosition->x, CursorPosition->y, wrd, 18, sf::Color::Green);
   CursorPosition->y += 22;
@@ -110,18 +112,12 @@ void DictionaryV2::HandleEvents() {
 void DictionaryV2::DrawWords() {
  if (CurrentList && CurrentList->size() > 0)
  {
- /* if (((*CurrentList)[MenuCounter].compare(std::string(std::string("->>") + (*CurrentList)[MenuCounter])))) 
-  {
-    (*CurrentList)[MenuCounter] = std::string("->> ") + (*CurrentList)[MenuCounter];
-  }
-  */
-  //std::cout << (int)MenuCounter << "\n";
-
-
-
-  
+ 
  }
- GetWindow()->draw(*this->CursorCircle);
+ if (CursorCircle)
+ {
+   GetWindow()->draw(*this->CursorCircle);
+ }
  my_sfml::MySFML::DrawWords();
 }
 
