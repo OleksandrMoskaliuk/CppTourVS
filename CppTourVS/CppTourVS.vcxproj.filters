@@ -89,6 +89,7 @@
     </ClCompile>
     <ClCompile Include="Messenger\Messenger.cpp" />
     <ClCompile Include="dictionary\dict_v2\dct2.cpp" />
+    <ClCompile Include="dictionary\dict_v2\fonts\Fonts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -136,6 +137,7 @@
     <ClInclude Include="Messenger\Messenger.h" />
     <ClInclude Include="Src\Main.h" />
     <ClInclude Include="dictionary\dict_v2\dct2.h" />
+    <ClInclude Include="dictionary\dict_v2\fonts\Fonts.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

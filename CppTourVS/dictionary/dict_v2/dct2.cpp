@@ -6,12 +6,9 @@
 #include "dct2.h"
 
 /* Work with files */
-#include <fstream>
-
 #include <Windows.h>
 
-
-
+#include <fstream>
 
 DictionaryV2::DictionaryV2() : CursorPosition(new sf::Vector2f(0.f, 0.f)) {
   // setup simple circle , for menu cursor
@@ -59,8 +56,7 @@ void const DictionaryV2::MakeList(std::vector<std::wstring> const* Text) {
   CursorPosition->y = 0;
   CursorPosition->x = 30;
   for (std::wstring wrd : *Text) {
-    AddWorldOnScreen(CursorPosition->x, CursorPosition->y, wrd, 18,
-                     sf::Color::Green);
+    DrawInLoop(wrd, sf::Color::Green, 18, CursorPosition->x, CursorPosition->y);
     CursorPosition->y += 22;
   }
 }
@@ -68,7 +64,7 @@ void const DictionaryV2::MakeList(std::vector<std::wstring> const* Text) {
 void DictionaryV2::HandleEvents() {
   std::wstring str = L"dsagsdg";
   sf::Text dummy_text;
-  //dummy_text.setFont(*GetBisternFont());
+  // dummy_text.setFont(*GetBisternFont());
   dummy_text.setPosition(50.f, 50.f);
   dummy_text.setString(str);
   dummy_text.setFillColor(sf::Color::Green);
@@ -161,43 +157,36 @@ void DictionaryV2::EnterPressed() {
   }
 }
 
-
-
-
-
 void DictionaryV2::ShowDictionary() {
   this->CleanAllWords();
   if (!ShowDictionaryData) {
     this->ShowDictionaryData = new std::vector<std::wstring>();
   }
 
-  //System::SharedPtr<Document> doc = System::MakeObject<Document>();
+  // System::SharedPtr<Document> doc = System::MakeObject<Document>();
 
   setlocale(LC_ALL, "ru");
   for (int i = 0; i < Data->get_size(); i++) {
-
     std::wstring ws_word((*Data)[i].word.begin(), (*Data)[i].word.end());
     std::wstring ws_translation((*Data)[i].translation.begin(),
-                         (*Data)[i].translation.end());
+                                (*Data)[i].translation.end());
     std::wstring ws_categoty((*Data)[i].category.begin(),
                              (*Data)[i].category.end());
-    
-        
-    ShowDictionaryData->push_back(std::wstring(L". ÔÂ²²Ô Word: ") + ws_word
-                                  );
+
+    ShowDictionaryData->push_back(std::wstring(L". ÔÂ²²Ô Word: ") + ws_word);
     setlocale(LC_CTYPE, "Ukrainian");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     std::cout << (*Data)[i].translation << "\n";
-    ShowDictionaryData->push_back(std::to_wstring(i) +
-                                  std::wstring(L". translation: ") + ws_translation);
+    ShowDictionaryData->push_back(
+        std::to_wstring(i) + std::wstring(L". translation: ") + ws_translation);
     setlocale(LC_CTYPE, "en");
     SetConsoleCP(866);
     SetConsoleOutputCP(866);
-   /* ShowDictionaryData->push_back(
-        std::to_string(i) + std::wstring(". Categoty: ") + (*Data)[i].category);
-    ShowDictionaryData->push_back(
-        std::to_string(i) + std::wstring(" Example: ") + (*Data)[i].example);*/
+    /* ShowDictionaryData->push_back(
+         std::to_string(i) + std::wstring(". Categoty: ") +
+     (*Data)[i].category); ShowDictionaryData->push_back( std::to_string(i) +
+     std::wstring(" Example: ") + (*Data)[i].example);*/
 
     // std::cout << ">>>" << std::endl;
   }

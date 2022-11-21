@@ -36,7 +36,7 @@ private:
  sf::Vector2f* CursorPosition;
  void const MakeList(std::vector<std::wstring> const * Text);
  void HandleEvents();
- void DrawWords() override;
+ void DrawWords();
  void AdjustCursorCirclebyMenuCounter();
  void EnterPressed();
  // Main menu functiuons
