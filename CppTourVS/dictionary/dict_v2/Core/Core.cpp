@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include "My_SFML.h"
+#include "Core.h"
 
  /*
  Holds all variables and configs for MySFML class
@@ -18,8 +18,11 @@
   */
   sf::Event* event;
   sf::Font BisternFont;
+  sf::Font TrajanFont;
+  sf::Font FuturaFont;
+  sf::Font RoboSlab;
   sf::Text WelcomeText;
-  sf::String PlayerInput;
+  std::wstring PlayerInput;
   sf::CircleShape SimpleCircle;
   std::vector<sf::Text> WordsToDraw;
   /*
@@ -30,6 +33,9 @@
   MySFMLData() : RegisteredOblectToDraw(new std::vector<sf::Drawable*>()) {
    SetUpMainWindow();
    SetUpBisternFont();
+   SetUpTrajanFont();
+   SetUpFuturaFont();
+   SetUpRobotoSlabFont();
    SetUpWelcomeText();
    SetUpSimpleCircle();
   }
@@ -61,10 +67,33 @@
     return;
    }
   }
+  void SetUpTrajanFont() {
+    // load font
+    if (!TrajanFont.loadFromFile("dictionary/dict_v2/fonts/Trajan/Trajan Pro.ttf")) {
+      std::cout << "Main font wan't found !\n";
+      return;
+    }
+  }
+  void SetUpFuturaFont() {
+    // load font
+    if (!FuturaFont.loadFromFile(
+            "dictionary/dict_v2/fonts/Futura/unicode.futurabb.ttf")) {
+      std::cout << "Main font wan't found !\n";
+      return;
+    }
+  }
+  void SetUpRobotoSlabFont() {
+    // load font
+    if (!RoboSlab.loadFromFile(
+            "dictionary/dict_v2/fonts/RobotoSlab/RobotoSlab-VariableFont_wght.ttf")) {
+      std::cout << "Main font wan't found !\n";
+      return;
+    }
+  }
   void SetUpWelcomeText() {
    // select the font
    WelcomeText.setFont(BisternFont); // font is a sf::Font
-   // set the string to display
+   // set the wstring to display
    WelcomeText.setString("");
    // set the character size
    WelcomeText.setCharacterSize(20); // in pixels, not points!
@@ -124,9 +153,9 @@ void my_sfml::MySFML::EventsHandler() {
    // handle text input for player
    case sf::Event::TextEntered:
    {
-    if (Data->event->text.unicode == '\b'&& Data->PlayerInput.getSize() > 0)
+    if (Data->event->text.unicode == '\b'&& Data->PlayerInput.size() > 0)
     {
-     Data->PlayerInput.erase(Data->PlayerInput.getSize() - 1, 1);
+     Data->PlayerInput.erase(Data->PlayerInput.size() - 1, 1);
     }
     else
     {
@@ -139,18 +168,20 @@ void my_sfml::MySFML::EventsHandler() {
 }
 
 // TODO: check if same word exist on screen
-void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text) {
+void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::wstring Text) {
  int TextSize = 20;
  sf::Color TextColor = sf::Color::Green;
  this->AddWorldOnScreen(xp, yp, Text, TextSize, TextColor);
 }
 
 // TODO: check if same word exist on screen
-void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor) {
- sf::String str = Text;
+void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize, sf::Color TextColor) {
+ std::wstring str = Text;
  sf::Text txt;
- txt.setFont(this->Data->BisternFont);
- txt.setString(str);
+ 
+ txt.setFont(this->Data->RoboSlab);
+ std::wstring name = L"Ó ê ð";
+ txt.setString(name);
  txt.setCharacterSize(TextSize);
  txt.setFillColor(TextColor);
  txt.setPosition(sf::Vector2f(xp, yp));
@@ -158,11 +189,11 @@ void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::string Text, int Tex
  this->Data->WordsToDraw.push_back(txt);
 }
 
-void my_sfml::MySFML::RemoveWordByName(std::string WordToRemove) {
+void my_sfml::MySFML::RemoveWordByName(std::wstring WordToRemove) {
  std::vector <sf::Text>::iterator ToEraseIterator = Data->WordsToDraw.begin();
  for (int counter = 0; counter < Data->WordsToDraw.size(); counter++)
  {
-  std::string str_to_compare = std::string(Data->WordsToDraw[counter].getString());
+  std::wstring str_to_compare = std::wstring(Data->WordsToDraw[counter].getString());
   if (!str_to_compare.compare(WordToRemove))
   {
    this->Data->WordsToDraw.erase(ToEraseIterator);
@@ -186,8 +217,8 @@ sf::RenderWindow* my_sfml::MySFML::GetWindow()
  return Data->MainWindow;
 }
 
-std::string my_sfml::MySFML::GetString() {
- sf::String reuslt_str;
+std::wstring my_sfml::MySFML::GetString() {
+ std::wstring reuslt_str;
  sf::Vector2f window_center = sf::Vector2f(400.f, 300.f);
  Data->WelcomeText.setPosition(window_center);
  while (true)
@@ -208,13 +239,13 @@ std::string my_sfml::MySFML::GetString() {
     {
      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
      {
-      return std::string(reuslt_str);
+      return std::wstring(reuslt_str);
       break;
      }
      // Backspace button pressed
-     if (Data->event->text.unicode == '\b' && reuslt_str.getSize() > 0)
+     if (Data->event->text.unicode == '\b' && reuslt_str.size() > 0)
      {
-      reuslt_str.erase(reuslt_str.getSize() - 1, 1);
+      reuslt_str.erase(reuslt_str.size() - 1, 1);
      }
      else
      {
@@ -222,7 +253,7 @@ std::string my_sfml::MySFML::GetString() {
      }
      // place text exactly on center of window
      Data->WelcomeText.setString(reuslt_str);  
-     sf::Vector2f new_origin((Data->WelcomeText.getCharacterSize() * reuslt_str.getSize()/4), 0.f);
+     sf::Vector2f new_origin((Data->WelcomeText.getCharacterSize() * reuslt_str.size()/4), 0.f);
      Data->WelcomeText.setOrigin(new_origin);
     } break;
    } // switch (Data->event->type)
@@ -231,7 +262,7 @@ std::string my_sfml::MySFML::GetString() {
    Data->MainWindow->display();
   } // while (Data->MainWindow->pollEvent(*Data->event))
  }
- return std::string();
+ return std::wstring();
 }
 
 sf::Font* my_sfml::MySFML::GetBisternFont() 
@@ -241,10 +272,10 @@ sf::Font* my_sfml::MySFML::GetBisternFont()
 
 void my_sfml::MySFML::MainLoop() {
  // draw words before main loop starts
- AddWorldOnScreen(10, 10, "Yahari", 16, sf::Color::Green);
- AddWorldOnScreen(10, 30, "Nani", 16, sf::Color::Green);
- RemoveWordByName("No");
- std::string StringFromUser = GetString();
+ AddWorldOnScreen(10, 10, L"Yahari", 16, sf::Color::Green);
+ AddWorldOnScreen(10, 30,L"Nani", 16, sf::Color::Green);
+ RemoveWordByName(L"No");
+ std::wstring StringFromUser = GetString();
  AddWorldOnScreen(10, 50, StringFromUser, 16, sf::Color::Green);
  while (Data->MainWindow->isOpen())
  {

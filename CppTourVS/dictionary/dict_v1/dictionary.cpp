@@ -345,6 +345,12 @@ void my_dictionary::MyDictionary::read() {
 
   // delete[] data;
 }
+
+my_list::List<my_dictionary::Word>*
+my_dictionary::MyDictionary::GetData() {
+ return &this->Data; 
+}
+
 bool my_dictionary::MyDictionary::edit_word(long int index) {
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   std::vector<std::string> word_menu;

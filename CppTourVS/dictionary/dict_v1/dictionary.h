@@ -31,6 +31,12 @@ namespace my_dictionary {
 // file >> variable // read
 // file << variable // write
 //
+struct Word {
+  std::string word;
+  std::string translation;
+  std::string category;
+  std::string example;
+};
 
 class MyDictionary  {
  public:
@@ -40,13 +46,8 @@ class MyDictionary  {
   const char* filename = "dictionary/dctionary.txt";
   void show_dictionary();
   void read();
-private:
- struct Word {
-  std::string word;
-  std::string translation;
-  std::string category;
-  std::string example;
- };
+
+ private:
  my_list::List<Word> Data;
  const int history_buffer = 500;
  std::string history;
@@ -65,6 +66,9 @@ private:
                                  bool& printonce, int menu_cursor,
                                  Word selected_word_node,
                                  std::vector<std::string>& word_menu);
+
+public:
+ my_list::List<Word>* GetData();
 };  // class MyDictionary : public my_sfml::MySFML
 
 };  // namespace my_dictionary

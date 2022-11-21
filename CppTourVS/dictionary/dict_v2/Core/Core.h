@@ -20,17 +20,17 @@ namespace my_sfml
  public:
   MySFML();
   ~MySFML();
-  void AddWorldOnScreen(int xp, int yp, std::string Text);
-  void AddWorldOnScreen(int xp, int yp, std::string Text, int TextSize, sf::Color TextColor);
+  void AddWorldOnScreen(int xp, int yp, std::wstring Text);
+  void AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize, sf::Color TextColor);
   /* draw all words from Data->WordsToDraw buffer */
   virtual void DrawWords();
-  void RemoveWordByName(std::string WordToRemove);
+  void RemoveWordByName(std::wstring WordToRemove);
   void CleanAllWords();
   /* Get event poiner */
   sf::Event* GetEvent();
   /* Get window pointer */
   sf::RenderWindow* GetWindow();
-  std::string GetString();
+  std::wstring GetString();
   sf::Font* GetBisternFont();
   /* Main loop should be overriden in children class */
   virtual void MainLoop();

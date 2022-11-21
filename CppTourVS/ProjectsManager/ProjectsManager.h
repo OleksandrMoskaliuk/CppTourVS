@@ -34,6 +34,9 @@ namespace project_manager {
   // _8bit::entry_point();
 
   void BmpLoaderStart();
+
+  // dummy messenger
+  void run_messenger();
  };
 
 }  // namespace project_manager

@@ -3,7 +3,7 @@
 #define DICTIONARY2
 
 #include "../dict_v1/dictionary.h"
-#include "../../SFML/My_SFML.h"
+#include "Core/Core.h"
 #include "SFML/System/Vector2.hpp"
 
 class Vector2;
@@ -22,20 +22,25 @@ private:
  class sf::CircleShape* CursorCircle;
  int8_t MenuCounter = 0;
  // Current list pointer to display
- std::vector<std::string> *CurrentList;
+ std::vector<std::wstring> *CurrentList;
+ std::vector<std::wstring>* ShowDictionaryData;
  struct Vector2f {};
  struct Word {
-  std::string word;
-  std::string translation;
-  std::string category;
-  std::string example;
+  std::wstring word;
+  std::wstring translation;
+  std::wstring category;
+  std::wstring example;
  };
- my_list::List<Word> Data;
+ // Holds All Words after load
+ my_list::List<my_dictionary::Word>* Data;
  sf::Vector2f* CursorPosition;
- void const MakeList(std::vector<std::string> const * Text);
+ void const MakeList(std::vector<std::wstring> const * Text);
  void HandleEvents();
  void DrawWords() override;
  void AdjustCursorCirclebyMenuCounter();
+ void EnterPressed();
+ // Main menu functiuons
+ void ShowDictionary();
 };
 
 
