@@ -5,9 +5,9 @@
 #include "Core.h"
 
  /*
- Holds all variables and configs for MySFML class
+ Holds all variables and configs for DctCore class
  */
- struct my_sfml::MySFMLData
+ struct dct_core::MySFMLData
  {
   /*
   Main window class
@@ -119,19 +119,19 @@
  }; // struct MySFMLData
 
 
-my_sfml::MySFML::MySFML() : Data(new MySFMLData()) {
+dct_core::DctCore::DctCore() : Data(new MySFMLData()) {
 }
 
-my_sfml::MySFML::~MySFML() {
+dct_core::DctCore::~DctCore() {
  delete(Data);
 }
 
-void my_sfml::MySFML::DrawAndDisplay() {
+void dct_core::DctCore::DrawAndDisplay() {
  for (sf::Drawable* dr : *Data->RegisteredOblectToDraw)
  {
   Data->MainWindow->draw(*dr);
  }
- // Draw words added by my_sfml::MySFML::AddWorldOnScreen function
+ // Draw words added by dct_coreDctCore::AddWorldOnScreen function
  Data->MainWindow->display();
  Data->MainWindow->clear();
  //std::cout << "2\n";
@@ -139,7 +139,7 @@ void my_sfml::MySFML::DrawAndDisplay() {
 }
 
 // handler  for all events
-void my_sfml::MySFML::EventsHandler() {
+void dct_core::DctCore::EventsHandler() {
  while (Data->MainWindow->pollEvent(*Data->event))
  {
   switch (Data->event->type)
@@ -168,14 +168,15 @@ void my_sfml::MySFML::EventsHandler() {
 }
 
 // TODO: check if same word exist on screen
-void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::wstring Text) {
+void dct_core::DctCore::AddWorldOnScreen(int xp, int yp, std::wstring Text) {
  int TextSize = 20;
  sf::Color TextColor = sf::Color::Green;
  this->AddWorldOnScreen(xp, yp, Text, TextSize, TextColor);
 }
 
 // TODO: check if same word exist on screen
-void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize, sf::Color TextColor) {
+void dct_core::DctCore::AddWorldOnScreen(int xp, int yp, std::wstring Text,
+                                         int TextSize, sf::Color TextColor) {
  std::wstring str = Text;
  sf::Text txt;
  
@@ -189,7 +190,7 @@ void my_sfml::MySFML::AddWorldOnScreen(int xp, int yp, std::wstring Text, int Te
  this->Data->WordsToDraw.push_back(txt);
 }
 
-void my_sfml::MySFML::RemoveWordByName(std::wstring WordToRemove) {
+void dct_core::DctCore::RemoveWordByName(std::wstring WordToRemove) {
  std::vector <sf::Text>::iterator ToEraseIterator = Data->WordsToDraw.begin();
  for (int counter = 0; counter < Data->WordsToDraw.size(); counter++)
  {
@@ -203,21 +204,19 @@ void my_sfml::MySFML::RemoveWordByName(std::wstring WordToRemove) {
  }
 }
 
-void my_sfml::MySFML::CleanAllWords() {
+void dct_core::DctCore::CleanAllWords() {
  this->Data->WordsToDraw.clear();
 }
 
-sf::Event* my_sfml::MySFML::GetEvent() 
-{
+sf::Event* dct_core::DctCore::GetEvent() {
  return Data->event;
 }
 
-sf::RenderWindow* my_sfml::MySFML::GetWindow() 
-{
+sf::RenderWindow* dct_core::DctCore::GetWindow() {
  return Data->MainWindow;
 }
 
-std::wstring my_sfml::MySFML::GetString() {
+std::wstring dct_core::DctCore::GetString() {
  std::wstring reuslt_str;
  sf::Vector2f window_center = sf::Vector2f(400.f, 300.f);
  Data->WelcomeText.setPosition(window_center);
@@ -265,12 +264,11 @@ std::wstring my_sfml::MySFML::GetString() {
  return std::wstring();
 }
 
-sf::Font* my_sfml::MySFML::GetBisternFont() 
-{
+sf::Font* dct_core::DctCore::GetBisternFont() {
  return &Data->BisternFont;
 }
 
-void my_sfml::MySFML::MainLoop() {
+void dct_core::DctCore::MainLoop() {
  // draw words before main loop starts
  AddWorldOnScreen(10, 10, L"Yahari", 16, sf::Color::Green);
  AddWorldOnScreen(10, 30,L"Nani", 16, sf::Color::Green);
@@ -285,7 +283,7 @@ void my_sfml::MySFML::MainLoop() {
  }
 }
 
-void my_sfml::MySFML::DrawWords() {
+void dct_core::DctCore::DrawWords() {
  for (sf::Text text : this->Data->WordsToDraw)
  {
   Data->MainWindow->draw(text);

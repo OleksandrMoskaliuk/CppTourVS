@@ -3,12 +3,13 @@
 #include <thread>
 
 /* USER GUI */
-#include "dictionary2.h"
+#include "dct2.h"
 
 /* Work with files */
 #include <fstream>
 
 #include <Windows.h>
+
 
 
 
@@ -67,7 +68,7 @@ void const DictionaryV2::MakeList(std::vector<std::wstring> const* Text) {
 void DictionaryV2::HandleEvents() {
   std::wstring str = L"dsagsdg";
   sf::Text dummy_text;
-  dummy_text.setFont(*GetBisternFont());
+  //dummy_text.setFont(*GetBisternFont());
   dummy_text.setPosition(50.f, 50.f);
   dummy_text.setString(str);
   dummy_text.setFillColor(sf::Color::Green);
@@ -114,7 +115,7 @@ void DictionaryV2::DrawWords() {
   if (CursorCircle) {
     GetWindow()->draw(*this->CursorCircle);
   }
-  my_sfml::MySFML::DrawWords();
+  DrawWords();
 }
 
 void DictionaryV2::AdjustCursorCirclebyMenuCounter() {

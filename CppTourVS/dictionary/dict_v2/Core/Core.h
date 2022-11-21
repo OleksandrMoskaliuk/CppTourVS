@@ -12,14 +12,14 @@ namespace sf
  class Font;
 }
 
-namespace my_sfml
+namespace dct_core
 {
  struct MySFMLData;
- class MySFML
+ class DctCore
  {
  public:
-  MySFML();
-  ~MySFML();
+  DctCore();
+  ~DctCore();
   void AddWorldOnScreen(int xp, int yp, std::wstring Text);
   void AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize, sf::Color TextColor);
   /* draw all words from Data->WordsToDraw buffer */

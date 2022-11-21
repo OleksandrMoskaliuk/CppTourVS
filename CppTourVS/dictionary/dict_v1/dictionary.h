@@ -69,7 +69,7 @@ class MyDictionary  {
 
 public:
  my_list::List<Word>* GetData();
-};  // class MyDictionary : public my_sfml::MySFML
+};  // class MyDictionary : public my_sfml::DctCore
 
 };  // namespace my_dictionary
 

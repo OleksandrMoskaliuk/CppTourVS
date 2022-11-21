@@ -12,9 +12,9 @@ namespace sf
  class CircleShape;
 }
 
-class DictionaryV2 : public my_dictionary::MyDictionary, public my_sfml::MySFML
-{
-public:
+class DictionaryV2 : public my_dictionary::MyDictionary,
+                     public dct_core::DctCore {
+ public:
  DictionaryV2();
  ~DictionaryV2();
  void MainLoop() override;

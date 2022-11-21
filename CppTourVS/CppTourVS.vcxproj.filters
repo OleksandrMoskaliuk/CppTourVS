@@ -87,10 +87,8 @@
     <ClCompile Include="dictionary\dict_v2\Core\Core.cpp">
       <Filter>SFML</Filter>
     </ClCompile>
-    <ClCompile Include="dictionary\dict_v2\dictionary2.cpp">
-      <Filter>dictionary</Filter>
-    </ClCompile>
     <ClCompile Include="Messenger\Messenger.cpp" />
+    <ClCompile Include="dictionary\dict_v2\dct2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
@@ -135,11 +133,9 @@
     <ClInclude Include="dictionary\dict_v2\Core\Core.h">
       <Filter>SFML</Filter>
     </ClInclude>
-    <ClInclude Include="dictionary\dict_v2\dictionary2.h">
-      <Filter>dictionary</Filter>
-    </ClInclude>
     <ClInclude Include="Messenger\Messenger.h" />
     <ClInclude Include="Src\Main.h" />
+    <ClInclude Include="dictionary\dict_v2\dct2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -13,7 +13,7 @@
 #include "../_DataStructures/MyList/MyList.h"
 #include "../bmp_loader/bmp_loader.h"
 #include "../dictionary/dict_v1/dictionary.h"
-#include "../dictionary/dict_v2/dictionary2.h"
+#include "../dictionary/dict_v2/dct2.h"
 #include "gtest/gtest.h"
 
 namespace project_manager {
