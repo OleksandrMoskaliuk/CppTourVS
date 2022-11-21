@@ -10,10 +10,6 @@
  struct dct_core::MySFMLData
  {
   /*
-  Main window class
-  */
-  sf::RenderWindow* MainWindow;
-  /*
   Pull event pointer variable
   */
   sf::Event* event;
@@ -40,7 +36,6 @@
    SetUpSimpleCircle();
   }
   ~MySFMLData() {
-   delete(MainWindow);
    delete(event);
    event = nullptr;
   }
@@ -112,15 +107,18 @@
   }
   void SetUpMainWindow() {
    // windows create and config
-   MainWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!");
+  
    event = new sf::Event;
   }
 
  }; // struct MySFMLData
 
 
-dct_core::DctCore::DctCore() : Data(new MySFMLData()) {
-}
+dct_core::DctCore::DctCore()
+     : MainWindow(new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!")),
+           Data(new MySFMLData()) {
+  
+ }
 
 dct_core::DctCore::~DctCore() {
  delete(Data);
@@ -129,18 +127,18 @@ dct_core::DctCore::~DctCore() {
 void dct_core::DctCore::DrawAndDisplay() {
  for (sf::Drawable* dr : *Data->RegisteredOblectToDraw)
  {
-  Data->MainWindow->draw(*dr);
+  MainWindow->draw(*dr);
  }
  // Draw words added by dct_coreDctCore::AddWorldOnScreen function
- Data->MainWindow->display();
- Data->MainWindow->clear();
+ MainWindow->display();
+ MainWindow->clear();
  //std::cout << "2\n";
  //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 }
 
 // handler  for all events
 void dct_core::DctCore::EventsHandler() {
- while (Data->MainWindow->pollEvent(*Data->event))
+ while (MainWindow->pollEvent(*Data->event))
  {
   switch (Data->event->type)
   {
@@ -148,7 +146,7 @@ void dct_core::DctCore::EventsHandler() {
    {} break;
    case sf::Event::Closed:
    {
-    Data->MainWindow->close();
+    MainWindow->close();
    } break;
    // handle text input for player
    case sf::Event::TextEntered:
@@ -186,7 +184,7 @@ void dct_core::DctCore::AddWorldOnScreen(int xp, int yp, std::wstring Text,
  txt.setCharacterSize(TextSize);
  txt.setFillColor(TextColor);
  txt.setPosition(sf::Vector2f(xp, yp));
- Data->MainWindow->draw(txt);
+ MainWindow->draw(txt);
  this->Data->WordsToDraw.push_back(txt);
 }
 
@@ -213,7 +211,7 @@ sf::Event* dct_core::DctCore::GetEvent() {
 }
 
 sf::RenderWindow* dct_core::DctCore::GetWindow() {
- return Data->MainWindow;
+ return MainWindow;
 }
 
 std::wstring dct_core::DctCore::GetString() {
@@ -222,16 +220,16 @@ std::wstring dct_core::DctCore::GetString() {
  Data->WelcomeText.setPosition(window_center);
  while (true)
  {
-  while (Data->MainWindow->pollEvent(*Data->event))
+  while (MainWindow->pollEvent(*Data->event))
   {
-   Data->MainWindow->clear();
+   MainWindow->clear();
    switch (Data->event->type)
    {
     default:
     {} break;
     case sf::Event::Closed:
     {
-     Data->MainWindow->close();
+     MainWindow->close();
     } break;
     // handle input for user
     case sf::Event::TextEntered:
@@ -257,8 +255,8 @@ std::wstring dct_core::DctCore::GetString() {
     } break;
    } // switch (Data->event->type)
    DrawWords();
-   Data->MainWindow->draw(Data->WelcomeText);
-   Data->MainWindow->display();
+   MainWindow->draw(Data->WelcomeText);
+   MainWindow->display();
   } // while (Data->MainWindow->pollEvent(*Data->event))
  }
  return std::wstring();
@@ -275,7 +273,7 @@ void dct_core::DctCore::MainLoop() {
  RemoveWordByName(L"No");
  std::wstring StringFromUser = GetString();
  AddWorldOnScreen(10, 50, StringFromUser, 16, sf::Color::Green);
- while (Data->MainWindow->isOpen())
+ while (MainWindow->isOpen())
  {
   EventsHandler();
   DrawWords();
@@ -286,7 +284,7 @@ void dct_core::DctCore::MainLoop() {
 void dct_core::DctCore::DrawWords() {
  for (sf::Text text : this->Data->WordsToDraw)
  {
-  Data->MainWindow->draw(text);
+  MainWindow->draw(text);
  }
 }
 

@@ -1,27 +1,27 @@
 #pragma once
-#ifndef MY_SFML
-#define MY_SFML
+#ifndef DCT_CORE
+#define DCT_CORE
 
 // forvard declaration, used to minimize includes, see:
 // https://blog.knatten.org/2012/11/30/how-to-avoid-includes-in-headers/
-namespace sf 
-{
- class Color;
- class Event;
- class RenderWindow;
- class Font;
-}
 
-namespace dct_core
-{
- struct MySFMLData;
- class DctCore
- {
+namespace sf {
+class Color;
+class Event;
+class RenderWindow;
+class Font;
+}  // namespace sf
+namespace dct_core {
+struct MySFMLData;
+class DctCore {
+ private:
+  sf::RenderWindow* MainWindow;
  public:
   DctCore();
   ~DctCore();
   void AddWorldOnScreen(int xp, int yp, std::wstring Text);
-  void AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize, sf::Color TextColor);
+  void AddWorldOnScreen(int xp, int yp, std::wstring Text, int TextSize,
+                        sf::Color TextColor);
   /* draw all words from Data->WordsToDraw buffer */
   virtual void DrawWords();
   void RemoveWordByName(std::wstring WordToRemove);
@@ -34,6 +34,7 @@ namespace dct_core
   sf::Font* GetBisternFont();
   /* Main loop should be overriden in children class */
   virtual void MainLoop();
+
  private:
   /* Holds all data in cpp struct */
   MySFMLData* Data;
@@ -41,6 +42,6 @@ namespace dct_core
   void DrawAndDisplay();
   /* Handle all events */
   void EventsHandler();
- };
-}
-#endif
+};
+}  // namespace dct_core
+#endif  // DCT_CORE
