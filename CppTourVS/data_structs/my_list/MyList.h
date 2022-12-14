@@ -161,4 +161,26 @@ inline void List<Data>::clean() {
 
 }  // namespace my_list
 
+//void test_my_listasdfsavdsavcdsa() {
+//  my_list::List<int> df;
+//  df.push_back(10);
+//  df.push_back(20);
+//  df.push_back(30);
+//  df.push_back(40);
+//  df.push_back(50);
+//  df.push_back(60);
+//  for (int i = 0; i < df.get_size(); i++) {
+//    std::cout << df[i] << "\n";
+//  }
+//
+//  std::cout << "result:" << std::endl;
+//  df.push_front(56);
+//  df.push_front(522);
+//  for (int i = 0; i < df.get_size(); i++) {
+//    std::cout << df[i] << "\n";
+//  }
+//  // std::cout << df[0] <<"\n";
+//  // std::cout << df[1] << "\n";
+//  // std::cout << df[2] << "\n";
+//}
 #endif  // MY_LIST_H

@@ -1,16 +1,12 @@
-// CppTourVS.cpp : This file contains the 'main' function. Program execution
-// begins and ends there.
-//
-
-
 #include "Main.h"
-
+#include "../byte/test/test.h"
 int main(int argc, char* argv[]) {
-   project_manager::ProjectsManager PM(argc, argv);
-  //PM.run_dictionary_v1();
-  //PM.run_my_timer();
-  //PM.Run_mysfmlWindow();
-   //setlocale(LC_ALL, "Russian");
-   PM.run_dictionary_v2();
+  
+  //_8bit::My8bit m8b(0);
+  //m8b.set_bit(3,true);
+  //m8b.test();
+  //project_manager::ProjectsManager pm(argc,argv);
+  byte::test::Test(argc, argv);
+
   return 0;
 }

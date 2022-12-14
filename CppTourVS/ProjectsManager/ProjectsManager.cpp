@@ -4,16 +4,13 @@
 #include <iostream>
 
 #include "../Algorithm\Sorting/Sorting.h"
-#include "../BitOperations/8bit.h"
 #include "../Messenger/Messenger.h"
 #include "../Multithreading/Future/my_future.h"
 #include "../Multithreading/ProcessCommunicator/PRCM.h"
 #include "../Timer/my_timer.h"
-#include "../_DataStructures/MyList/2WayList.h"
-#include "../_DataStructures/MyList/MyList.h"
+#include "../data_structs/my_2way_list/2WayList.h"
 #include "../bmp_loader/bmp_loader.h"
-#include "../dictionary/dict_v1/dictionary.h"
-#include "../dictionary/dict_v2/dct2.h"
+#include "../dictionary/dictionary.h"
 #include "gtest/gtest.h"
 
 namespace project_manager {
@@ -22,6 +19,8 @@ ProjectsManager::ProjectsManager(int& argc, char* argv[]) {
   this->argc = &argc;
   this->argv = argv;
 }
+
+ProjectsManager::~ProjectsManager() {}
 
 // Multithreading/ProcessCommunicator
 
@@ -48,11 +47,6 @@ void ProjectsManager::run_dictionary_v1() {
   md.MainLoop();
 }
 
-void ProjectsManager::run_dictionary_v2() {
-  DictionaryV2 dct2;
-  dct2.MainLoop();
-}
-
 void ProjectsManager::run_my_timer() {
   SimpleTimer SmT;
   std::this_thread::sleep_for(std::chrono::seconds(2));
@@ -75,32 +69,7 @@ void ProjectsManager::BmpLoaderStart() {
 
 void ProjectsManager::run_messenger() { messenger(); }
 
-// _DataStructures//MyList
-void ProjectsManager::run_my_list() {
-  // std::cout << "adsfgsgd";
-  // my_list::sa();
 
-  my_list::List<int> df;
-  df.push_back(10);
-  df.push_back(20);
-  df.push_back(30);
-  df.push_back(40);
-  df.push_back(50);
-  df.push_back(60);
-  for (int i = 0; i < df.get_size(); i++) {
-    std::cout << df[i] << "\n";
-  }
-
-  std::cout << "result:" << std::endl;
-  df.push_front(56);
-  df.push_front(522);
-  for (int i = 0; i < df.get_size(); i++) {
-    std::cout << df[i] << "\n";
-  }
-  // std::cout << df[0] <<"\n";
-  // std::cout << df[1] << "\n";
-  // std::cout << df[2] << "\n";
-}
 
 void ProjectsManager::run_my_2way_list() {
   my_list::TwoWayList<std::string> twl;

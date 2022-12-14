@@ -1,8 +1,9 @@
+#pragma once
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
 /* lightweight selfmade data struct */
-#include "../../_DataStructures/MyList/MyList.h"
+#include "../data_structs/my_list/MyList.h"
 
 namespace my_dictionary {
 // interface:

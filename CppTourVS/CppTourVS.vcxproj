@@ -22,40 +22,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm\Sorting\Sorting.cpp" />
-    <ClCompile Include="BitOperations\8bit.cpp" />
-    <ClCompile Include="dictionary\dict_v1\dictionary.cpp" />
-    <ClCompile Include="dictionary\dict_v2\dct2.cpp" />
-    <ClCompile Include="dictionary\dict_v2\fonts\Fonts.cpp" />
+    <ClCompile Include="byte\byte.cpp" />
+    <ClCompile Include="byte\test\test.cpp" />
+    <ClCompile Include="dictionary\dictionary.cpp" />
     <ClCompile Include="Messenger\Messenger.cpp" />
     <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp" />
     <ClCompile Include="Multithreading\Future\my_future.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp" />
     <ClCompile Include="Multithreading\ProcessCommunicator\PRCM_Test.cpp" />
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp" />
-    <ClCompile Include="dictionary\dict_v2\Core\Core.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Timer\my_timer.cpp" />
-    <ClCompile Include="_DataStructures\map\my_map.cpp" />
+    <ClCompile Include="data_structs\map\my_map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithm\Sorting\Sorting.h" />
-    <ClInclude Include="BitOperations\8bit.h" />
+    <ClInclude Include="byte\byte.h" />
     <ClInclude Include="bmp_loader\bmp_loader.h" />
-    <ClInclude Include="dictionary\dict_v1\dictionary.h" />
-    <ClInclude Include="dictionary\dict_v2\dct2.h" />
-    <ClInclude Include="dictionary\dict_v2\fonts\Fonts.h" />
+    <ClInclude Include="byte\test\test.h" />
+    <ClInclude Include="dictionary\dictionary.h" />
     <ClInclude Include="Messenger\Messenger.h" />
     <ClInclude Include="Multithreading\DedadLock\dead_lock.h" />
     <ClInclude Include="Multithreading\Future\my_future.h" />
     <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h" />
     <ClInclude Include="ProjectsManager\ProjectsManager.h" />
-    <ClInclude Include="dictionary\dict_v2\Core\Core.h" />
     <ClInclude Include="Src\Main.h" />
     <ClInclude Include="Timer\my_timer.h" />
-    <ClInclude Include="_DataStructures\map\my_map.h" />
-    <ClInclude Include="_DataStructures\MyList\2WayList.h" />
-    <ClInclude Include="_DataStructures\MyList\MyList.h" />
-    <ClInclude Include="_DataStructures\MyList\Node.h" />
+    <ClInclude Include="data_structs\map\my_map.h" />
+    <ClInclude Include="data_structs\my_2way_list\2WayList.h" />
+    <ClInclude Include="data_structs\my_2way_list\Node.h" />
+    <ClInclude Include="data_structs\my_list\MyList.h" />
+    <ClInclude Include="data_structs\my_list\Node.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
