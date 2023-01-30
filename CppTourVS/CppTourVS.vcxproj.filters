@@ -54,22 +54,19 @@
     <ClCompile Include="Timer\my_timer.cpp">
       <Filter>Timer</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithm\Sorting\Sorting.cpp">
+    <ClCompile Include="algorithms\sorting\sorting.cpp">
       <Filter>Algorithms\Sorting</Filter>
     </ClCompile>
     <ClCompile Include="byte\byte.cpp">
       <Filter>BitOperations</Filter>
     </ClCompile>
-    <ClCompile Include="Multithreading\DedadLock\dead_lock.cpp">
+    <ClCompile Include="multithreading\dead_lock\dead_lock.cpp">
       <Filter>Multithreading\DedadLock</Filter>
     </ClCompile>
-    <ClCompile Include="data_structs\map\my_map.cpp">
-      <Filter>_DataStructures\map</Filter>
-    </ClCompile>
-    <ClCompile Include="Multithreading\ProcessCommunicator\PRCM.cpp">
+    <ClCompile Include="multithreading\ProcessCommunicator\PRCM.cpp">
       <Filter>Multithreading\ProcessCommunicator</Filter>
     </ClCompile>
-    <ClCompile Include="Multithreading\ProcessCommunicator\PRCM_Test.cpp">
+    <ClCompile Include="multithreading\ProcessCommunicator\PRCM_Test.cpp">
       <Filter>Multithreading\ProcessCommunicator</Filter>
     </ClCompile>
     <ClCompile Include="Src\Main.cpp">
@@ -78,58 +75,39 @@
     <ClCompile Include="ProjectsManager\ProjectsManager.cpp">
       <Filter>ProjectsManager</Filter>
     </ClCompile>
-    <ClCompile Include="dictionary\dictionary.cpp">
-      <Filter>dictionary</Filter>
-    </ClCompile>
-    <ClCompile Include="Multithreading\Future\my_future.cpp">
+    <ClCompile Include="multithreading\future\future.cpp">
       <Filter>Multithreading\Future</Filter>
     </ClCompile>
-    <ClCompile Include="Messenger\Messenger.cpp" />
+    <ClCompile Include="messenger\messenger.cpp" />
     <ClCompile Include="byte\test\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer\my_timer.h">
       <Filter>Timer</Filter>
     </ClInclude>
-    <ClInclude Include="Algorithm\Sorting\Sorting.h">
+    <ClInclude Include="algorithms\sorting\sorting.h">
       <Filter>Algorithms\Sorting</Filter>
     </ClInclude>
     <ClInclude Include="byte\byte.h">
       <Filter>BitOperations</Filter>
     </ClInclude>
-    <ClInclude Include="Multithreading\DedadLock\dead_lock.h">
+    <ClInclude Include="multithreading\dead_lock\dead_lock.h">
       <Filter>Multithreading\DedadLock</Filter>
     </ClInclude>
-    <ClInclude Include="data_structs\map\my_map.h">
-      <Filter>_DataStructures\map</Filter>
-    </ClInclude>
-    <ClInclude Include="Multithreading\ProcessCommunicator\PRCM.h">
+    <ClInclude Include="multithreading\ProcessCommunicator\PRCM.h">
       <Filter>Multithreading\ProcessCommunicator</Filter>
     </ClInclude>
     <ClInclude Include="ProjectsManager\ProjectsManager.h">
       <Filter>ProjectsManager</Filter>
     </ClInclude>
-    <ClInclude Include="data_structs\my_list\MyList.h">
-      <Filter>_DataStructures\MyList</Filter>
-    </ClInclude>
-    <ClInclude Include="data_structs\my_list\Node.h">
-      <Filter>_DataStructures\MyList</Filter>
-    </ClInclude>
-    <ClInclude Include="data_structs\my_2way_list\2WayList.h">
-      <Filter>_DataStructures\MyList</Filter>
-    </ClInclude>
-    <ClInclude Include="dictionary\dictionary.h">
-      <Filter>dictionary</Filter>
-    </ClInclude>
     <ClInclude Include="bmp_loader\bmp_loader.h">
       <Filter>bmp_loader</Filter>
     </ClInclude>
-    <ClInclude Include="Multithreading\Future\my_future.h">
+    <ClInclude Include="multithreading\future\future.h">
       <Filter>Multithreading\Future</Filter>
     </ClInclude>
-    <ClInclude Include="Messenger\Messenger.h" />
+    <ClInclude Include="messenger\messenger.h" />
     <ClInclude Include="Src\Main.h" />
-    <ClInclude Include="data_structs\my_2way_list\Node.h" />
     <ClInclude Include="byte\test\test.h" />
   </ItemGroup>
   <ItemGroup>

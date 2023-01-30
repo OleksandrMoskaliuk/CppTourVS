@@ -1,6 +1,7 @@
-#include "Sorting.h"
+#include "sorting.h"
 
-namespace my_sort {
+namespace agorithms {
+namespace sorting {
 
 person::person() {
   this->name = "No Name";
@@ -20,9 +21,7 @@ std::string person::getname() { return this->name; }
 
 int person::getscore() { return this->score; }
 
-
-
-void list_sorting() {
+void Sorting::list_sorting() {
   std::list<int> l_arr = {0, 1, 2, 3, 45, 4, 37};
   // std::minmax_element will return max and min elements of array
   std::pair<std::list<int>::iterator, std::list<int>::iterator> list_wrapper =
@@ -37,7 +36,7 @@ void list_sorting() {
   }
 }
 
-void vector_sorting() {
+void Sorting::vector_sorting() {
   std::vector<int> v_arr = {0, 1, 2, 3, 22, 4, 18};
 
   // getting max and min element of vector array
@@ -59,7 +58,7 @@ void vector_sorting() {
   }
 }
 
-void custom_vector_sort() {
+void Sorting::custom_vector_sort() {
   // vector with person data type
   std::vector<person> v_arr = {person("Tobi", 70), person("Albert", 60),
                                person("Arnold", 140), person("Alex", 199),
@@ -91,11 +90,5 @@ void custom_vector_sort() {
   }
 }
 
-int entry_point() {
-  // list_sorting();
-  // vector_sorting();
-  // custom_vector_sort();
-  return 0;
-}
-
-}  // namespace my_sort
+}  // namespace sorting
+}  // namespace agorithms

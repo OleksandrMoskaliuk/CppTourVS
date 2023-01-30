@@ -32,8 +32,6 @@ namespace project_manager {
 
   void BmpLoaderStart();
 
-  // dummy messenger
-  void run_messenger();
  };
 
 }  // namespace project_manager

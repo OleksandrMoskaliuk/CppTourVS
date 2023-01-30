@@ -29,19 +29,29 @@ typedef unsigned char byte;
 //      1 | 0 = 1
 //      1 | 1 = 1
 //      0 | 0 = 0
+// 11  // 0000 8021
 
 class My8bit {
  private:
-  bool data[8] = {};
-  byte byte_m = 11;  // 0000 8021
+  byte byte_m = 0;
  public:
+  My8bit();
   My8bit(int number);
   ~My8bit(){};
+  /* Usefull info */
   void info();
-  void set_bit(unsigned char position, bool state);
+  /* Set bit position from 1...8 */
+  void set_bit(unsigned char position);
+  /* Unset bit position from 1..8 */
+  void unset_bit(unsigned char position);
+  /* Set all bits to zeto value */
+  void reset_data();
+  /* Get specific bit from 1...8 */
+  bool get_bit(unsigned char position);
+  /* Get raw byte data */
   byte get_byte();
+  /* Convert byte to dec value*/
   int get_dec();
-  void test();
 };
 
 }  // namespace _8bit

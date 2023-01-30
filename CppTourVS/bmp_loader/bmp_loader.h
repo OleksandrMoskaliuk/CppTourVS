@@ -28,32 +28,24 @@ public:
  BMP_Sprites_Hub() = default;
  // std::map< std::string -> Filename , std::vector<Bitmap> -> Bitmap > Holds all bmp images
  //std::unique_ptr<std::map<std::string, std::vector<Bitmap>>> *sprites_hub = nullptr;
-
  // Converts bpm file to vector<Bitmap> array
- void  bmp_convert(std::string filename, std::vector<Bitmap>& bitmap) {
+ std::vector<Bitmap> bmp_convert(std::string filename) {
+  std::vector<Bitmap> bitmap;
   FILE* f;
   fopen_s(&f, filename.c_str(), "r+");
-
   if (f == nullptr) 
   {
    std::cout << "File not exist!";
-   return;
+    return bitmap;
   }
-  
- 
   unsigned char info[54];
   fread(info, sizeof(unsigned char), 54, f);  // read the 54-byte header
-
   // extract image height and width from header
   int width = *(int*)&info[18];
   int height = *(int*)&info[22];
-
-
-
   int row_padded = (width * 3 + 3) & (~3);
   unsigned char* data = new unsigned char[row_padded];
   unsigned char tmp;
-
   for (int i = 0; i < height; i++)
   {
    fread(data, sizeof(unsigned char), row_padded, f);
@@ -72,7 +64,7 @@ public:
     }
    }
   }
-
+  return bitmap;
  }
 
 };

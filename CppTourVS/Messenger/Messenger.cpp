@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Messenger.h"
 
+namespace messenger {
 using namespace std;
 using namespace sf;
 
@@ -12,7 +13,6 @@ int messenger() {
   RenderWindow window(VideoMode(1000, 1000), "chat");
   setlocale(LC_ALL, "Russian");
   int x, y;
-
   bool text;
   text = 0;
   RectangleShape inputField;
@@ -20,14 +20,11 @@ int messenger() {
   inputField.setSize(Vector2f(300, 850));
   inputField.setFillColor(Color(245, 245, 220));
   inputField.setOutlineColor(Color(100, 245, 220));
-
   RectangleShape line;
   line.setPosition(100, 125);
   line.setSize(Vector2f(300, 5));
   line.setFillColor(Color(128, 128, 128));
-
   wstring message = L"”Ù≥‡‚≥Ô¯≥Ú‚";
-
   sf::Font font;
   if (!font.loadFromFile("RobotoSlab-VariableFont_wght.ttf")) {
     return EXIT_FAILURE;
@@ -104,3 +101,5 @@ bool is_UTF8(sf::Event &event) {
     return true;
   }
 }
+
+}  // namespace messenger

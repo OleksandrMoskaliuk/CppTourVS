@@ -3,8 +3,8 @@
 #define DICTIONARY_H
 
 /* lightweight selfmade data struct */
-#include "../data_structs/my_list/MyList.h"
-
+#include "my_list/MyList.h"
+#include <vector>
 namespace my_dictionary {
 // interface:
 // push word (string(word), translation() category() usage())
@@ -44,7 +44,7 @@ class MyDictionary  {
   MyDictionary();
   ~MyDictionary() { save_to_file(); }
   void MainLoop();
-  const char* filename = "dictionary/dctionary.txt";
+  const char* filename = "dctionary.txt";
   void show_dictionary();
   void read();
 

@@ -1,5 +1,6 @@
 #include "dead_lock.h"
 
+namespace multithreading {
 namespace dead_lock {
 
 std::mutex Gmtx1;
@@ -47,3 +48,4 @@ void entry_point() {
 }
 
 }  // namespace dead_lock
+}  // namespace multithreading

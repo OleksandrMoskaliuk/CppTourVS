@@ -3,14 +3,12 @@
 #include <future>
 #include <iostream>
 
-#include "../Algorithm\Sorting/Sorting.h"
-#include "../Messenger/Messenger.h"
-#include "../Multithreading/Future/my_future.h"
-#include "../Multithreading/ProcessCommunicator/PRCM.h"
+#include "../algorithms/sorting/sorting.h"
+#include "../messenger/messenger.h"
+#include "../multithreading/future/future.h"
+#include "../multithreading/ProcessCommunicator/PRCM.h"
 #include "../Timer/my_timer.h"
-#include "../data_structs/my_2way_list/2WayList.h"
 #include "../bmp_loader/bmp_loader.h"
-#include "../dictionary/dictionary.h"
 #include "gtest/gtest.h"
 
 namespace project_manager {
@@ -42,10 +40,6 @@ void ProjectsManager::process_communicator_tests() {
   RUN_ALL_TESTS();
 }
 
-void ProjectsManager::run_dictionary_v1() {
-  my_dictionary::MyDictionary md;
-  md.MainLoop();
-}
 
 void ProjectsManager::run_my_timer() {
   SimpleTimer SmT;
@@ -59,7 +53,7 @@ void ProjectsManager::BmpLoaderStart() {
   std::string filename = "bmp_loader/awsom.bmp";
   std::vector<Bitmap> bitmap_test;
   BMP_Sprites_Hub SHub;
-  SHub.bmp_convert(filename, bitmap_test);
+  bitmap_test = SHub.bmp_convert(filename);
   // check out color
   for (Bitmap bmp : bitmap_test) {
     std::cout << " R_:" << (int)bmp.R << " G_:" << (int)bmp.G
@@ -67,43 +61,43 @@ void ProjectsManager::BmpLoaderStart() {
   }
 }
 
-void ProjectsManager::run_messenger() { messenger(); }
 
 
 
-void ProjectsManager::run_my_2way_list() {
-  my_list::TwoWayList<std::string> twl;
-  std::string str = "a";
-  twl.push_back(str);
-  twl.push_back(str);
-  twl.push_back(str);
-  twl.push_back(str);
-  twl.push_back(str);
 
-  for (uint8_t i = 0; i < twl.get_size(); i++) {
-    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
-  }
-  std::cout << "__get data from adress __________________\n";
-  for (uint8_t i = 0; i < twl.get_size(); i++) {
-    std::cout << "[" << (int)i << "] = " << twl.get_node_adress(i)->data
-              << "\n";
-  }
-  std::cout << "__remove [2]_______________________________\n";
-  twl.remove(5);
-  for (uint8_t i = 0; i < twl.get_size(); i++) {
-    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
-  }
-  std::cout << "__remove [3]_______________________________\n";
-  twl.remove(3);
-  for (uint8_t i = 0; i < twl.get_size(); i++) {
-    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
-  }
-  std::cout << "__remove [1]_______________________________\n";
-  twl.remove(1);
-  for (uint8_t i = 0; i < twl.get_size(); i++) {
-    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
-  }
-  // std::cout << twl.get_size() << "\n";
-}  // void ProjectsManager::run_my_2way_list()
+//void ProjectsManager::run_my_2way_list() {
+//  my_list::TwoWayList<std::string> twl;
+//  std::string str = "a";
+//  twl.push_back(str);
+//  twl.push_back(str);
+//  twl.push_back(str);
+//  twl.push_back(str);
+//  twl.push_back(str);
+//
+//  for (uint8_t i = 0; i < twl.get_size(); i++) {
+//    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
+//  }
+//  std::cout << "__get data from adress __________________\n";
+//  for (uint8_t i = 0; i < twl.get_size(); i++) {
+//    std::cout << "[" << (int)i << "] = " << twl.get_node_adress(i)->data
+//              << "\n";
+//  }
+//  std::cout << "__remove [2]_______________________________\n";
+//  twl.remove(5);
+//  for (uint8_t i = 0; i < twl.get_size(); i++) {
+//    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
+//  }
+//  std::cout << "__remove [3]_______________________________\n";
+//  twl.remove(3);
+//  for (uint8_t i = 0; i < twl.get_size(); i++) {
+//    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
+//  }
+//  std::cout << "__remove [1]_______________________________\n";
+//  twl.remove(1);
+//  for (uint8_t i = 0; i < twl.get_size(); i++) {
+//    std::cout << "[" << (int)i << "] = " << twl[i] << "\n";
+//  }
+//  // std::cout << twl.get_size() << "\n";
+//}  // void ProjectsManager::run_my_2way_list()
 
 }  // namespace project_manager
