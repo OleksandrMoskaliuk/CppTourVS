@@ -1,14 +1,40 @@
 #ifndef TWO_WAY_LIST_H
 #define TWO_WAY_LIST_H
-#include <iostream>
-#include "Node.h"
 
-namespace my_list {
+
+namespace TwoWayList {
+
+ template <typename Data>
+class Node {
+ public:
+  Data data; //current node
+  Node<Data>* p_next; //pointer to the next node
+  // default constructor
+  Node(Data data = Data(), Node<Data>* p_next = nullptr) {
+    this->data = data;
+    this->p_next = p_next;
+  };
+};
+
+template <typename Data>
+class TwoWayNode {
+ public:
+  Data data;
+  TwoWayNode<Data>* p_next;
+  TwoWayNode<Data>* p_prev;
+  TwoWayNode<Data>* node_adress;
+
+ public:
+  TwoWayNode(Data data = Data(), TwoWayNode<Data>* p_prev = nullptr,
+             TwoWayNode<Data>* p_next = nullptr)
+      : data(data), p_prev(p_prev), p_next(p_next), node_adress(this){};
+};
+
 template <typename Data>
 class TwoWayList {
  private:
-  my_Node::TwoWayNode<Data>* head;
-  my_Node::TwoWayNode<Data>* tail;
+  TwoWayNode<Data>* head;
+  TwoWayNode<Data>* tail;
   int size_m;
 
  public:
@@ -21,7 +47,7 @@ class TwoWayList {
   void push_back(Data dt);
   void insert(const int index, Data dt);
   Data& operator[](int index);
-  my_Node::TwoWayNode<Data>* get_node_adress(const int node_index);
+  TwoWayNode<Data>* get_node_adress(const int node_index);
   void pop_front();
   void pop_back();
   void remove(const int index);
@@ -41,13 +67,13 @@ inline int TwoWayList<Data>::get_size() {
 template <typename Data>
 inline void TwoWayList<Data>::push_front(Data dt) {
   if (this->head == nullptr) {
-    this->head = new my_Node::TwoWayNode<Data>(dt);
+    this->head = new TwoWayNode<Data>(dt);
     this->tail = this->head;
     size_m++;
     return;
   }
-  my_Node::TwoWayNode<Data>* node_before_head = this->head;
-  this->head = new my_Node::TwoWayNode<Data>(dt, nullptr, node_before_head);
+  TwoWayNode<Data>* node_before_head = this->head;
+  this->head = new TwoWayNode<Data>(dt, nullptr, node_before_head);
   node_before_head->p_prev = this->head;
   size_m++;
 }
@@ -55,13 +81,13 @@ inline void TwoWayList<Data>::push_front(Data dt) {
 template <typename Data>
 inline void TwoWayList<Data>::push_back(Data dt) {
   if (this->head == nullptr) {
-    this->head = new my_Node::TwoWayNode<Data>(dt);
+    this->head = new TwoWayNode<Data>(dt);
     this->tail = this->head;
     size_m++;
     return;
   }
-  my_Node::TwoWayNode<Data>* pre_last = this->tail;
-  pre_last->p_next = new my_Node::TwoWayNode<Data>(dt, pre_last, nullptr);
+  TwoWayNode<Data>* pre_last = this->tail;
+  pre_last->p_next = new TwoWayNode<Data>(dt, pre_last, nullptr);
   this->tail = pre_last->p_next;
   size_m++;
 }
@@ -83,7 +109,7 @@ inline Data& TwoWayList<Data>::operator[](int index) {
   if (index < 0) index = 0;
   // strart count from tail
   if (index > (size_m / 2)) {
-    my_Node::TwoWayNode<Data>* current = this->tail;
+    TwoWayNode<Data>* current = this->tail;
     int steps = size_m - index - 1;
     for (size_t i = 0; i < steps; i++) {
       current = current->p_prev;
@@ -91,7 +117,7 @@ inline Data& TwoWayList<Data>::operator[](int index) {
     return current->data;
   }
   // strart count from head
-  my_Node::TwoWayNode<Data>* current = this->head;
+  TwoWayNode<Data>* current = this->head;
   for (size_t i = 0; i < index; i++) {
     current = current->p_next;
   }
@@ -99,11 +125,11 @@ inline Data& TwoWayList<Data>::operator[](int index) {
 }
 
 template <typename Data>
-inline my_Node::TwoWayNode<Data>* my_list::TwoWayList<Data>::get_node_adress(
+inline TwoWayNode<Data>* TwoWayList<Data>::get_node_adress(
     const int node_index) {
   if (size_m == 0 || node_index > size_m || node_index  < 0) return nullptr;
   if (node_index > (size_m / 2)) {
-    my_Node::TwoWayNode<Data>* current = this->tail;
+    TwoWayNode<Data>* current = this->tail;
     int steps = size_m - node_index - 1;
     for (size_t i = 0; i < steps; i++) {
       current = current->p_prev;
@@ -111,7 +137,7 @@ inline my_Node::TwoWayNode<Data>* my_list::TwoWayList<Data>::get_node_adress(
     return current->node_adress;
   }
   // strart count from head
-  my_Node::TwoWayNode<Data>* current = this->head;
+  TwoWayNode<Data>* current = this->head;
   for (size_t i = 0; i < node_index; i++) {
     current = current->p_next;
   }
@@ -129,7 +155,7 @@ inline void TwoWayList<Data>::pop_front()
     size_m--;
     return;
   }
-  my_Node::TwoWayNode<Data>* new_head = this->head->p_next;
+  TwoWayNode<Data>* new_head = this->head->p_next;
   new_head->p_prev = nullptr;
   delete head;
   this->head = new_head;
@@ -137,7 +163,7 @@ inline void TwoWayList<Data>::pop_front()
 }
 
 template <typename Data>
-inline void my_list::TwoWayList<Data>::pop_back() 
+inline void TwoWayList<Data>::pop_back() 
 {
   if (size_m == 0) return;
   if (size_m == 1) {
@@ -147,7 +173,7 @@ inline void my_list::TwoWayList<Data>::pop_back()
     size_m--;
     return;
   }
-  my_Node::TwoWayNode<Data>* new_tail = this->tail->p_prev;
+  TwoWayNode<Data>* new_tail = this->tail->p_prev;
   new_tail->p_next = nullptr;
   delete this->tail;
   this->tail = new_tail;
@@ -155,7 +181,7 @@ inline void my_list::TwoWayList<Data>::pop_back()
 }
 
 template <typename Data>
-inline void my_list::TwoWayList<Data>::remove(const int index) 
+inline void TwoWayList<Data>::remove(const int index) 
 {
   if (size_m == 0) return;
   if (index <= 0) {
@@ -165,9 +191,9 @@ inline void my_list::TwoWayList<Data>::remove(const int index)
     pop_back();
   }
   if (get_node_adress(index) == nullptr) return;
-  my_Node::TwoWayNode<Data> *to_delete = get_node_adress(index);
-  my_Node::TwoWayNode<Data>* back = to_delete->p_prev;
-  my_Node::TwoWayNode<Data>* front = to_delete->p_next;
+  TwoWayNode<Data> *to_delete = get_node_adress(index);
+  TwoWayNode<Data>* back = to_delete->p_prev;
+  TwoWayNode<Data>* front = to_delete->p_next;
   back->p_next = front;
   front->p_prev = back;
   delete to_delete;
@@ -175,12 +201,12 @@ inline void my_list::TwoWayList<Data>::remove(const int index)
 }
 
 template <typename Data>
-inline void my_list::TwoWayList<Data>::clean() 
+inline void TwoWayList<Data>::clean() 
 {
   while (size_m != 0) {
     pop_back();
   }
 }
 
-}  // namespace my_list
+}  // namespace TwoWayList
 #endif  // TWO_WAY_LIST_H
