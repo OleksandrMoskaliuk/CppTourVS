@@ -42,6 +42,9 @@
     <ClCompile Include="Source\byte\byte_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\LinkedList\LinkedLIstTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\map\my_map.h">

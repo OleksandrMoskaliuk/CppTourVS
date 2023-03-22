@@ -148,6 +148,7 @@
     <ClCompile Include="Source\byte\byte.cpp" />
     <ClCompile Include="Source\byte\byte_test.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
+    <ClCompile Include="Source\LinkedList\LinkedLIstTest.cpp" />
     <ClCompile Include="Source\map\my_map.cpp" />
     <ClCompile Include="Source\TwoWayList\test\test.cpp" />
     <ClCompile Include="Source\TwoWayList\TwoWayList.cpp" />
