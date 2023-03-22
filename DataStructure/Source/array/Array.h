@@ -3,6 +3,12 @@
 
 namespace Array {
 
+void Test(int& argc, char* argv[]);
+
+/// <summary>
+/// Support only -> double, float, int, char;
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template <typename T>
 class MyDinamicArray {
  public:
@@ -18,7 +24,7 @@ class MyDinamicArray {
   MyDinamicArray(int size);
 
   /// <summary>
-  ///
+  /// Copy constructor
   /// </summary>
   /// <param name="other"></param>
   MyDinamicArray(const MyDinamicArray& other);
@@ -74,15 +80,27 @@ class MyDinamicArray {
   const T* get_base_pointer();
 
  private:
+  /// <summary>
+  /// Hold pointer to first element of array
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
   T* m_data;
+  /// <summary>
+  /// CUrrrent size
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
   int m_size;
+  /// <summary>
+  /// Total reserved size
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
   int m_capacity;
 
   void resize(int newCapacity);
 };
 
 // instantiate template explicitly for each template parameter, prevent linker
-// error.
+// error. For using new data type you fitst need to declare it here!.
 template class MyDinamicArray<int>;
 template class MyDinamicArray<float>;
 template class MyDinamicArray<double>;

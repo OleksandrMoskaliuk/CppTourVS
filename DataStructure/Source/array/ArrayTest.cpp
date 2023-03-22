@@ -1,6 +1,4 @@
-#include "ArrayTest.h"
-
-#include "../Array.h"
+#include "Array.h"
 #include "gtest/gtest.h"
 
 namespace Array {
@@ -21,6 +19,19 @@ TEST(DynamicArrayTest, Constructor_Test) {
   for (int i = 0; i < arr.size(); i++) {
     EXPECT_EQ(arr[i], 0);
   }
+}
+
+TEST(DynamicArrayTest, CopyConstructor_Test) {
+  MyDinamicArray<int> arr;
+  arr.push_back(5);
+  arr.push_back(15);
+  
+  MyDinamicArray<int> arr2(arr);
+  for (size_t i = 0; i < arr.size(); ++i) {
+    EXPECT_EQ(arr[i], arr2[i]);
+    EXPECT_NE(&arr[i], &arr2[i]);
+  }
+  
 }
 
 TEST(DynamicArrayTest, Destructor_Test) {

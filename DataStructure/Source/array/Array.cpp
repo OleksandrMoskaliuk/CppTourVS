@@ -19,7 +19,7 @@ MyDinamicArray<T>::MyDinamicArray(int size)
 
 template <typename T>
 MyDinamicArray<T>::MyDinamicArray(const MyDinamicArray& other)
-    : m_data(new T[other.m_size]), m_size(other.m_size) {
+    : m_data(new T[other.capacity()]), m_size(other.m_size), m_capacity(other.capacity()) {
   for (int i = 0; i < m_size; ++i) m_data[i] = other.m_data[i];
 }
 
