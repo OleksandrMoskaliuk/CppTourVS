@@ -27,7 +27,19 @@
     <ClCompile Include="Source\TwoWayList\TwoWayList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\array\Array.cpp">
+    <ClCompile Include="Source\LinkedList\LinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Array\Array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Array\ArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\byte\byte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\byte\byte_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +59,13 @@
     <ClInclude Include="Source\TwoWayList\test\test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\array\Array.h">
+    <ClInclude Include="Source\LinkedList\LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Array\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\byte\byte.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

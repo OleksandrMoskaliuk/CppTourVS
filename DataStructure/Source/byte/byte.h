@@ -3,21 +3,24 @@
 
 namespace byte {
 
-typedef unsigned char byte;
+ void Test(int& argc, char* argv[]);
+
+ typedef unsigned char byte;
 
 // (arguments)(logic sentence)?(true):(false);
 #define Isbitset(byte, position)                                 \
-  (position <= 8) ? (byte & (128 >> (position - 1))) ? (1) : (0) \
+  (position <= 8 && position >= 1) ? (byte & (128 >> (position - 1))) ? (1) : (0) \
                   : (byte)  // and operation
 
 #define UnsetBit(byte, position) \
-  (position <= 8) ? (byte & ~(128 >> (position - 1))) : (byte)
+  (position <= 8 && position >= 1) ? (byte & ~(128 >> (position - 1))) : (byte)
 
 #define SetBit(byte, position) \
-  (position <= 8) ? (byte | (128 >> (position - 1))) : (byte)  // or operation
+  (position <= 8 && position >= 1) ? (byte | (128 >> (position - 1))) \
+                                   : (byte)  // or operation
 
 #define InvertBit(byte, position)                    \
-  (position <= 8) ? (byte & (128 >> (position - 1))) \
+  (position <= 8 && position >= 1) ? (byte & (128 >> (position - 1))) \
                         ? UnsetBit(data, position)   \
                         : SetBit(data, position)     \
                   : (data)

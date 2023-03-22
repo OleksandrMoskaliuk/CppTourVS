@@ -143,14 +143,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\array\Array.cpp" />
+    <ClCompile Include="Source\Array\Array.cpp" />
+    <ClCompile Include="Source\Array\ArrayTest.cpp" />
+    <ClCompile Include="Source\byte\byte.cpp" />
+    <ClCompile Include="Source\byte\byte_test.cpp" />
+    <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
     <ClCompile Include="Source\map\my_map.cpp" />
     <ClCompile Include="Source\TwoWayList\test\test.cpp" />
     <ClCompile Include="Source\TwoWayList\TwoWayList.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\array\Array.h" />
+    <ClInclude Include="Source\Array\Array.h" />
+    <ClInclude Include="Source\byte\byte.h" />
+    <ClInclude Include="Source\LinkedList\LinkedList.h" />
     <ClInclude Include="Source\map\my_map.h" />
     <ClInclude Include="Source\TwoWayList\2WayList.h" />
     <ClInclude Include="Source\TwoWayList\test\test.h" />

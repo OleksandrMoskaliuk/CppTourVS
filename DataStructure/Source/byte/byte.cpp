@@ -59,7 +59,7 @@ byte My8bit::get_byte() { return byte_m; }
 int My8bit::get_dec() {
   int result = 0;
   int pow_index = 7;
-  for (int i = 1; i <= 8; i++) {
+  for (int i = 1; i <= 8; ++i) {
     if (Isbitset(byte_m, i)) {
       result += std::pow(2, pow_index);
     }
