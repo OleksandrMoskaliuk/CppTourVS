@@ -43,7 +43,6 @@ class List {
 
  private:
   Node<Data>* head;
-  int size_m;
 
  public:
   /// <summary>

@@ -53,12 +53,6 @@
     <ClInclude Include="Source\TwoWayList\2WayList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\my_list\MyList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\my_list\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\TwoWayList\test\test.h">
       <Filter>Header Files</Filter>
     </ClInclude>

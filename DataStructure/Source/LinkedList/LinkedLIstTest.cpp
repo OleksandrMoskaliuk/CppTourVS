@@ -54,32 +54,136 @@ TEST(LinkedList, GetSize_test)
     lst45.push_back(45);
   }
   EXPECT_EQ(lst45.get_size(), 45);
+
+   List<int> lst34;
+  for (size_t i = 0; i < 34; ++i) {
+    lst34.push_back(45);
+  }
+  EXPECT_EQ(lst34.get_size(), 34);
 }
-//TEST(LinkedList, Constructor_test) {
-//  LinkedList::List<int> last;
-//
-//  LinkedList::List<int> df;
-//  df.push_back(10);
-//  df.push_back(20);
-//  df.push_back(30);
-//  df.push_back(40);
-//  df.push_back(50);
-//  df.push_back(60);
-//  for (int i = 0; i < df.get_size(); i++) {
-//    std::cout << df[i] << "\n";
-//  }
-//
-//  std::cout << "result:" << std::endl;
-//  df.push_front(56);
-//  df.push_front(522);
-//  for (int i = 0; i < df.get_size(); i++) {
-//    std::cout << df[i] << "\n";
-//  }
-//  std::cout << df[0] << "\n";
-//  std::cout << df[1] << "\n";
-//  std::cout << df[2] << "\n";
-//
-//  EXPECT_EQ(1, 1);
-//}
+
+TEST(LinkedList, PushFront_test) 
+{ 
+ List<float> lst(0);
+ lst.push_front(1);
+ lst.push_front(2);
+ EXPECT_EQ(lst[0], 2);
+ EXPECT_EQ(lst[1], 1);
+ EXPECT_EQ(lst[2], 0);
+
+}
+
+
+TEST(LinkedList, PushBack_test) {
+ List<float> lst(0);
+ lst.push_back(1);
+ lst.push_back(2);
+ EXPECT_EQ(lst[0], 0);
+ EXPECT_EQ(lst[1], 1);
+ EXPECT_EQ(lst[2], 2);
+}
+
+
+TEST(LinkedList, Insert_test) {
+ //insers as middle
+ List<char> lst;
+ lst.push_back('a');
+ lst.push_back('c');
+ lst.insert(1, 'b');
+ EXPECT_EQ(lst[0], 'a');
+ EXPECT_EQ(lst[1], 'b');
+ EXPECT_EQ(lst[2], 'c');
+
+ // front insert
+ List<char> lstf;
+ lstf.push_back('b');
+ lstf.push_back('c');
+ lstf.insert(0, 'a');
+ EXPECT_EQ(lst[0], 'a');
+ EXPECT_EQ(lst[1], 'b');
+ EXPECT_EQ(lst[2], 'c');
+
+ // back insert
+ List<char> lstb;
+ lstb.push_back('a');
+ lstb.push_back('b');
+ lstb.insert(2, 'c');
+ EXPECT_EQ(lst[0], 'a');
+ EXPECT_EQ(lst[1], 'b');
+ EXPECT_EQ(lst[2], 'c');
+}
+
+TEST(LinkedList, PopFront_test) 
+{ 
+ List<double> lst;
+ lst.push_back(0);
+ lst.push_back(1);
+ lst.push_back(2);
+ lst.push_back(3);
+ lst.push_back(4);
+ lst.pop_front();
+ EXPECT_EQ(lst[0], 1);
+}
+
+TEST(LinkedList, PopBack_test) {
+ List<int> ls;
+ ls.push_back(0);
+ ls.push_back(1);
+ ls.push_back(2);
+ ls.push_back(3);
+ ls.push_back(4);
+ ls.push_back(5);
+ EXPECT_EQ(ls.get_size(), 6);
+
+ ls.pop_back();
+ ls.pop_back();
+ EXPECT_EQ(ls.get_size(), 4);
+ EXPECT_EQ(ls[2], 2);
+
+}
+
+TEST(LinkedList, Remove_test) 
+{
+ // remove midle element
+ List<int> lst0;
+ lst0.push_back(0);
+ lst0.push_back(1);
+ lst0.push_back(2);
+ lst0.push_back(3);
+ lst0.remove(1);
+ EXPECT_EQ(lst0[1], 2);
+ 
+ // remove firs 
+ List<int> lst1;
+ lst1.push_back(0);
+ lst1.push_back(1);
+ lst1.push_back(2);
+ lst1.remove(0);
+ EXPECT_EQ(lst1[0], 1);
+
+ // remove last
+ List<int> lst2;
+ lst2.push_back(0);
+ lst2.push_back(1);
+ lst2.push_back(2);
+ EXPECT_EQ(lst2.get_size(), 3);
+ lst2.remove(2);
+ EXPECT_EQ(lst2.get_size(), 2);
+ EXPECT_EQ(lst2[1], 1);
+
+ // remove last if only 2 elements
+ List<int> lst3;
+ lst3.push_back(0);
+ lst3.push_back(1);
+ EXPECT_EQ(lst3.get_size(), 2);
+ lst3.remove(1);
+ EXPECT_EQ(lst3.get_size(), 1);
+ EXPECT_EQ(lst3[0], 0);
+}
+
+TEST(LinkedList, End_test) {
+ EXPECT_TRUE(true);
+}
+
 
 }  // namespace LinkedList

@@ -161,8 +161,6 @@
     <ClInclude Include="Source\map\my_map.h" />
     <ClInclude Include="Source\TwoWayList\2WayList.h" />
     <ClInclude Include="Source\TwoWayList\test\test.h" />
-    <ClInclude Include="Source\my_list\MyList.h" />
-    <ClInclude Include="Source\my_list\Node.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

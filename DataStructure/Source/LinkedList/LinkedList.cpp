@@ -1,16 +1,16 @@
 #include "LinkedList.h"
+
 namespace LinkedList 
 {
 
 template <typename Data>
-inline List<Data>::List() : head(nullptr), size_m(0) {}
+inline List<Data>::List() : head(nullptr) {}
 
 
 template <typename Data>
 inline List<Data>::List(Data data) {
   this->head = new Node<Data>(data);
   this->head->p_next = nullptr;
-  size_m = 1;
 }
 
 template <typename Data>
@@ -21,7 +21,6 @@ List<Data>::List(const List& other)
   }
   // SetUp head
   this->head = new Node<Data>(other.head->data);
-  ++size_m;
   // Handle with other p_next pointers
   Node<Data>* other_ptr = other.head->p_next;
   Node<Data>* this_ptr = this->head; 
@@ -30,7 +29,6 @@ List<Data>::List(const List& other)
     this_ptr = this_ptr->p_next;
     // step to next node
     other_ptr = other_ptr->p_next;
-    ++size_m;
   }
 }
 
@@ -41,19 +39,23 @@ inline List<Data>::~List() {
 
 template <typename Data>
 inline int List<Data>::get_size() {
-  return this->size_m;
+  int size = 0;
+  Node<Data>* current = head;
+  while (current) {
+    ++size;
+    current = current->p_next;
+  }
+  return size;
 }
 
 template <typename Data>
 inline void List<Data>::push_front(Data dt) {
   if (this->head == nullptr) {
     this->head = new Node<Data>(dt);
-    ++size_m;
     return;
   }
   Node<Data>* next = this->head;
   this->head = new Node<Data>(dt, next);
-  ++size_m;
 }
 
 template <typename Data>
@@ -61,13 +63,11 @@ inline void List<Data>::push_back(Data dt) {
   // check if we already have first element
   if (this->head == nullptr) {
     this->head = new Node<Data>(dt);
-    size_m++;
     return;
   }
   Node<Data>* current = this->head;
   while (current->p_next != nullptr) current = current->p_next;
   current->p_next = new Node<Data>(dt);
-  size_m++;
 }
 
 template <typename Data>
@@ -76,7 +76,7 @@ inline void List<Data>::insert(int index, Data dt) {
     this->push_front(dt);
     return;
   }
-  if (index >= size_m) {
+  if (index >= get_size()) {
     this->push_back(dt);
     return;
   }
@@ -87,7 +87,6 @@ inline void List<Data>::insert(int index, Data dt) {
     current = current->p_next;
   }
   previous->p_next = new Node<Data>(dt, current);
-  size_m++;
 }
 
 template <typename Data>
@@ -99,44 +98,50 @@ inline Data& List<Data>::operator[](int index) {
 
 template <typename Data>
 inline void LinkedList::List<Data>::pop_front() {
-  if (size_m == 0) return;
-  Node<Data>* to_delete = this->head;
-  this->head = this->head->p_next;
+  if (get_size() == 0) return;
+  Node<Data>* to_delete = head;
+  head = head->p_next;
   delete to_delete;
-  size_m--;
+  to_delete = nullptr;
 }
 
 template <typename Data>
 inline void LinkedList::List<Data>::pop_back() {
-  if (size_m == 0) return;
-  Node<Data>* current = this->head;
-  for (size_t i = 0; i < size_m - 1; i++) current = current->p_next;
-  Node<Data>* to_delete = current->p_next;
+ // head   //
+ // p_next // -> // head   //    //         //
+ // data   //    // p_next // -> // nullptr //
+                 // data   //    //         //
+  if (head == nullptr) {
+    return;
+  }
+  if (head->p_next == nullptr) {
+    delete head;
+    head = nullptr;
+    return;
+  }
+  Node<Data>* current = head;
+  while (current->p_next->p_next != nullptr) {
+    current = current->p_next;
+  }
+  delete current->p_next;
   current->p_next = nullptr;
-  delete to_delete;
-  size_m--;
 }
 
 template <typename Data>
 inline void LinkedList::List<Data>::remove(int index) {
-  if (index <= 0) {
+  if (index == 0) {
     this->pop_front();
     return;
   }
-  if (index >= size_m) {
-    this->pop_back();
-    return;
-  }
-  Node<Data>* previous = this->head;
-  Node<Data>* to_delete = previous->p_next;
+  Node<Data>* previous = head;
+  Node<Data>* current = head->p_next;
   for (size_t i = 0; i < index - 1; i++) {
-    previous = to_delete;
-    to_delete = to_delete->p_next;
+    previous = current;
+    current = current->p_next;
   }
-  Node<Data>* buf = to_delete->p_next;
-  delete to_delete;
-  previous->p_next = buf;
-  size_m--;
+  Node<Data>* saved = current->p_next;
+  delete current;
+  previous->p_next = saved;
 }
 
 template <typename Data>
