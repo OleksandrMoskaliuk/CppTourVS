@@ -6,7 +6,6 @@ namespace LinkedList
 template <typename Data>
 inline List<Data>::List() : head(nullptr) {}
 
-
 template <typename Data>
 inline List<Data>::List(Data data) {
   this->head = new Node<Data>(data);
