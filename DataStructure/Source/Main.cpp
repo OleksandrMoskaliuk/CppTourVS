@@ -17,6 +17,7 @@ has zero or more child nodes.
 Hash tables - a data structure that maps keys to values using a hash function to
 compute an index into an array of buckets or slots.
 */
+
 #include <iostream>
 #include <string>
 
@@ -24,12 +25,15 @@ compute an index into an array of buckets or slots.
 #include "Array/Array.h"
 #include "byte/byte.h"
 #include "LinkedList/LinkedList.h"
+#include "Stack/Stack.h"
+
 
 int main(int argc, char* argv[]) {
   // Array::Test(argc, argv);
   // byte::Test(argc, argv);
-  LinkedList::Test(argc, argv);
-
+  //LinkedList::Test(argc, argv);
+  Stack::Test(argc, argv);
+  
   
 
   

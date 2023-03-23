@@ -150,6 +150,8 @@
     <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedLIstTest.cpp" />
     <ClCompile Include="Source\map\my_map.cpp" />
+    <ClCompile Include="Source\Stack\Stack.cpp" />
+    <ClCompile Include="Source\Stack\StackTest.cpp" />
     <ClCompile Include="Source\TwoWayList\test\test.cpp" />
     <ClCompile Include="Source\TwoWayList\TwoWayList.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -159,6 +161,7 @@
     <ClInclude Include="Source\byte\byte.h" />
     <ClInclude Include="Source\LinkedList\LinkedList.h" />
     <ClInclude Include="Source\map\my_map.h" />
+    <ClInclude Include="Source\Stack\Stack.h" />
     <ClInclude Include="Source\TwoWayList\2WayList.h" />
     <ClInclude Include="Source\TwoWayList\test\test.h" />
   </ItemGroup>
