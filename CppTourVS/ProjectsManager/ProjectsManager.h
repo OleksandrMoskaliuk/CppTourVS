@@ -10,22 +10,19 @@ namespace project_manager {
   char** argv;
  public:
   ProjectsManager(int& argc, char* argv[]);
+  ~ProjectsManager();
 
-  // Data_Structures
-
+  /* DataStructures/MyList/2WayList.h */
+  void run_my_2way_list();
   // Multithreading/ProcessCommunicator
   void process_communicator();
   void process_communicator_tests();
-
-  // My_List
-  void run_my_list();
-  void run_my_2way_list();
+  /* DataStructures/MyList/my_map.h */
 
   // dictionary
-  void run_my_dictionary();
-
+  void run_dictionary_v1();
   //SFML
-  void open_window();
+  void Run_mysfmlWindow();
 
   //Timer
   void run_my_timer();
@@ -34,6 +31,7 @@ namespace project_manager {
   // _8bit::entry_point();
 
   void BmpLoaderStart();
+
  };
 
 }  // namespace project_manager

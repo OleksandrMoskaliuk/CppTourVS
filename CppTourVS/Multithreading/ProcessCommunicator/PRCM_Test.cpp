@@ -15,6 +15,7 @@ struct ProcessCommunicator_Tests : testing::Test
 	int received_data = 0;
 	bool _exit = false;
 	int received_message_counter = 0;
+
 	void reset_data()
 	{
 		data_to_send = 0;
