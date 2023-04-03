@@ -10,23 +10,22 @@ void Test(int& argc, char* argv[]) {
   RUN_ALL_TESTS();
 }
 
-TEST(BinaryTree, DefaultConstructor_test) 
-{ 
- BinaryTree<int> bt;
- EXPECT_FALSE(bt.search(0));
+TEST(BinaryTree, DefaultConstructor_test) {
+  BinaryTree<int> bt;
+  EXPECT_FALSE(bt.search(0));
 }
 
 TEST(BinaryTree, ParametrizedConstructor_test) {
- BinaryTree<int> bt(10);
- Node<int>* res = bt.search(10);
- EXPECT_EQ(res->data, 10);
+  BinaryTree<int> bt(10);
+  Node<int>* res = bt.search(10);
+  EXPECT_EQ(res->data, 10);
 }
 
 TEST(BinaryTree, Insert_test) {
- BinaryTree<double> bt;
- bt.insert(10.5);
- Node<double> *nd = bt.search(10.5);
- EXPECT_EQ(nd->data, 10.5);
+  BinaryTree<double> bt;
+  bt.insert(10.5);
+  Node<double>* nd = bt.search(10.5);
+  EXPECT_EQ(nd->data, 10.5);
 }
 
 TEST(BinaryTree, Remove_test) {
@@ -42,7 +41,7 @@ TEST(BinaryTree, Remove_test) {
                               10
                             /    \
                            5      20
-                          / \    /  \    
+                          / \    /  \
                          4   6  19  21
   */
   bt.remove(20);
@@ -50,22 +49,20 @@ TEST(BinaryTree, Remove_test) {
                               10
                             /    \
                            5      21
-                          / \    /  \    
+                          / \    /  \
                          4   6  19  nullptr
   */
 }
 
-
-TEST(BinaryTree, MemoryLeakTest_test) 
-{
+TEST(BinaryTree, MemoryLeakTest_test) {
   _CrtMemState sOld;
   _CrtMemState sNew;
   _CrtMemState sDiff;
   _CrtMemCheckpoint(&sOld);  // take a snapshot
   {
-  BinaryTree<double> bt;
-  bt.insert(10);
-  BinaryTree<int> bt2(10);
+    BinaryTree<double> bt;
+    bt.insert(10);
+    BinaryTree<int> bt2(10);
   }
   _CrtMemCheckpoint(&sNew);  // take a snapshot
 
