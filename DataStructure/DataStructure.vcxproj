@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClCompile Include="Source\Array\Array.cpp" />
     <ClCompile Include="Source\Array\ArrayTest.cpp" />
+    <ClCompile Include="Source\BinaryTree\BinaryTree.cpp" />
+    <ClCompile Include="Source\BinaryTree\BinaryTreeTest.cpp" />
     <ClCompile Include="Source\byte\byte.cpp" />
     <ClCompile Include="Source\byte\byte_test.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
@@ -160,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Array\Array.h" />
+    <ClInclude Include="Source\BinaryTree\BinaryTree.h" />
     <ClInclude Include="Source\byte\byte.h" />
     <ClInclude Include="Source\LinkedList\LinkedList.h" />
     <ClInclude Include="Source\map\my_map.h" />
