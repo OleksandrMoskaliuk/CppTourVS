@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
   // byte::Test(argc, argv);
   // LinkedList::Test(argc, argv);
   // Stack::Test(argc, argv);
-  // Queues::Test(argc, argv);
+   Queues::Test(argc, argv);
   // BinaryTree::Test(argc, argv);
 
   return 0;
