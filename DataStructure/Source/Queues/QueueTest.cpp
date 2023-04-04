@@ -11,7 +11,6 @@ void Test(int& argc, char* argv[])
   RUN_ALL_TESTS();
 } 
 
-
 TEST(Queues, DefaultConstructor_test) 
 {
   Queue<int> que;
@@ -20,7 +19,6 @@ TEST(Queues, DefaultConstructor_test)
   EXPECT_TRUE(que.isEmpty());
 
 }
-
 
 TEST(Queues, CopyConstructor_test) {
   Queue<int> que;
@@ -37,17 +35,6 @@ TEST(Queues, CopyConstructor_test) {
   EXPECT_EQ(que.dequeue(), 20);
 }
 
-
-TEST(Queues, Destructor_test) {
-
-  while (false) {
-    Queue<int> que;
-    que.enqueue(10);
-  }
-  
-  EXPECT_EQ(_CrtDumpMemoryLeaks(), 0);
-}
-
 TEST(Queues, Enqueue_test) {
   Queue<int> que;
   que.enqueue(10);
@@ -62,7 +49,6 @@ TEST(Queues, Dequeue_test) {
   EXPECT_EQ(que.dequeue(), 15);
 }
 
-
 TEST(Queues, Peek_test) {
   Queue<int> que;
   que.enqueue(10);
@@ -70,6 +56,20 @@ TEST(Queues, Peek_test) {
   que.dequeue();
   que.enqueue(2);
   EXPECT_EQ(que.peek(), 2);
+}
+
+TEST(Queues, MemoryLeak_test) {
+  _CrtMemState sOld;
+  _CrtMemState sNew;
+  _CrtMemState sDiff;
+  {
+    Queue<int> que;
+    que.enqueue(10);
+  }
+  _CrtMemCheckpoint(&sNew);  // take a snapshot
+  // The following assertion checks that the memory has been properly
+  // deallocated
+  EXPECT_FALSE(_CrtMemDifference(&sDiff, &sOld, &sNew));
 }
 
 TEST(Queues, End_test) {
