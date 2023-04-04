@@ -181,9 +181,26 @@ TEST(LinkedList, Remove_test)
  EXPECT_EQ(lst3[0], 0);
 }
 
+TEST(LinkedList, MemoryLeak_test) {
+ _CrtMemState sOld;
+ _CrtMemState sNew;
+ _CrtMemState sDiff;
+ _CrtMemCheckpoint(&sOld);  // take a snapshot
+ {
+ List<int> lst0;
+ lst0.push_back(0);
+ lst0.push_back(1);
+ lst0.push_back(2);
+ lst0.push_back(3);
+ }
+ _CrtMemCheckpoint(&sNew);  // take a snapshot
+ // The following assertion checks that the memory has been properly
+ // deallocated
+ EXPECT_FALSE(_CrtMemDifference(&sDiff, &sOld, &sNew));
+}
+
 TEST(LinkedList, End_test) {
  EXPECT_TRUE(true);
 }
-
 
 }  // namespace LinkedList
