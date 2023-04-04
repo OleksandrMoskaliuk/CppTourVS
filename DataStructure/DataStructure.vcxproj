@@ -145,11 +145,15 @@
   <ItemGroup>
     <ClCompile Include="Source\Array\Array.cpp" />
     <ClCompile Include="Source\Array\ArrayTest.cpp" />
+    <ClCompile Include="Source\BinaryTree\BinaryTree.cpp" />
+    <ClCompile Include="Source\BinaryTree\BinaryTreeTest.cpp" />
     <ClCompile Include="Source\byte\byte.cpp" />
     <ClCompile Include="Source\byte\byte_test.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedLIstTest.cpp" />
     <ClCompile Include="Source\map\my_map.cpp" />
+    <ClCompile Include="Source\Queues\Queue.cpp" />
+    <ClCompile Include="Source\Queues\QueueTest.cpp" />
     <ClCompile Include="Source\Stack\Stack.cpp" />
     <ClCompile Include="Source\Stack\StackTest.cpp" />
     <ClCompile Include="Source\TwoWayList\test\test.cpp" />
@@ -158,9 +162,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Array\Array.h" />
+    <ClInclude Include="Source\BinaryTree\BinaryTree.h" />
     <ClInclude Include="Source\byte\byte.h" />
     <ClInclude Include="Source\LinkedList\LinkedList.h" />
     <ClInclude Include="Source\map\my_map.h" />
+    <ClInclude Include="Source\Queues\Queue.h" />
     <ClInclude Include="Source\Stack\Stack.h" />
     <ClInclude Include="Source\TwoWayList\2WayList.h" />
     <ClInclude Include="Source\TwoWayList\test\test.h" />

@@ -7,8 +7,6 @@ void Test(int& argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);
   testing::GTEST_FLAG(filter) = "DynamicArrayTest*";
   RUN_ALL_TESTS();
-  testing::GTEST_FLAG(filter) = "StaticArrayTest*";
-  RUN_ALL_TESTS();
 }
 
 TEST(DynamicArrayTest, Constructor_Test) {
@@ -32,14 +30,6 @@ TEST(DynamicArrayTest, CopyConstructor_Test) {
     EXPECT_NE(&arr[i], &arr2[i]);
   }
   
-}
-
-TEST(DynamicArrayTest, Destructor_Test) {
-  MyDinamicArray<int> arr;
-  arr.~MyDinamicArray();
-  // The following assertion checks that the memory has been properly
-  // deallocated
-  ASSERT_EQ(arr.get_base_pointer(), nullptr);
 }
 
 TEST(DynamicArrayTest, PushBack_Test) {
@@ -122,9 +112,6 @@ TEST(DynamicArrayTest, erase_function_test) {
 
 }
 
-TEST(DynamicArrayTest, end_test) {
-  ASSERT_EQ(1, 1);
-}
 
 TEST(StaticArrayTest, SizeTest) {
   MyStaticArray<int, 5> arr;
@@ -160,5 +147,25 @@ TEST(StaticArrayTest, IteratorTest) {
 }
 
 TEST(StaticArrayTest, end_test) { ASSERT_EQ(1, 1); }
+
+TEST(DynamicArrayTest, MemoryLeak_test) {
+  _CrtMemState sOld;
+  _CrtMemState sNew;
+  _CrtMemState sDiff;
+  _CrtMemCheckpoint(&sOld);  // take a snapshot
+  {
+    MyDinamicArray<int> arr;
+    arr.push_back(10);
+    arr.push_back(20);
+  }
+  _CrtMemCheckpoint(&sNew);  // take a snapshot
+  // If there any difference than we got memory leak
+  // The following assertion checks that the memory has been properly
+  // deallocated
+  EXPECT_FALSE(_CrtMemDifference(&sDiff, &sOld, &sNew));
+}
+
+
+TEST(DynamicArrayTest, end_test) { ASSERT_EQ(1, 1); }
 
 }  // namespace Array

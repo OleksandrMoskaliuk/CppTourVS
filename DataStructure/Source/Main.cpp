@@ -26,17 +26,16 @@ compute an index into an array of buckets or slots.
 #include "byte/byte.h"
 #include "LinkedList/LinkedList.h"
 #include "Stack/Stack.h"
-
+#include "Queues/Queue.h"
+#include "BinaryTree/BinaryTree.h"
 
 int main(int argc, char* argv[]) {
   // Array::Test(argc, argv);
   // byte::Test(argc, argv);
-  //LinkedList::Test(argc, argv);
-  Stack::Test(argc, argv);
-  
-  
-
-  
+  // LinkedList::Test(argc, argv);
+  // Stack::Test(argc, argv);
+  // Queues::Test(argc, argv);
+  // BinaryTree::Test(argc, argv);
 
   return 0;
 }
