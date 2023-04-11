@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\map\my_map.cpp">
+    <ClCompile Include="Source\HashTables\HashTables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Main.cpp">
@@ -63,9 +63,12 @@
     <ClCompile Include="Source\BinaryTree\BinaryTreeTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\HashTables\HashTablesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\map\my_map.h">
+    <ClInclude Include="Source\HashTables\HashTables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\TwoWayList\2WayList.h">

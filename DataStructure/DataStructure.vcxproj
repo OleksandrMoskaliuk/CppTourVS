@@ -149,9 +149,10 @@
     <ClCompile Include="Source\BinaryTree\BinaryTreeTest.cpp" />
     <ClCompile Include="Source\byte\byte.cpp" />
     <ClCompile Include="Source\byte\byte_test.cpp" />
+    <ClCompile Include="Source\HashTables\HashTablesTest.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedList.cpp" />
     <ClCompile Include="Source\LinkedList\LinkedLIstTest.cpp" />
-    <ClCompile Include="Source\map\my_map.cpp" />
+    <ClCompile Include="Source\HashTables\HashTables.cpp" />
     <ClCompile Include="Source\Queues\Queue.cpp" />
     <ClCompile Include="Source\Queues\QueueTest.cpp" />
     <ClCompile Include="Source\Stack\Stack.cpp" />
@@ -165,7 +166,7 @@
     <ClInclude Include="Source\BinaryTree\BinaryTree.h" />
     <ClInclude Include="Source\byte\byte.h" />
     <ClInclude Include="Source\LinkedList\LinkedList.h" />
-    <ClInclude Include="Source\map\my_map.h" />
+    <ClInclude Include="Source\HashTables\HashTables.h" />
     <ClInclude Include="Source\Queues\Queue.h" />
     <ClInclude Include="Source\Stack\Stack.h" />
     <ClInclude Include="Source\TwoWayList\2WayList.h" />
