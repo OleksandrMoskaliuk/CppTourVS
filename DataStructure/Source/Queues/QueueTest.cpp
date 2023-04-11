@@ -62,6 +62,7 @@ TEST(Queues, MemoryLeak_test) {
   _CrtMemState sOld;
   _CrtMemState sNew;
   _CrtMemState sDiff;
+  _CrtMemCheckpoint(&sOld);
   {
     Queue<int> que;
     que.enqueue(10);

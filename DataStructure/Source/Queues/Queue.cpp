@@ -8,8 +8,7 @@ Queue<T>::Queue() {
 }
 
 template <typename T>
-Queue<T>::Queue(const Queue &other) 
-{
+Queue<T>::Queue(const Queue& other) {
   Node* temp = other.front;
   while (temp) {
     enqueue(temp->val);
@@ -18,18 +17,18 @@ Queue<T>::Queue(const Queue &other)
 }
 
 template <typename T>
-Queue<T>::~Queue() 
-{
-  while (!isEmpty()) {
-    Node* temp = front;
-    front = front->next;
-    delete temp;
-  }
+Queue<T>::~Queue() {
+    while (front) {
+    Node* temp = front->next; 
+    delete front;
+    front = temp;
+    }
 }
 
 template <typename T>
-bool Queue<T>::isEmpty() { return front == nullptr; }
-
+bool Queue<T>::isEmpty() {
+  return front == nullptr;
+}
 
 template <typename T>
 void Queue<T>::enqueue(int val) {
@@ -64,6 +63,4 @@ int Queue<T>::peek() {
   return front->val;
 }
 
-
-
-}
+}  // namespace Queues
