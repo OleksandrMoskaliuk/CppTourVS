@@ -31,21 +31,14 @@ class Square {
 
 class Draw {
  public:
-  void operator()(Circle const& circle) const {
-   auto cr = circle;
-   std::cout << "circle radius = " << cr.getRadius()
+  void operator()(Circle & circle) const {
+    std::cout << "circle radius = " << circle.getRadius()
     << std::endl;
   };
-  void operator()(Square const& square) const { 
-   auto sq = square;
-   std::cout << "square size = " << sq.getSide() << std::endl; };
+  void operator()(Square & square) const { 
+   std::cout << "square size = " << square.getSide() << std::endl;
+  };
 };
-
-void DrawAllShapes(std::vector<Shape> const& shapes) {
-  for (auto const& s : shapes) {
-    std::visit(Draw(), s);
-  }
-}
 
 void ModernVisitor() {
   using Shapes = std::vector<Shape>;
@@ -53,7 +46,12 @@ void ModernVisitor() {
   shapes.emplace_back(Circle(34.2f));
   shapes.emplace_back(Circle(23.1f));
   shapes.emplace_back(Square(11.5f));
-  DrawAllShapes(shapes);
+  auto lb = [&]() {
+    for (auto & s : shapes) {
+      std::visit(Draw(), s);
+    }
+  };
+  lb();
 }
 
 //
