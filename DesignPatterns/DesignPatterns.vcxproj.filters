@@ -33,6 +33,9 @@
     <ClCompile Include="Source\Visitor\ModernVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\FactoryPattern\FactoryPattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Bridge\Bridge.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Visitor\ModernVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FactoryPattern\FactoryPattern.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
