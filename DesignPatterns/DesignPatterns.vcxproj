@@ -141,6 +141,7 @@
     <ClCompile Include="Source\Composite\Composite.cpp" />
     <ClCompile Include="Source\FactoryPattern\FactoryPattern.cpp" />
     <ClCompile Include="Source\Interpreter\Interpreter.cpp" />
+    <ClCompile Include="Source\Iterator\Iterator.cpp" />
     <ClCompile Include="Source\Source.cpp" />
     <ClCompile Include="Source\Visitor\ModernVisitor.cpp" />
     <ClCompile Include="Source\Visitor\Visitor.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Source\Composite\Composite.h" />
     <ClInclude Include="Source\FactoryPattern\FactoryPattern.h" />
     <ClInclude Include="Source\Interpreter\Interpreter.h" />
+    <ClInclude Include="Source\Iterator\Iterator.h" />
     <ClInclude Include="Source\Visitor\ModernVisitor.h" />
     <ClInclude Include="Source\Visitor\Visitor.h" />
   </ItemGroup>
