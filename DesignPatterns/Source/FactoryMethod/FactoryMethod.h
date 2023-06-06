@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
-
-/**
+namespace factory_method {
+    /**
  * The Product interface declares the operations that all concrete products must
  * implement.
  */
@@ -82,16 +82,5 @@ class ConcreteCreator2 : public Creator {
   Product* FactoryMethod() const override { return new ConcreteProduct2(); }
 };
 
-/**
- * The client code works with an instance of a concrete creator, albeit through
- * its base interface. As long as the client keeps working with the creator via
- * the base interface, you can pass it any creator's subclass.
- */
-void ClientCode(const Creator& creator) {
-  // ...
-  std::cout
-      << "Client: I'm not aware of the creator's class, but it still works.\n"
-      << creator.SomeOperation() << std::endl;
-  // ...
-}
 
+}  // namespace factory_method
