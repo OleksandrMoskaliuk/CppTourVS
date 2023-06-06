@@ -31,7 +31,7 @@ class Iterator {
  public:
   typedef typename std::vector<T>::iterator iter_type;
   Iterator(U *p_data, bool reverse = false) : m_p_data_(p_data) {
-   // to get m_data this calass should be friend to Container class
+   // to get m_data this calass should be friend to CustomContainer class
     m_it_ = m_p_data_->m_data_.begin();
   }
 
@@ -54,14 +54,14 @@ class Iterator {
  */
 
 template <class T>
-class Container {
-  friend class Iterator<T, Container>;
+class CustomContainer {
+  friend class Iterator<T, CustomContainer>;
 
  public:
   void Add(T a) { m_data_.push_back(a); }
 
-  Iterator<T, Container> *CreateIterator() {
-    return new Iterator<T, Container>(this);
+  Iterator<T, CustomContainer> *CreateIterator() {
+    return new Iterator<T, CustomContainer>(this);
   }
 
  private:
