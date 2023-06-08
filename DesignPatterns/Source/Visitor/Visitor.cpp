@@ -8,7 +8,7 @@ namespace visitor
  { 
   std::array<Component*, 4> compnents = {new ComponentA, new ComponentB, new ComponentC};
 
-  VisitorImpl *vi = new VisitorImpl;
+  Visitor* vi = new VisitorImpl;
 
   for (Component* cmp : compnents) {
     cmp->Accept(vi);

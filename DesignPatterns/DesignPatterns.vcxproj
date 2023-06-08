@@ -143,10 +143,12 @@
     <ClCompile Include="Source\FactoryPattern\FactoryPattern.cpp" />
     <ClCompile Include="Source\Interpreter\Interpreter.cpp" />
     <ClCompile Include="Source\Iterator\Iterator.cpp" />
+    <ClCompile Include="Source\Observer\Observer.cpp" />
     <ClCompile Include="Source\Singleton\NaiveSingleton.cpp" />
     <ClCompile Include="Source\Singleton\ThreadSafeSingleton.cpp" />
     <ClCompile Include="Source\Source.cpp" />
     <ClCompile Include="Source\Visitor\ModernVisitor.cpp" />
+    <ClCompile Include="Source\Visitor\AnotherVisitorSample.cpp" />
     <ClCompile Include="Source\Visitor\Visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,8 +158,10 @@
     <ClInclude Include="Source\FactoryPattern\FactoryPattern.h" />
     <ClInclude Include="Source\Interpreter\Interpreter.h" />
     <ClInclude Include="Source\Iterator\Iterator.h" />
+    <ClInclude Include="Source\Observer\Observer.h" />
     <ClInclude Include="Source\Singleton\ThreadSafeSingleton.h" />
     <ClInclude Include="Source\Singleton\NaiveSingleton.h" />
+    <ClInclude Include="Source\Visitor\AnotherVisitorSample.h" />
     <ClInclude Include="Source\Visitor\ModernVisitor.h" />
     <ClInclude Include="Source\Visitor\Visitor.h" />
   </ItemGroup>
