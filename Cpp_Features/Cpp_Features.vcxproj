@@ -24,7 +24,7 @@
     <ProjectGuid>{b89090e3-1846-42eb-885c-062d0fe4e523}</ProjectGuid>
     <RootNamespace>CppFeatures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>CppFeatures</ProjectName>
+    <ProjectName>Features</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -138,7 +138,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cpp11 Constexpr values\ConstExpr.cpp" />
+    <ClCompile Include="Source\Cpp11 Lambda expressions\LambdaEx.cpp" />
+    <ClCompile Include="Source\Cpp11 Move Semantics\MoveSemantics.cpp" />
+    <ClCompile Include="Source\Cpp11 Smart Pointers\SmartPointers.cpp" />
+    <ClCompile Include="Source\Cpp11 Smart Pointers\Source.cpp" />
     <ClCompile Include="Source\Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Cpp11 Constexpr values\ConstExpr.h" />
+    <ClInclude Include="Source\Cpp11 Lambda expressions\LambdaEx.h" />
+    <ClInclude Include="Source\Cpp11 Move Semantics\MoveSemantics.h" />
+    <ClInclude Include="Source\Cpp11 Smart Pointers\Header.h" />
+    <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
