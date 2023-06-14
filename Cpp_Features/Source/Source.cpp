@@ -57,7 +57,57 @@
 //int result1 = add(3, 4);         // result1 is 7
 //double result2 = add(3.5, 4.2);  // error: double is not an Integral type
 
+//#include "Cpp11 Smart Pointers/WeakPointer.h"
+
+
+template <typename T>
+class B;  // Forward declaration of class B
+
+template <typename T>
+class A {
+  friend B;
+ public:
+  A() {}
+  void do_it(B<T>& b);  // Declaration of the function
+
+ private:
+  T* value = nullptr;
+};
+
+template <typename T>
+class B {
+  friend A;
+ public:
+  B() {}
+  void do_it(A<T>& a);  // Declaration of the function
+
+ private:
+  T* value = nullptr;
+};
+
+// Definition of the do_it function for class A
+template <typename T>
+void A<T>::do_it(B<T>& b) {
+  b.value = new T(10);
+}
+
+// Definition of the do_it function for class B
+template <typename T>
+void B<T>::do_it(A<T>& a) {
+  a.value = new T (20);
+}
+
+
+
 int main() 
 { 
+  A<int> a;
+
+  B<int> b;
+
+  a.do_it(b);
+
+
+ 
  return 0;
 }
