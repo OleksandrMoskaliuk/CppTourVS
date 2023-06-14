@@ -30,7 +30,16 @@
     <ClCompile Include="Source\Cpp11 Smart Pointers\SmartPointers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Smart Pointers\Source.cpp">
+    <ClCompile Include="Source\Cpp11 Smart Pointers\UniquePointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Rule Of Five\RuleOfFive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Smart Pointers\SharedPtr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Circular references\CircularReferences.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +56,16 @@
     <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Smart Pointers\Header.h">
+    <ClInclude Include="Source\Cpp11 Smart Pointers\UniquePointer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Rule Of Five\RuleOfFive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Smart Pointers\SharedPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
