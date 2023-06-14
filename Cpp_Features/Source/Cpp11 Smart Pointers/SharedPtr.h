@@ -1,5 +1,5 @@
 #pragma once
-#include "WeakPointer.h"
+//#include "WeakPointer.h"
 
 namespace shared_pointers 
 {
@@ -8,7 +8,6 @@ namespace shared_pointers
 
 template <typename T>
 class SharedPtr {
-   friend class WeakPtr;
  public:
   // Default constructor
   SharedPtr() : m_ptr(nullptr), m_refCount(nullptr) {}

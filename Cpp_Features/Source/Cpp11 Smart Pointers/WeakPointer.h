@@ -1,10 +1,19 @@
 #pragma once
 
-#include "SharedPtr.h"
+#include "./SharedPtr.h"
 
 namespace weak_pointer 
 {
 void example();
+
+namespace testing {
+template <typename T>
+class Test 
+{
+ public:
+  Test(){};
+};
+}  // namespace testing
 
  template <typename T>
 class WeakPtr {
@@ -36,7 +45,8 @@ class WeakPtr {
     return *this;
   }
 
-  //void func(shared_pointers::SharedPtr<T>& shp) ;
+  void func(testing::Test<T>& shp) ;
+  void func1(shared_pointers::SharedPtr<T>& shp);
 
   // Move assignment operator
   WeakPtr& operator=(WeakPtr&& other) noexcept {
@@ -69,6 +79,12 @@ class WeakPtr {
 //template <typename T>
 //void WeakPtr<T>::func(shared_pointers::SharedPtr<T>& shp)
 //{};
+
+template <typename T>
+void WeakPtr<T>::func(testing::Test<T>& shp) {}
+
+template <typename T>
+void WeakPtr<T>::func1(shared_pointers::SharedPtr<T>& shp) {}
 
 }
 
