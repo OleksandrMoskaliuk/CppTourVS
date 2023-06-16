@@ -147,6 +147,7 @@
     <ClCompile Include="Source\Cpp11 Smart Pointers\SharedPtr.cpp" />
     <ClCompile Include="Source\Cpp11 Smart Pointers\WeakPointer.cpp" />
     <ClCompile Include="Source\Cpp11 Smart Pointers\UniquePointer.cpp" />
+    <ClCompile Include="Source\Cpp11 Variadic Templates\VariadicTemplates.cpp" />
     <ClCompile Include="Source\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="Source\Cpp11 Smart Pointers\SharedPtr.h" />
     <ClInclude Include="Source\Cpp11 Smart Pointers\UniquePointer.h" />
     <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h" />
+    <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

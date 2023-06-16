@@ -45,6 +45,9 @@
     <ClCompile Include="Source\Cpp11 Smart Pointers\WeakPointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp11 Variadic Templates\VariadicTemplates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cpp11 Lambda expressions\LambdaEx.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cpp11 Smart Pointers\WeakPointer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
