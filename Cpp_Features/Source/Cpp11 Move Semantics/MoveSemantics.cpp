@@ -13,6 +13,16 @@ const X&&  |         |             | yes    | yes
 
 */
 
+template<class T> class vector {
+    // ...
+    vector(const vector&);            // copy constructor
+    vector(vector&&) noexcept;        // move constructor
+    vector& operator=(const vector&); // copy assignment
+    vector& operator=(vector&&);      // move assignment
+};
+
+
+
 template <typename T>
 class unique_ptr {
   T *ptr;

@@ -10,6 +10,8 @@ namespace variadic_templates
 void example1();
 void example2();
 void example3();
+void ParamPackChain(); 
+
 
 
 template <typename... Args>
