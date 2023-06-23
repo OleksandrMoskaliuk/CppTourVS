@@ -1,3 +1,3 @@
 CppTourVS
-> Cpp projects files that helps to remind stuff that  you forgot
+> Cpp programming language features tour
 	
