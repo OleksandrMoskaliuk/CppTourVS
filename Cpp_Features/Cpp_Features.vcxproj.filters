@@ -51,6 +51,21 @@
     <ClCompile Include="Source\Cpp11 Variadic Templates\VT_ParameeterPackChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp11 Uniform Initialization\UniformInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize objects to return.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize function parameter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Uniform Initialization\Initialization of an array data member of a class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Uniform Initialization\Aggregates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h">
@@ -81,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
