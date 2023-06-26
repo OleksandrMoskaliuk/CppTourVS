@@ -10,7 +10,7 @@
 //Type inference using auto keyword
 //nullptr keyword
 //Delegating constructors
-//Lambda expression:
+//Lambda expression
 //
 //C++14:
 //

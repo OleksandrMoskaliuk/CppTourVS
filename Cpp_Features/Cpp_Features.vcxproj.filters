@@ -72,6 +72,9 @@
     <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Decltype usage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Delegating constructors\Delegating constructors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Delegating constructors\Delegating constructors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

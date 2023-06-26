@@ -37,6 +37,7 @@
     <ClCompile Include="Source\Cpp11 Uniform Initialization\UniformInit.cpp" />
     <ClCompile Include="Source\Cpp11 Variadic Templates\VT_ParameeterPackChain.cpp" />
     <ClCompile Include="Source\Cpp11 Variadic Templates\VariadicTemplates.cpp" />
+    <ClCompile Include="Source\Delegating constructors\Delegating constructors.cpp" />
     <ClCompile Include="Source\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,7 @@
     <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h" />
     <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h" />
     <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h" />
+    <ClInclude Include="Source\Delegating constructors\Delegating constructors.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
