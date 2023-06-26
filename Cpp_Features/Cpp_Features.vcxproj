@@ -28,6 +28,8 @@
     <ClCompile Include="Source\Cpp11 Smart Pointers\SmartPointers.cpp" />
     <ClCompile Include="Source\Cpp11 Smart Pointers\UniquePointer.cpp" />
     <ClCompile Include="Source\Cpp11 Smart Pointers\WeakPointer.cpp" />
+    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Auto and type inference.cpp" />
+    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Decltype usage.cpp" />
     <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize objects to return.cpp" />
     <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize function parameter.cpp" />
     <ClCompile Include="Source\Cpp11 Uniform Initialization\Initialization of an array data member of a class.cpp" />
@@ -47,6 +49,7 @@
     <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h" />
     <ClInclude Include="Source\Cpp11 Smart Pointers\UniquePointer.h" />
     <ClInclude Include="Source\Cpp11 Smart Pointers\WeakPointer.h" />
+    <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h" />
     <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h" />
     <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h" />
   </ItemGroup>

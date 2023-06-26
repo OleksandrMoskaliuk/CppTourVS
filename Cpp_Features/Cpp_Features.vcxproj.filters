@@ -66,6 +66,12 @@
     <ClCompile Include="Source\Cpp11 Uniform Initialization\Aggregates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Auto and type inference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Decltype usage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h">
@@ -99,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
