@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
-
+/*
+Visitor is a behavioral design pattern that lets you separate algorithms from
+the objects on which they operate.
+*/
 namespace visitor {
 void visitor();
 }
@@ -13,6 +16,20 @@ class Visitor {
   virtual void VisitComponentA(const ComponentA* comp) const = 0;
   virtual void VisitComponentB(const ComponentB* comp) const = 0;
   virtual void VisitComponentC(const ComponentC* comp) const = 0;
+};
+
+#include <iostream>
+class VisitorImpl : public Visitor {
+ public:
+  void VisitComponentA(const ComponentA* comp) const override {
+    std::cout << " visited " << comp->ComponentAFunc() << std::endl;
+  };
+  void VisitComponentB(const ComponentB* comp) const override {
+    std::cout << " visited " << comp->ComponentBFunc() << std::endl;
+  };
+  void VisitComponentC(const ComponentC* comp) const override {
+    std::cout << " visited " << comp->ComponentCFunc() << std::endl;
+  };
 };
 
 class Component {
@@ -48,16 +65,3 @@ class ComponentC : public Component {
   std::string ComponentCFunc() const { return "ComponentC"; }
 };
 
-#include <iostream>
-class VisitorImpl : public Visitor {
- public:
-  void VisitComponentA(const ComponentA* comp) const override {
-    std::cout << " visited " << comp->ComponentAFunc() << std::endl;
-  };
-  void VisitComponentB(const ComponentB* comp) const override {
-    std::cout << " visited " << comp->ComponentBFunc() << std::endl;
-  };
-  void VisitComponentC(const ComponentC* comp) const override {
-    std::cout << " visited " << comp->ComponentCFunc() << std::endl;
-  };
-};
