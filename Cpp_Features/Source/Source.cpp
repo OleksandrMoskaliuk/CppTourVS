@@ -10,7 +10,6 @@
 //Type inference using auto keyword
 //nullptr keyword
 //Delegating constructors
-//Lambda expression
 //
 //C++14:
 //
@@ -25,21 +24,6 @@
 //
 //C++ 20 :
 //
-//    Concepts Ranges library Coroutines Modules Three -
-//    way comparison operator std::span type std::format function
-//        std::stop_token type Synchronized output streams Example of concepts :
-//
-//    template <typename T>
-//    concept Integral = std::is_integral_v<T>;
-//
-//template <Integral T>
-//T add(T x, T y) {
-//  return x + y;
-//}
-//
-//int result1 = add(3, 4);         // result1 is 7
-//double result2 = add(3.5, 4.2);  // error: double is not an Integral type
-// Cpp 20
 /*Concepts: Concepts are a way to specify requirements on template arguments. They allow you to define predicates that templates must satisfy, improving template error messages and enabling more explicit and precise template constraints.
 
 Ranges: Ranges provide a new library for working with sequences of elements. The ranges library introduces new range-based algorithms and range adaptors, making it easier to write concise and expressive code when working with collections of data.
@@ -62,11 +46,26 @@ Lambdas in Unevaluated Contexts: C++20 allows lambdas to appear in unevaluated c
 #include "Cpp11 Type inference using auto keyword/Type inference.h"
 #include "Cpp11 Smart Pointers/SharedPtr.h"
 
+#include <iostream>
+#include <functional>
+
 int main() 
 { 
-  //uniformInit::example8();
-  type_inference::example2();
-  //shared_pointers::example();
+ using namespace std;
+
+  int i = 3;
+  int j = 5;
+
+  // The following lambda expression captures i by value and
+  // j by reference.
+  auto f = [i, &j] { return (i + j); };
+
+  // Change the values of i and j.
+  i = 22;
+  j = 44;
+
+  // Call f and print its result.
+  cout << f() << endl;
 
  return 0;
 }
