@@ -28,7 +28,7 @@ namespace lambdas
 
    // lambda usage
    std::vector<int> lemon = {10, 15, 20, 45};
-   std::function<bool(int)> lambda_condition = [&](double value) {
+   std::function<bool(int)> lambda_condition = [&](int value) {
      return value > 20 && value <= 45;
    };
    auto finded = std::find_if(lemon.begin(), lemon.end(), lambda_condition);

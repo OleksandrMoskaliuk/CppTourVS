@@ -27,10 +27,31 @@
     <ClCompile Include="Source\Interpreter\Interpreter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Visitor\Visitor.cpp">
+    <ClCompile Include="Source\Visitor\ModernVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Visitor\ModernVisitor.cpp">
+    <ClCompile Include="Source\FactoryPattern\FactoryPattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Iterator\Iterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FactoryMethod\FactoryMethod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Singleton\NaiveSingleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Singleton\ThreadSafeSingleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Observer\Observer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AbstractFactory\AbstractFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AbstractFactory\AbstractFactoryImps.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +65,28 @@
     <ClInclude Include="Source\Interpreter\Interpreter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Visitor\Visitor.h">
+    <ClInclude Include="Source\Visitor\ModernVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Visitor\ModernVisitor.h">
+    <ClInclude Include="Source\FactoryPattern\FactoryPattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Iterator\Iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FactoryMethod\FactoryMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Singleton\NaiveSingleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Singleton\ThreadSafeSingleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Observer\Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AbstractFactory\AbstractFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
