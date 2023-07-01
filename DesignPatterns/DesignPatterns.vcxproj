@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AbstractFactory\AbstractFactory.cpp" />
+    <ClCompile Include="Source\AbstractFactory\AbstractFactoryImps.cpp" />
     <ClCompile Include="Source\Bridge\Bridge.cpp" />
     <ClCompile Include="Source\Composite\Composite.cpp" />
     <ClCompile Include="Source\FactoryMethod\FactoryMethod.cpp" />
@@ -148,10 +150,9 @@
     <ClCompile Include="Source\Singleton\ThreadSafeSingleton.cpp" />
     <ClCompile Include="Source\Source.cpp" />
     <ClCompile Include="Source\Visitor\ModernVisitor.cpp" />
-    <ClCompile Include="Source\Visitor\AnotherVisitorSample.cpp" />
-    <ClCompile Include="Source\Visitor\Visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\AbstractFactory\AbstractFactory.h" />
     <ClInclude Include="Source\Bridge\Bridge.h" />
     <ClInclude Include="Source\Composite\Composite.h" />
     <ClInclude Include="Source\FactoryMethod\FactoryMethod.h" />
@@ -161,9 +162,7 @@
     <ClInclude Include="Source\Observer\Observer.h" />
     <ClInclude Include="Source\Singleton\ThreadSafeSingleton.h" />
     <ClInclude Include="Source\Singleton\NaiveSingleton.h" />
-    <ClInclude Include="Source\Visitor\AnotherVisitorSample.h" />
     <ClInclude Include="Source\Visitor\ModernVisitor.h" />
-    <ClInclude Include="Source\Visitor\Visitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

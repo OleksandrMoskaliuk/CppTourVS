@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
+#include <iostream>
+
 /*
 Visitor is a behavioral design pattern that lets you separate algorithms from
 the objects on which they operate.
 */
 namespace visitor {
 void visitor();
-}
+
 class ComponentA;
 class ComponentB;
 class ComponentC;
@@ -18,7 +20,7 @@ class Visitor {
   virtual void VisitComponentC(const ComponentC* comp) const = 0;
 };
 
-#include <iostream>
+
 class VisitorImpl : public Visitor {
  public:
   void VisitComponentA(const ComponentA* comp) const override {
@@ -40,6 +42,7 @@ class Component {
 
 class ComponentA : public Component {
  public:
+
   void Accept(Visitor* visitor) const override {
     visitor->VisitComponentA(this);
   }
@@ -65,3 +68,4 @@ class ComponentC : public Component {
   std::string ComponentCFunc() const { return "ComponentC"; }
 };
 
+}  // namespace visitor
