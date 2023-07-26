@@ -51,9 +51,6 @@
     <ClCompile Include="Source\AbstractFactory\AbstractFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\AbstractFactory\AbstractFactoryImps.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Bridge\Bridge.h">

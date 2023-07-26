@@ -43,8 +43,8 @@ Lambdas in Unevaluated Contexts: C++20 allows lambdas to appear in unevaluated c
 //#include "Cpp11 Smart Pointers/WeakPointer.h"
 //#include "Cpp11 Uniform Initialization/UniformInit.h"
 
-#include "Cpp11 Type inference using auto keyword/Type inference.h"
-#include "Cpp11 Smart Pointers/SharedPtr.h"
+#include "Cpp11/Type inference using auto keyword/Type inference.h"
+#include "Cpp11/Smart Pointers/SharedPtr.h"
 
 #include <iostream>
 #include <functional>

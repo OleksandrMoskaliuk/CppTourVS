@@ -19,41 +19,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Cpp11 Circular references\CircularReferences.cpp" />
-    <ClCompile Include="Source\Cpp11 Constexpr values\ConstExpr.cpp" />
-    <ClCompile Include="Source\Cpp11 Lambda expressions\LambdaEx.cpp" />
-    <ClCompile Include="Source\Cpp11 Move Semantics\MoveSemantics.cpp" />
-    <ClCompile Include="Source\Cpp11 Rule Of Five\RuleOfFive.cpp" />
-    <ClCompile Include="Source\Cpp11 Smart Pointers\SharedPtr.cpp" />
-    <ClCompile Include="Source\Cpp11 Smart Pointers\SmartPointers.cpp" />
-    <ClCompile Include="Source\Cpp11 Smart Pointers\UniquePointer.cpp" />
-    <ClCompile Include="Source\Cpp11 Smart Pointers\WeakPointer.cpp" />
-    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Auto and type inference.cpp" />
-    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Decltype usage.cpp" />
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize objects to return.cpp" />
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize function parameter.cpp" />
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Initialization of an array data member of a class.cpp" />
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Aggregates.cpp" />
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\UniformInit.cpp" />
-    <ClCompile Include="Source\Cpp11 Variadic Templates\VT_ParameeterPackChain.cpp" />
-    <ClCompile Include="Source\Cpp11 Variadic Templates\VariadicTemplates.cpp" />
-    <ClCompile Include="Source\Delegating constructors\Delegating constructors.cpp" />
+    <ClCompile Include="Source\Cpp11\Circular references\CircularReferences.cpp" />
+    <ClCompile Include="Source\Cpp11\Constexpr values\ConstExpr.cpp" />
+    <ClCompile Include="Source\Cpp11\Delegating constructors\Delegating constructors.cpp" />
+    <ClCompile Include="Source\Cpp11\Lambda expressions\LambdaEx.cpp" />
+    <ClCompile Include="Source\Cpp11\Move Semantics\MoveSemantics.cpp" />
+    <ClCompile Include="Source\Cpp11\Rule Of Five\RuleOfFive.cpp" />
+    <ClCompile Include="Source\Cpp11\Smart Pointers\SharedPtr.cpp" />
+    <ClCompile Include="Source\Cpp11\Smart Pointers\SmartPointers.cpp" />
+    <ClCompile Include="Source\Cpp11\Smart Pointers\UniquePointer.cpp" />
+    <ClCompile Include="Source\Cpp11\Smart Pointers\WeakPointer.cpp" />
+    <ClCompile Include="Source\Cpp11\Type inference using auto keyword\Auto and type inference.cpp" />
+    <ClCompile Include="Source\Cpp11\Type inference using auto keyword\Decltype usage.cpp" />
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Aggregates.cpp" />
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Implicitly initialize function parameter.cpp" />
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Implicitly initialize objects to return.cpp" />
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Initialization of an array data member of a class.cpp" />
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\UniformInit.cpp" />
+    <ClCompile Include="Source\Cpp11\Variadic Templates\VariadicTemplates.cpp" />
+    <ClCompile Include="Source\Cpp11\Variadic Templates\VT_ParameeterPackChain.cpp" />
     <ClCompile Include="Source\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h" />
-    <ClInclude Include="Source\Cpp11 Constexpr values\ConstExpr.h" />
-    <ClInclude Include="Source\Cpp11 Lambda expressions\LambdaEx.h" />
-    <ClInclude Include="Source\Cpp11 Move Semantics\MoveSemantics.h" />
-    <ClInclude Include="Source\Cpp11 Rule Of Five\RuleOfFive.h" />
-    <ClInclude Include="Source\Cpp11 Smart Pointers\SharedPtr.h" />
-    <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h" />
-    <ClInclude Include="Source\Cpp11 Smart Pointers\UniquePointer.h" />
-    <ClInclude Include="Source\Cpp11 Smart Pointers\WeakPointer.h" />
-    <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h" />
-    <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h" />
-    <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h" />
-    <ClInclude Include="Source\Delegating constructors\Delegating constructors.h" />
+    <ClInclude Include="Source\Cpp11\Circular references\CircularReferences.h" />
+    <ClInclude Include="Source\Cpp11\Constexpr values\ConstExpr.h" />
+    <ClInclude Include="Source\Cpp11\Delegating constructors\Delegating constructors.h" />
+    <ClInclude Include="Source\Cpp11\Lambda expressions\LambdaEx.h" />
+    <ClInclude Include="Source\Cpp11\Move Semantics\MoveSemantics.h" />
+    <ClInclude Include="Source\Cpp11\Rule Of Five\RuleOfFive.h" />
+    <ClInclude Include="Source\Cpp11\Smart Pointers\SharedPtr.h" />
+    <ClInclude Include="Source\Cpp11\Smart Pointers\SmartPointers.h" />
+    <ClInclude Include="Source\Cpp11\Smart Pointers\UniquePointer.h" />
+    <ClInclude Include="Source\Cpp11\Smart Pointers\WeakPointer.h" />
+    <ClInclude Include="Source\Cpp11\Type inference using auto keyword\Type inference.h" />
+    <ClInclude Include="Source\Cpp11\Uniform Initialization\UniformInit.h" />
+    <ClInclude Include="Source\Cpp11\Variadic Templates\VariadicTemplates.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

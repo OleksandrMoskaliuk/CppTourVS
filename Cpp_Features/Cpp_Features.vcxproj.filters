@@ -15,105 +15,105 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Cpp11 Circular references\CircularReferences.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Constexpr values\ConstExpr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Lambda expressions\LambdaEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Move Semantics\MoveSemantics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Rule Of Five\RuleOfFive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Smart Pointers\SharedPtr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Smart Pointers\SmartPointers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Smart Pointers\UniquePointer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Smart Pointers\WeakPointer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Cpp11 Variadic Templates\VariadicTemplates.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Variadic Templates\VT_ParameeterPackChain.cpp">
+    <ClCompile Include="Source\Cpp11\Circular references\CircularReferences.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\UniformInit.cpp">
+    <ClCompile Include="Source\Cpp11\Constexpr values\ConstExpr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize objects to return.cpp">
+    <ClCompile Include="Source\Cpp11\Delegating constructors\Delegating constructors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Implicitly initialize function parameter.cpp">
+    <ClCompile Include="Source\Cpp11\Lambda expressions\LambdaEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Initialization of an array data member of a class.cpp">
+    <ClCompile Include="Source\Cpp11\Move Semantics\MoveSemantics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Uniform Initialization\Aggregates.cpp">
+    <ClCompile Include="Source\Cpp11\Rule Of Five\RuleOfFive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Auto and type inference.cpp">
+    <ClCompile Include="Source\Cpp11\Smart Pointers\SharedPtr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cpp11 Type inference using auto keyword\Decltype usage.cpp">
+    <ClCompile Include="Source\Cpp11\Smart Pointers\SmartPointers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Delegating constructors\Delegating constructors.cpp">
+    <ClCompile Include="Source\Cpp11\Smart Pointers\UniquePointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Smart Pointers\WeakPointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Type inference using auto keyword\Auto and type inference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Type inference using auto keyword\Decltype usage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Aggregates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Implicitly initialize function parameter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Implicitly initialize objects to return.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\Initialization of an array data member of a class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Uniform Initialization\UniformInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Variadic Templates\VariadicTemplates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp11\Variadic Templates\VT_ParameeterPackChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Cpp11 Circular references\CircularReferences.h">
+    <ClInclude Include="Source\Cpp11\Circular references\CircularReferences.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Constexpr values\ConstExpr.h">
+    <ClInclude Include="Source\Cpp11\Constexpr values\ConstExpr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Lambda expressions\LambdaEx.h">
+    <ClInclude Include="Source\Cpp11\Delegating constructors\Delegating constructors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Move Semantics\MoveSemantics.h">
+    <ClInclude Include="Source\Cpp11\Lambda expressions\LambdaEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Rule Of Five\RuleOfFive.h">
+    <ClInclude Include="Source\Cpp11\Move Semantics\MoveSemantics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Smart Pointers\SharedPtr.h">
+    <ClInclude Include="Source\Cpp11\Rule Of Five\RuleOfFive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Smart Pointers\SmartPointers.h">
+    <ClInclude Include="Source\Cpp11\Smart Pointers\SharedPtr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Smart Pointers\UniquePointer.h">
+    <ClInclude Include="Source\Cpp11\Smart Pointers\SmartPointers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Smart Pointers\WeakPointer.h">
+    <ClInclude Include="Source\Cpp11\Smart Pointers\UniquePointer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Variadic Templates\VariadicTemplates.h">
+    <ClInclude Include="Source\Cpp11\Smart Pointers\WeakPointer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Uniform Initialization\UniformInit.h">
+    <ClInclude Include="Source\Cpp11\Type inference using auto keyword\Type inference.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cpp11 Type inference using auto keyword\Type inference.h">
+    <ClInclude Include="Source\Cpp11\Uniform Initialization\UniformInit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Delegating constructors\Delegating constructors.h">
+    <ClInclude Include="Source\Cpp11\Variadic Templates\VariadicTemplates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

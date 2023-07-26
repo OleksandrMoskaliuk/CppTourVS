@@ -138,7 +138,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\AbstractFactory\AbstractFactory.cpp" />
-    <ClCompile Include="Source\AbstractFactory\AbstractFactoryImps.cpp" />
     <ClCompile Include="Source\Bridge\Bridge.cpp" />
     <ClCompile Include="Source\Composite\Composite.cpp" />
     <ClCompile Include="Source\FactoryMethod\FactoryMethod.cpp" />
