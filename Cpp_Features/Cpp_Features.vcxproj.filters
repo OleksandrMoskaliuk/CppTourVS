@@ -75,6 +75,15 @@
     <ClCompile Include="Source\Cpp11\Variadic Templates\VT_ParameeterPackChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cpp17\StructureBIndings\StructureBindings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp17\If_switch_initializers\If_switch_initializers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cpp17\Nested Namespace\NestN.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cpp11\Circular references\CircularReferences.h">
@@ -114,6 +123,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cpp11\Variadic Templates\VariadicTemplates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp17\StructureBIndings\StructureBindings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp17\If_switch_initializers\If_switch_initializers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cpp17\Nested Namespace\NestN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

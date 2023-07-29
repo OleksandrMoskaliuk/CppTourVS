@@ -4,6 +4,8 @@
 namespace rule_of_five 
 {
 
+ void example();
+
  class rule_of_three {
   char* cstring;  // raw pointer used as a handle to a dynamically-allocated
                   // memory block
@@ -22,10 +24,11 @@ namespace rule_of_five
     delete[] cstring;  // deallocate
   }
 
-  rule_of_three(const rule_of_three& other)  // II. copy constructor
-      : rule_of_three(other.cstring) {}
+  explicit rule_of_three(const rule_of_three& other)  // II. copy constructor
+      : rule_of_three(other.cstring)  {}
 
-  rule_of_three& operator=(const rule_of_three& other)  // III. copy assignment
+  rule_of_three& operator=(
+      const rule_of_three& other)   // III. copy assignment
   {
     if (this == &other) return *this;
 

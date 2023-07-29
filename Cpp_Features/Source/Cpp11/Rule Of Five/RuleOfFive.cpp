@@ -1,5 +1,5 @@
-namespace rule_of_five 
-{
+#include "RuleOfFive.h"
+
 /*
 If a class requires a user-defined destructor, a user-defined copy constructor,
 or a user-defined copy assignment operator, it almost certainly requires all
@@ -13,6 +13,13 @@ for which move semantics are desirable, has to declare all five special member f
 
 */
 
+void rule_of_five::example() 
+{
 
+  rule_of_three Ro3Original("rule");
+  rule_of_three ro3(Ro3Original);
+  //ro3 = Ro3Original;
+
+  
 
 }
